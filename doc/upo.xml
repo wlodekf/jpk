@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="xmldsig-2688a8f3-fa2e-4d1c-9b3a-1f74e1351f4f">
+<ds:SignedInfo>
+<ds:CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315"/>
+<ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+<ds:Reference Id="xmldsig-2688a8f3-fa2e-4d1c-9b3a-1f74e1351f4f-ref0" Type="http://www.w3.org/2000/09/xmldsig#Object" URI="#xmldsig-2688a8f3-fa2e-4d1c-9b3a-1f74e1351f4f-object0">
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<ds:DigestValue>txP8DsEHtlLIwUPvGn0XaLAtQLs=</ds:DigestValue>
+</ds:Reference>
+<ds:Reference Type="http://uri.etsi.org/01903#SignedProperties" URI="#xmldsig-2688a8f3-fa2e-4d1c-9b3a-1f74e1351f4f-signedprops">
+<ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+<ds:DigestValue>WTXygSZ4BRM1vseRnBT+2qb80to=</ds:DigestValue>
+</ds:Reference>
+</ds:SignedInfo>
+<ds:SignatureValue Id="xmldsig-2688a8f3-fa2e-4d1c-9b3a-1f74e1351f4f-sigvalue">
+j13OEgGje5I0c0gYKIwcUmfhhTxKVSSjKqEf9t9p3B8JkHay7WIB8CMXsfasbe0vx4qP3n8UTU7U
+mjdIh30CWIdDO2oUU6T9/eQvomRFIKtKWQA5nHkwBiDgf7MpwfSBVJGSrtuCkcLGOEndskLTas2+
+optTg9i7e57E68qa2tGY93W7viszm6IoS/hR/o73fQ0A82fV3T1LMJs6QCckZoROYZ/rFHYc5ChB
+bmKQpVfQE87wPL7nVHApNl184F5M3ZWLrcyVDelhoH4MzJFxOPT8Lp9TmkGLxU2WD/KyWCIzxeUK
+e4tjXAhdC1uWOlu2TIQl114e1Cp8lHoUIAtXwA==
+</ds:SignatureValue>
+<ds:KeyInfo>
+<ds:X509Data>
+<ds:X509Certificate>
+MIIGQzCCBSugAwIBAgIQewtoL2Lgs+Uc8WD9LPHkdjANBgkqhkiG9w0BAQUFADB3MQswCQYDVQQG
+EwJQTDEiMCAGA1UEChMZVW5pemV0byBUZWNobm9sb2dpZXMgUy5BLjEnMCUGA1UECxMeQ2VydHVt
+IENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRswGQYDVQQDExJDZXJ0dW0gTGV2ZWwgSVYgQ0EwHhcN
+MTMxMDA0MTEyOTM0WhcNMTYxMDAzMTEyOTM0WjCBtDELMAkGA1UEBhMCUEwxHjAcBgNVBAoMFU1p
+bmlzdGVyc3R3byBGaW5hbnNvdzELMAkGA1UECwwCTUYxETAPBgNVBAcMCFdhcnN6YXdhMRQwEgYD
+VQQIDAttYXpvd2llY2tpZTEfMB0GA1UEAwwWZS1kZWtsYXJhY2plLm1mLmdvdi5wbDEuMCwGCSqG
+SIb3DQEJARYfaW5mby5lLWRla2xhcmFjamVAbW9mbmV0Lmdvdi5wbDCCASIwDQYJKoZIhvcNAQEB
+BQADggEPADCCAQoCggEBAOIh4aHzPWp6RIOsGnFApNnsGdL2f3+/62rghCk7qqNWwJLeaTS6DECA
+Rkn8Rd8mDKLfsKnl0txgbOKH6v2t7338XlB7DZnKTnDjG4BnrhsYIDIN1fRDgnwMJktS7fU5h3pd
+P6g9HTcH86Bytz90VQLR/oadOu/aIoac7A4euMWqk+9n6iVujXp8waWwzo3nvrTNCINmNeMpoO/8
+rErLYWfKARZq9OTDxigzBTl09NYeSFsg750nv9xWZJ1j9wv1bGYjnpDMIXZMjFfG9W4hqDXG9ngR
+atnFj0OOxgUmOpHj1qEp9Yla/M/da10pVBjbo6MgRNYksRIWrT2DoHTCkikCAwEAAaOCAoswggKH
+MAwGA1UdEwEB/wQCMAAwLAYDVR0fBCUwIzAhoB+gHYYbaHR0cDovL2NybC5jZXJ0dW0ucGwvbDQu
+Y3JsMB8GA1UdIwQYMBaAFM1KRsoDZZDmMRAagsalHF7RUM8fMB0GA1UdDgQWBBSImYJBiXvjskWa
+8C/d3NLgLdLGqzAOBgNVHQ8BAf8EBAMCBPAwWgYIKwYBBQUHAQEETjBMMCEGCCsGAQUFBzABhhVo
+dHRwOi8vb2NzcC5jZXJ0dW0ucGwwJwYIKwYBBQUHMAKGG2h0dHA6Ly93d3cuY2VydHVtLnBsL2w0
+LmNlcjCCAT0GA1UdIASCATQwggEwMIIBLAYKKoRoAYb2dwICBDCCARwwJQYIKwYBBQUHAgEWGWh0
+dHBzOi8vd3d3LmNlcnR1bS5wbC9DUFMwgfIGCCsGAQUFBwICMIHlMCAWGVVuaXpldG8gVGVjaG5v
+bG9naWVzIFMuQS4wAwIBARqBwFVzYWdlIG9mIHRoaXMgY2VydGlmaWNhdGUgaXMgc3RyaWN0bHkg
+c3ViamVjdGVkIHRvIHRoZSBDRVJUVU0gQ2VydGlmaWNhdGlvbiBQcmFjdGljZSBTdGF0ZW1lbnQg
+KENQUykgaW5jb3Jwb3JhdGVkIGJ5IHJlZmVyZW5jZSBoZXJlaW4gYW5kIGluIHRoZSByZXBvc2l0
+b3J5IGF0IGh0dHBzOi8vd3d3LmNlcnR1bS5wbC9yZXBvc2l0b3J5LjAdBgNVHSUEFjAUBggrBgEF
+BQcDAgYIKwYBBQUHAwQwEQYJYIZIAYb4QgEBBAQDAgWgMCoGA1UdEQQjMCGBH2luZm8uZS1kZWts
+YXJhY2plQG1vZm5ldC5nb3YucGwwDQYJKoZIhvcNAQEFBQADggEBALj3OZaL1/DzbyRip8mePaIw
+1y8ryjabhxvYPV1JUiQQQa2XuuZUPcWV0s5ntlUaATt7QH2kGNKXenxeRjMX4/WrFtcnpq6+KBSx
+q0CH1V5J+byJcrqFtNpC9w4o6zwnDwqGXkU81HPtoGYo3BL/X7ws/MwhdXe3YpMgHadr1U0x6pJx
+dftf1pY6X0n1kAZ9sdbJvhmAFx2GA2mvkzQRqAZPrcjFvL7/PXUEc+Foj89KhqmEEKqnCcXI4c2u
+KzM62RSaHUNMArIaoxKdrNI1hKlh+z+DIeRmE7bD5Y8bacj9EqvmlWsbt3jCpVFhqjcaotE9/K8Z
+M2F1MMmajUjt8vI=
+</ds:X509Certificate>
+</ds:X509Data>
+</ds:KeyInfo>
+
+<ds:Object Id="xmldsig-2688a8f3-fa2e-4d1c-9b3a-1f74e1351f4f-object0" MimeType="text/xml">
+<Potwierdzenie wersjaSchemy="6.0">
+        <NazwaPodmiotuPrzyjmujacego>Ministerstwo Finans\xf3w</NazwaPodmiotuPrzyjmujacego>
+        <NumerReferencyjny>9d3484270263dadf000000b04856517e</NumerReferencyjny>
+        <SkrotDokumentu>NBQAzFijbw/j5EcPC3qiR1njYZk=[koigXJlbYsIdMvP5PSTuPc8gKB3F+yGxFQse6X9o6nQ=]</SkrotDokumentu>
+        <SkrotZlozonejStruktury>57e002490279e2192b7793ea3326321c</SkrotZlozonejStruktury>
+        <NazwaStrukturyLogicznej>Schemat_JPK_MAG(1)_v1-0.xsd</NazwaStrukturyLogicznej>
+        <DataWplyniecia>2016-08-18T12:31:19+02:00</DataWplyniecia>
+        <StempelCzasu>MjAxNi0wOC0xOFQxMjozMToxOSswMjowMA==</StempelCzasu>
+        <NIP1>1111111111</NIP1>
+        <KodUrzedu>1471</KodUrzedu>
+        <KodFormularza>JPK_MAG (1)</KodFormularza>
+        <Przyjeto>true</Przyjeto>
+</Potwierdzenie>
+</ds:Object>
+
+<ds:Object>
+<xades:QualifyingProperties xmlns:xades="http://uri.etsi.org/01903/v1.3.2#" xmlns:xades141="http://uri.etsi.org/01903/v1.4.1#" Target="#xmldsig-2688a8f3-fa2e-4d1c-9b3a-1f74e1351f4f"><xades:SignedProperties Id="xmldsig-2688a8f3-fa2e-4d1c-9b3a-1f74e1351f4f-signedprops"><xades:SignedSignatureProperties><xades:SigningTime>2016-08-18T15:43:29.197+02:00</xades:SigningTime><xades:SigningCertificate><xades:Cert><xades:CertDigest><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><ds:DigestValue>pz8kN9wmFyRXQmEkBt/00N62iu0=</ds:DigestValue></xades:CertDigest><xades:IssuerSerial><ds:X509IssuerName>CN=Certum Level IV CA,OU=Certum Certification Authority,O=Unizeto Technologies S.A.,C=PL</ds:X509IssuerName><ds:X509SerialNumber>163554271871912133291305936243892806774</ds:X509SerialNumber></xades:IssuerSerial></xades:Cert></xades:SigningCertificate></xades:SignedSignatureProperties></xades:SignedProperties></xades:QualifyingProperties>
+</ds:Object>
+
+</ds:Signature>

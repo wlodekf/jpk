@@ -1,0 +1,70 @@
+{% load utils %}
+
+<tns:WprowadzenieDoSprawozdaniaFinansowego>
+   <tns:P_1>
+      <tns:P_1A>
+         <dtsf:NazwaFirmy>{{s.p1_nazwa_firmy}}</dtsf:NazwaFirmy>
+         <dtsf:Siedziba>
+            <dtsf:Wojewodztwo>{{s.p1_wojewodztwo}}</dtsf:Wojewodztwo>
+            <dtsf:Powiat>{{s.p1_powiat}}</dtsf:Powiat>
+            <dtsf:Gmina>{{s.p1_gmina}}</dtsf:Gmina>
+            <dtsf:Miejscowosc>{{s.p1_miejscowosc}}</dtsf:Miejscowosc>
+         </dtsf:Siedziba>
+      </tns:P_1A>
+      <tns:P_1B>
+         <dtsf:Adres>
+            <dtsf:KodKraju>{{s.p1_kod_kraju}}</dtsf:KodKraju>
+            <dtsf:Wojewodztwo>{{s.p1_wojewodztwo}}</dtsf:Wojewodztwo>
+            <dtsf:Powiat>{{s.p1_powiat}}</dtsf:Powiat>
+            <dtsf:Gmina>{{s.p1_gmina}}</dtsf:Gmina>
+            <dtsf:Ulica>{{s.p1_ulica}}</dtsf:Ulica>
+            <dtsf:NrDomu>{{s.p1_nr_domu}}</dtsf:NrDomu>
+            {% if s.p1_nr_lokalu %}<dtsf:NrLokalu>{{s.p1_nr_lokalu}}</dtsf:NrLokalu>{% endif %}
+            <dtsf:Miejscowosc>{{s.p1_miejscowosc}}</dtsf:Miejscowosc>
+            <dtsf:KodPocztowy>{{s.p1_kod_pocztowy}}</dtsf:KodPocztowy>
+            <dtsf:Poczta>{{s.p1_poczta}}</dtsf:Poczta>
+         </dtsf:Adres>
+      </tns:P_1B>
+      <tns:P_1C>
+      	{% for pkd in s.kody_pkd %}
+        <dtsf:KodPKD>{{pkd}}</dtsf:KodPKD>
+        {% endfor %}
+      </tns:P_1C>
+      <tns:P_1D>{{s.p1_nip}}</tns:P_1D>
+      {% if s.p1_krs %}
+      <tns:P_1E>{{s.p1_krs}}</tns:P_1E>
+      {% endif %}
+   </tns:P_1>
+   <tns:P_3>
+      <dtsf:DataOd>{{s.p3_data_od|date:"Y-m-d"}}</dtsf:DataOd>
+      <dtsf:DataDo>{{s.p3_data_do|date:"Y-m-d"}}</dtsf:DataDo>
+   </tns:P_3>
+   <tns:P_4>{{s.p4_laczne|lower}}</tns:P_4>
+   <tns:P_5>
+      <tns:P_5A>{{s.p5_kontynuacja|lower}}</tns:P_5A>
+      <tns:P_5B>{{s.p5_brak_zagrozen|lower}}</tns:P_5B>
+   </tns:P_5>
+   <tns:P_7>
+      {% for tt in s.p7_wycena_tt %}
+      	<tns:P_7A>{{tt|ttekstowy}}</tns:P_7A>
+      {% endfor %}
+      {% for tt in s.p7_wynik_tt %}
+      	<tns:P_7B>{{tt|ttekstowy}}</tns:P_7B>
+      {% endfor %}
+      {% for tt in s.p7_spraw_tt %}
+      	<tns:P_7C>{{tt|ttekstowy}}</tns:P_7C>
+      {% endfor %}
+      {% for tt in s.p7_zasady_tt %}
+      	<tns:P_7D>{{tt|ttekstowy}}</tns:P_7D>
+      {% endfor %}
+   </tns:P_7>
+   {% for p8 in s.p8 %}
+	   <tns:P_8>
+	      <dtsf:NazwaPozycji>{{p8.nazwa}}</dtsf:NazwaPozycji>
+	      {% for tt in p8.opis_tt %}
+	      	<dtsf:Opis>{{tt|ttekstowy}}</dtsf:Opis>
+	      {% endfor %}
+	   </tns:P_8>
+   {% endfor %}
+</tns:WprowadzenieDoSprawozdaniaFinansowego>
+

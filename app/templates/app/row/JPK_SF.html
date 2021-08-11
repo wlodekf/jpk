@@ -1,0 +1,59 @@
+{% load utils %}
+
+<table class="table table-condensed jpk-ctrl-table jpk-sf-table">
+	<thead>
+		<tr>
+			<th>Tabela</th>
+			<th class="r">Bieżący okres</th>
+			<th class="r">Poprzedni okres</th>				
+		</tr>
+	</thead>
+	
+	<tr>	
+		<td colspan=3><a href="{% url 'sf-wprowadz' plik.id %}" target="_blank">Wprowadzenie do sprawozdania</a></td>
+	</tr>
+
+	<tr>			
+		<td><a href="{% url 'sf-raport' plik.id 'aktywa' %}" target="_blank">Aktywa</a></td> 
+		<td class="r">{{plik.aktywa_ctrl.suma1|kwota_pl}}</td>
+		<td class="r">{{plik.aktywa_ctrl.suma2|kwota_pl}}</td>
+	</tr>
+		
+	<tr>			
+		<td><a href="{% url 'sf-raport' plik.id 'pasywa' %}" target="_blank">Pasywa</a></td> 
+		<td class="r">{{plik.pasywa_ctrl.suma1|kwota_pl}}</td>
+		<td class="r">{{plik.pasywa_ctrl.suma2|kwota_pl}}</td>
+	</tr>
+
+	<tr>	
+		<td><a href="{% url 'sf-raport' plik.id 'rzis' %}" target="_blank">Rachunek zysków i strat</a></td>
+		<td class="r">{{plik.rzis_ctrl.suma1|kwota_pl}}</td>
+		<td class="r">{{plik.rzis_ctrl.suma2|kwota_pl}}</td>
+	</tr>
+
+	{% if plik.kapital_ctrl %}
+	<tr>	
+		<td><a href="{% url 'sf-raport' plik.id 'kapital' %}" target="_blank">Zmiany w kapitale</a></td>
+		<td class="r">{{plik.kapital_ctrl.suma1|kwota_pl}}</td>
+		<td class="r">{{plik.kapital_ctrl.suma2|kwota_pl}}</td>
+	</tr>
+	{% endif %}
+	
+	{% if plik.przeplywy_ctrl %}
+	<tr>
+		<td><a href="{% url 'sf-raport' plik.id 'przeplywy' %}" target="_blank">Przepływy finansowe</a></td>
+		<td class="r">{{plik.przeplywy_ctrl.suma1|kwota_pl}}</td>
+		<td class="r">{{plik.przeplywy_ctrl.suma2|kwota_pl}}</td>
+	</tr>
+	{% endif %}
+	
+	<tr>
+		<td><a href="{% url 'sf-podatek' plik.id %}" target="_blank">Wyliczenie podatku</a></td>
+		<td class="r">{{plik.podatek_ctrl.suma1|kwota_pl}}</td>
+		<td class="r">{{plik.podatek_ctrl.suma2|kwota_pl}}</td>
+	</tr>
+	
+	<tr>	
+		<td colspan=3><a href="{% url 'sf-dodatkowe' plik.id %}" target="_blank">Dodatkowe objaśnienia</a></td>
+	</tr>
+</table>

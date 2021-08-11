@@ -1,0 +1,99 @@
+.upo {
+	font-family: Arial; 
+	max-width: 650px;
+	padding-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 12pt;
+}
+
+.tyt { 
+	margin-bottom: 20px;
+	text-align: center;
+	font-size: 14pt;
+}
+
+.sek {
+	background-color: #e0e0e0;
+	border: 2px solid black;
+	text-align: left;
+	margin-bottom: 5px;
+	padding-left: 10px
+}
+
+.seh {
+	font-weight: bold;
+	margin: 10px 0;
+}
+
+.inf {
+	font-size: 10pt;
+	padding-bottom: 10px;
+}
+
+.pol {
+	border-top: 2px solid black;
+	border-left: 1px solid black;
+	background-color: white;
+}
+
+.p50 {
+	display: table-cell;
+	width: 320px;
+}
+
+.ety {
+	text-align: left;
+	font-size: 10pt;
+	padding: 3px;
+	color: #808080;
+}
+
+.war {
+	text-align: center;
+	font-size: 16px;
+	padding-top: 15px;
+	padding-bottom: 10px;
+}
+
+.brl {
+	border-left: 2px solid black;
+}
+
+.nip {
+	padding-right: 50px;
+}
+
+.stc {
+	padding-bottom: 30px;
+}
+
+.stp {
+	padding-top: 10px;
+}
+
+.wyd {
+	text-align: left;
+	font-size: 10pt;
+}
+
+.wer {
+	float: right;
+}
+
+.we2 {
+	font-size: 11pt;
+	border: 2px solid black;
+	display: table-cell;
+	padding: 2px;
+	width: 100px;
+	text-align: center;
+}
+
+.nbr {
+	border-right: none;
+}
+
+.b {
+	font-weight: bold;
+}

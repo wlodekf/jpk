@@ -1,0 +1,5 @@
+<Podmiot1>
+	<NIP>{{podmiot.nip}}</NIP>
+	<PelnaNazwa>{{podmiot.nazwa}}</PelnaNazwa>
+	{% if podmiot.email %}<Email>{{podmiot.email}}</Email>{% endif %}
+</Podmiot1>

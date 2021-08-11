@@ -1,0 +1,6 @@
+{% load utils %}
+{% if plik.oczekiwanie %}
+	<span class="td_status" id="td_{{plik.id}}">{{plik.stan}}...</span> <span id="td_czas_{{plik.id}}">{{plik.czas|czas_trwania}}</span>
+{% else %}
+	<span class="td_status2" id="td_{{plik.id}}">{{plik.stan}}...</span>		
+{% endif %}

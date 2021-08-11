@@ -1,0 +1,77 @@
+{% load utils %}
+
+<tns:InformacjaDodatkowaDotyczacaPodatkuDochodowego>
+{% for pod in s.podatek %}
+
+	<dtsf:{{pod.element}}>
+		{% if pod.tpozycja %}
+		<dtsf:Kwota>
+			<dtsf:RB>
+				<dtsf:KwotaA>{{pod.rb_lacznie|tkwotowy}}</dtsf:KwotaA>
+				{% if pod.rb_kapitalowe %}<dtsf:KwotaB>{{pod.rb_kapitalowe|tkwotowy}}</dtsf:KwotaB>{% endif %}
+				{% if pod.rb_inne %}<dtsf:KwotaC>{{pod.rb_inne|tkwotowy}}</dtsf:KwotaC>{% endif %}
+			</dtsf:RB>
+			{% if pod.rp_lacznie %}
+			<dtsf:RP>
+				<dtsf:KwotaA>{{pod.rp_lacznie|tkwotowy}}</dtsf:KwotaA>
+			</dtsf:RP>
+			{% endif %}
+		</dtsf:Kwota>
+		{% else %}
+			<dtsf:RB>{{pod.rb_lacznie|tkwotowy}}</dtsf:RB>
+			{% if pod.rp_lacznie %}
+			<dtsf:RP>{{pod.rp_lacznie|tkwotowy}}</dtsf:RP>
+			{% endif %}
+		{% endif %}
+	
+		{% for pu in pod.pozycje_uzytkownika %}
+		{% if pu.rb_lacznie or pu.rp_lacznie %}
+		<dtsf:{{pu.element}}>
+			<dtsf:NazwaPozycji>{{pu.nazwa}}</dtsf:NazwaPozycji>
+			<dtsf:Kwoty>
+				<dtsf:RB>
+					<dtsf:Kwota>
+						<dtsf:KwotaA>{{pu.rb_lacznie|tkwotowy}}</dtsf:KwotaA>
+						{% if pu.rb_kapitalowe %}<dtsf:KwotaB>{{pu.rb_kapitalowe|tkwotowy}}</dtsf:KwotaB>{% endif %}
+						{% if pu.rb_inne %}<dtsf:KwotaC>{{pu.rb_inne|tkwotowy}}</dtsf:KwotaC>{% endif %}						
+					</dtsf:Kwota>
+					{% if pu.pp_art %}
+					<dtsf:PodstawaPrawna>
+						<dtsf:Art>{{pu.pp_art}}</dtsf:Art>
+						{% if pu.pp_ust %}<dtsf:Ust>{{pu.pp_ust}}</dtsf:Ust>{% endif %}
+						{% if pu.pp_pkt %}<dtsf:Pkt>{{pu.pp_pkt}}</dtsf:Pkt>{% endif %}
+						{% if pu.pp_lit %}<dtsf:Lit>{{pu.pp_lit}}</dtsf:Lit>{% endif %}
+					</dtsf:PodstawaPrawna>
+					{% endif %}
+				</dtsf:RB>
+				{% if pu.rp_lacznie %}
+				<dtsf:RP>
+					<dtsf:KwotaA>{{pu.rp_lacznie|tkwotowy}}</dtsf:KwotaA>
+				</dtsf:RP>
+				{% endif %}
+			</dtsf:Kwoty>
+		</dtsf:{{pu.element}}>
+		{% endif %}
+		{% endfor %}
+		
+		{% for pu in pod.pozostale %}
+		{% if pu.rb_lacznie or pu.rp_lacznie %}
+		<dtsf:{{pu.element}}>
+			<dtsf:RB>
+				<dtsf:KwotaA>{{pu.rb_lacznie|tkwotowy}}</dtsf:KwotaA>
+				{% if pu.rb_kapitalowe %}<dtsf:KwotaB>{{pu.rb_kapitalowe|tkwotowy}}</dtsf:KwotaB>{% endif %}
+				{% if pu.rb_inne %}<dtsf:KwotaC>{{pu.rb_inne|tkwotowy}}</dtsf:KwotaC>{% endif %}
+			</dtsf:RB>
+			{% if pu.rp_lacznie %}
+			<dtsf:RP>
+				<dtsf:KwotaA>{{pu.rp_lacznie|tkwotowy}}</dtsf:KwotaA>
+			</dtsf:RP>
+			{% endif %}
+		</dtsf:{{pu.element}}>
+		{% endif %}
+		{% endfor %}
+		
+	</dtsf:{{pod.element}}>
+	
+{% endfor %}
+</tns:InformacjaDodatkowaDotyczacaPodatkuDochodowego>

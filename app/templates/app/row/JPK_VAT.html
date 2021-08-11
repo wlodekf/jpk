@@ -1,0 +1,48 @@
+{% load utils %}
+
+<table class="table table-condensed jpk-ctrl-table">
+
+	<thead>
+		<tr>
+			<th>Tabela</th>
+			<th class="r">Pozycje</th>
+			<th class="r">Sumy kontrolne</th>
+		</tr>
+	</thead>
+	
+	
+	{% if plik.z_ewidencja %}
+	
+	<tr>		
+		<td><a href="{% url 'jpk-arkusz' plik.id 'sprzedaz' %}">Sprzedaż</a></td>
+		<td class="r">#{{plik.sprzedaz_ctrl.wiersze|liczba_pl}}</td>
+		<td class="r">{{plik.sprzedaz_ctrl.suma1|kwota_pl}}</td>
+	</tr>
+	
+	<tr>
+		<td><a href="{% url 'jpk-arkusz' plik.id 'zakup' %}">Zakupy</a> 
+		<td class="r">#{{plik.zakup_ctrl.wiersze|liczba_pl}}</td>
+		<td class="r">{{plik.zakup_ctrl.suma1|kwota_pl}}</td>
+	</tr>
+	
+	{% endif %}
+	
+	
+	
+	{% if plik.wariant >= '4' and plik.z_deklaracja %}
+
+	<tr>
+		<td>
+			<a href="{% url 'jpk-vat-wizualizacja' plik.id 'deklaracja' %} "target="_blank">Deklaracja</a>
+			&nbsp;
+			<a href="{% url 'deklaracja-edit' plik.id %}">
+				<span class="glyphicon glyphicon-pencil iko" aria-hidden="true"></span>
+			</a>
+		</td> 
+		<td class="r">#{{plik.deklaracja_ctrl.wiersze|liczba_pl}}</td>
+		<td class="r">{{plik.deklaracja_ctrl.suma1|kwota_pl}}</td>
+	</tr>
+	
+	{% endif %}
+
+</table>

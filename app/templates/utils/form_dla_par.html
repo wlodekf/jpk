@@ -1,0 +1,18 @@
+<div class="pole" {% if line.errors %} class="error"{% endif %} {% if line.fields.0.field.odstep %}style="margin-top: 10px;"{% endif %}>
+
+    {% ifequal line.fields|length 2 %}                         
+            <div class="c"> {{ line.fields.0.label_tag }}{{ line.fields.0 }}</div>                  
+            {{ line.fields.0.errors }}
+            <div class="b"> {{ line.fields.1.label_tag }}{{ line.fields.1 }}</div>                  
+            {{ line.fields.1.errors }}                        
+    {% else %}
+        {% for field in line.fields %}
+            <div class="a"> {{ field.label_tag }}{{ field }}
+                            {% ifequal field.label "Status" %} {{ status_data }} {% endifequal %}
+            </div>                        
+        {% endfor %}
+        {% for field in line.fields %}
+            {{ field.errors }}
+        {% endfor %}
+    {% endifequal %}
+</div>

@@ -1,0 +1,37 @@
+{% load utils %}
+
+<div class="row">
+	<div class="col-md-6">
+		<table class="isp" style="width: 100%">
+			<tr>
+				<td>Faktury</td><td class="ar">{{imp.ile_faktur}}</td>
+			</tr>
+			
+			{% if imp.nadpisane %}
+			<tr class="bg-danger">
+				<td>Powtórzone</td><td class="ar">{{imp.nadpisane}}</td>
+			</tr>	  
+			{% endif %}
+						
+			<tr>
+				<td>Wiersze</td><td class="ar">{{imp.ile_wierszy}}</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div class="col-md-6" style="text-align: right">
+		<a href="{% url 'bra-sprzedaz-xlsx' imp.id %}">Raport kontrolny <img src="/static/img/xlsx32.png"></a>
+	</div>
+</div>
+
+<table class="isp" style="width: 75%">
+	
+	<tr>
+		<td>Zakres dat</td><td></td>
+		<td class="ar">{{imp.od_daty|date:'Y-m-d'}}</td>
+		<td class="ar">{{imp.do_daty|date:'Y-m-d'}}</td>					
+	</tr>	
+	
+	{% include "bra/sprzedaz/stawki.html" %}
+				
+</table>

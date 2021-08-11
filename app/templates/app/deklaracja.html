@@ -1,0 +1,48 @@
+{% extends "app/page.html" %}
+{% load utils %}
+
+{% block header %}
+<style>
+@media print {
+
+	@media print {
+  		@page {
+ 			size: A4 portrait;
+			margin: 20px;
+		}
+		
+    	table tbody tr {
+        	page-break-inside: avoid;
+    	}		
+	}
+
+	div#deklaracja-buttons {
+		display: none;
+	}
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+<iframe id="frame" src="{% url 'deklaracja-form' jpk.id %}" style="width: 100%; border: none; height: 1050px;"></iframe>
+
+<div id="deklaracja-buttons" style="padding-bottom: 50px;">
+	<input class="btn btn-default" type="submit" id="sub2" value="Zapisz">
+	<input class="btn btn-default cancel" type="button" value="Anuluj" data-url="{% url 'firmy' %}" >		
+</div>
+
+<script>
+
+$('#sub2').click(function() {
+    $("#frame").contents().find('#foremka').submit();
+    return false;
+});
+
+$('#sub2').submit(function() {
+    return false;
+});
+    
+</script>
+
+{% endblock %}

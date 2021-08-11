@@ -1,0 +1,24 @@
+{% load utils %}
+{% spaceless %}
+
+<pf:PozycjeSzczegolowe>
+
+	{% for dek in deklaracja %}
+
+		{% if dek.kwota or dek.podstawa_nie_zero or dek.numer == 51 %}
+			<pf:{{dek.p_element}}>{{dek.kwota|tkwotowy_zl}}</pf:{{dek.p_element}}>
+		{% endif %}
+
+		{% if dek.rodzaj == 'W' and dek.wybor %}
+			<pf:{{dek.p_element}}>1</pf:{{dek.p_element}}>
+		{% endif %}
+
+		{% if dek.rodzaj == 'T' and dek.tekst %}
+			<pf:{{dek.p_element}}>{{dek.tekst}}</pf:{{dek.p_element}}>
+		{% endif %}
+		
+	{% endfor %}
+	
+</pf:PozycjeSzczegolowe>
+
+{% endspaceless %}

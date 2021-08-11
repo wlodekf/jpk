@@ -1,0 +1,15 @@
+<div id="imp_{{imp.id}}">
+	<div class="row">
+	
+        <div class="col-md-10">
+			<table class="isp" style="width: 60%">
+				{% include "bra/sprzedaz/stawki.html" %}
+			</table>
+        </div>
+        
+        <div class="col-md-2">
+        	<a href="{% url 'api-zakupy-xlsx' imp.id %}">Raport kontrolny <img src="/static/img/xlsx32.png"></a>
+        </div>
+                
+    </div> 
+</div> 

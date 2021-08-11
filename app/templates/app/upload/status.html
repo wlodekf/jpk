@@ -1,0 +1,20 @@
+{% load utils %}
+<div>
+{% if storage.status.code == 200 and storage.status.json.Code == 200 %}
+<table class="table table-bordered">
+	<tr><td class="etykieta">Status operacji</td><td class="wartosc">{{storage.status.json.Code}}</td></tr>
+	<tr><td class="etykieta">Opis</td><td class="wartosc">{{storage.status.json.Description}}</td></tr>
+	<tr><td class="etykieta">Szczegóły</td><td class="wartosc">{{storage.status.json.Details}}</td></tr>
+	<tr><td class="etykieta">Urzędowe potwierdzenie</td><td class="wartosc">{% include "app/upload/upo.html" %}</td></tr>
+	<tr><td class="etykieta">Znacznik czasu</td><td class="wartosc">{{storage.status.json.Timestamp}}</td></tr>
+</table>
+{% else %}
+<table class="table table-bordered">
+	<tr><td class="etykieta">Status operacji</td><td class="wartosc">{{storage.status.json.Code}}</td></tr>
+	<tr><td class="etykieta">Opis</td><td class="wartosc">{{storage.status.json.Description}}</td></tr>
+	<tr><td class="etykieta">Szczegóły</td><td class="wartosc">{{storage.status.json.Details}}</td></tr>
+	<tr><td class="etykieta">Urzędowe potwierdzenie</td><td class="wartosc">{{storage.status.json.Upo}}</td></tr>
+	<tr><td class="etykieta">Znacznik czasu</td><td class="wartosc">{{storage.status.json.Timestamp}}</td></tr>
+</table>
+{% endif %}
+</div>

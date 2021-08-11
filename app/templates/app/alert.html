@@ -1,0 +1,7 @@
+{% if alert %}
+{% for ale in alert %}
+<div class="alert alert-{{ale.klasa}}" role="alert">
+{{ ale.message|safe }}
+</div>
+{% endfor %}
+{% endif %}	

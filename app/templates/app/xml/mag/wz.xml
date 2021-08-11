@@ -1,0 +1,37 @@
+{% load utils %}
+{% if wz.dokumenty %}
+<WZ>
+
+{% for d in wz.dokumenty %}
+<WZWartosc>
+	<NumerWZ>{{d.mag_nr2}}</NumerWZ>
+	<DataWZ>{{d.data|date:'Y-m-d'}}</DataWZ>
+	<WartoscWZ>{{d.mag_wartosc|tkwotowy}}</WartoscWZ>
+	<DataWydaniaWZ>{{d.data|date:'Y-m-d'}}</DataWydaniaWZ>
+	<OdbiorcaWZ>{{d.id_kli.nazwa_miejsc|tznakowy}}</OdbiorcaWZ>
+	<NumerFaWZ>{{d.nr_fak}}</NumerFaWZ>
+	<DataFaWZ>{{d.data|date:'Y-m-d'}}</DataFaWZ>		
+</WZWartosc>
+{% endfor %}
+
+{% for d in wz.dokumenty %}
+{% for w in d.wiersze_all %}
+<WZWiersz>
+	<Numer2WZ>{{d.mag_nr2}}</Numer2WZ>
+	<KodTowaruWZ>{{w.towar_kod.strip}}</KodTowaruWZ>
+	<NazwaTowaruWZ>{{w.towar_nazwa.strip}}</NazwaTowaruWZ>
+	<IloscWydanaWZ>{{w.il_real|tilosci}}</IloscWydanaWZ>
+	<JednostkaMiaryWZ>{{w.mag_jm}}</JednostkaMiaryWZ>
+	<CenaJednWZ>{{w.cena_ewid|tkwotowy}}</CenaJednWZ>
+	<WartoscPozycjiWZ>{{w.wartosc|tkwotowy}}</WartoscPozycjiWZ>
+</WZWiersz>
+{% endfor %}
+{% endfor %}
+
+<WZCtrl>
+	<LiczbaWZ>{{wz.lp}}</LiczbaWZ>
+	<SumaWZ>{{wz.suma1|tkwotowy}}</SumaWZ>
+</WZCtrl>
+
+</WZ>
+{% endif %}

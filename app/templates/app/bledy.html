@@ -1,0 +1,21 @@
+{% extends "app/page_nav.html" %}
+
+{% block content %}
+
+<h3>Kontrola danych przy tworzeniu pliku {{plik.kod}}-{{plik.id}}.xml</h3>
+
+<div class="panel panel-default panel-upload panel-info">
+	<div class="panel-heading">
+  		<h3 class="panel-title">Znaleziono następujące błędy i/lub ostrzeżenia</h3>
+	</div>
+	
+  	<div class="panel-body">
+		<ul class="list-group">
+  		{% for blad in plik.blad_set.all %}
+  			<li class="list-group-item list-group-item-{{blad.klasa_css}}">{{blad.zrodlo}}: {{blad.dokument}} - {{blad.blad}}</li>
+  		{% endfor %}
+  		</ul>
+	</div>
+</div>
+
+{% endblock %}

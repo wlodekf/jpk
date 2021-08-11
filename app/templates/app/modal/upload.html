@@ -1,0 +1,28 @@
+{# Modalny dialog do wgrywania podpisanego pliku kontrolnego #}
+	
+<div class="modal fade" id="upload-modal" tabindex="-1" role="dialog" aria-labelledby="uploadModalLabel">
+	<div class="modal-dialog" role="document">
+    	<div class="modal-content">
+
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Wgranie podpisanego pliku kontrolnego
+				</div>
+				
+			  	<div class="panel-body">
+					<form id="initupload-form" action="{% url 'jpk-upload' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+						Wybierz podpisany podpisem kwalifikowanym (XADES-BES) plik kontrolny wgrywanego pliku JPK<br/><br/>
+						
+						<input class="btn btn-default" type="file" name="plik" id="id_plik" /><br/>
+						<input class="btn btn-default" type="submit" value="Wyślij" name="bramka">
+						{% if user.username == 'wlodek' %}
+						<input class="btn btn-default" type="submit" value="Bramka testowa" name="bramka">
+						{% endif %}
+    					<input type="hidden" class="form-control" id="jpk_id" name="jpk_id">						
+					</form>
+			  	</div>
+			</div>
+    		
+    	</div>
+	</div>
+</div>

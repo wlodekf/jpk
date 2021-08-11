@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pf:JPK 
+xmlns:pf="http://crd.gov.pl/wzor/2020/05/08/{{ jpk.pf }}/" 
+xmlns:etd="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2020/03/11/eD/DefinicjeTypy/">
+
+{% include "app/xml/vat/naglowek4.xml" with formularz="JPK_VAT" %}
+
+{% include "app/xml/vat/podmiot4.xml" with formularz="JPK_VAT" %}
+
+{% if jpk.z_deklaracja %}
+<pf:Deklaracja>
+	<pf:Naglowek>
+		<pf:KodFormularzaDekl kodSystemowy="VAT-7 (21)" kodPodatku="VAT" rodzajZobowiazania="Z" wersjaSchemy="1-2E">VAT-7</pf:KodFormularzaDekl>
+       	<pf:WariantFormularzaDekl>21</pf:WariantFormularzaDekl>
+	</pf:Naglowek>
+	<pf:PozycjeSzczegolowe></pf:PozycjeSzczegolowe>
+	<pf:Pouczenia>1</pf:Pouczenia>
+</pf:Deklaracja>
+{% endif %}
+
+<pf:Ewidencja>
+{% include "app/xml/vat/sprzedaz4.xml" %}
+{% include "app/xml/vat/zakup4.xml" %}
+</pf:Ewidencja>
+
+</pf:JPK>

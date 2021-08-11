@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load utils %}
+<html lang="pl">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	{% block header %}{% endblock %}     
+
+    <title>Jednolity Plik Kontrolny</title>
+
+    <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap/assets/css/ie10-viewport-bug-workaround.css' %}" rel="stylesheet">
+    
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    
+    <script src="{% static 'bootstrap/assets/js/ie-emulation-modes-warning.js' %}"></script>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+	<link rel="stylesheet" type="text/css" href="{% static 'DataTables/datatables.min.css' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'DataTables/DataTables-1.10.12/css/dataTables.bootstrap.min.css' %}"/>
+	
+	<script type="text/javascript" src="{% static 'DataTables/datatables.min.js' %}"></script>
+
+    <!--link href="{% static 'css/app.css' %}" rel="stylesheet"-->
+  </head>
+
+  <body>
+	
+    <nav class="navbar navbar-default navbar-fixed-top">
+    
+      <div class="container">
+      
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">{{HOME_LABEL|default:"Jednolity Plik Kontrolny"}}</a>
+        {% if user.is_authenticated %}
+          <a class="navbar-brand" {% if FIRMA == 'bra' %}href="{% url 'firmy' %}"{% endif %}><b>({{firma|default:''|upper}})</b></a>
+        {% endif %}
+        
+        </div>
+        
+        <div id="navbar" class="navbar-collapse collapse">
+        
+        {% if user.is_authenticated %}
+        
+          {% if not firma or wybor_firmy %}
+          
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'firma-nowa' %}">Nowa firma</a></li>
+          </ul>
+                    
+          {% else %}
+          
+          <ul class="nav navbar-nav">
+            <li><a href="{% url 'home' firma %}">Lista plików JPK</a></li>
+            <li><a href="#" class="dodaj-paczke" data-toggle="modal" data-paczka="{{paczka.id}}">Nowe pliki JPK</a></li>
+            
+            {% if FIRMA == 'gig' %}
+			<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Wyciągi<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="{% url 'wyciag-import' 'ING' %}">Import ING</a></li>
+                <li><a href="{% url 'wyciag-import' 'mBank' %}">Import mBank</a></li>                                     
+              </ul>
+            </li>
+            {% endif %}
+            
+            {% if FIRMA == 'bra' %}
+			<li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dokumenty źródłowe<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="{% url 'api-sprzedaz-importuj' firma %}">Import sprzedaży</a></li>
+                <li><a href="{% url 'api-sprzedaz-importy' firma %}">Sprzedaż</a></li>
+                <li><a href="{% url 'api-zakupy-importuj' firma %}">Import zakupów</a></li>
+                <li><a href="{% url 'api-zakupy-importy' firma %}">Zakupy</a></li>
+                <li>&nbsp;</li>  
+                <li><a href="{% url 'bra-sprzedaz-importuj' firma %}">Sprzedaż z plików</a></li>
+                <li><a href="{% url 'bra-sprzedaz-importy' firma %}">Pliki</a></li>
+              </ul>
+            </li>            
+            {% endif %}            
+            <li><a href="{% url 'firma-edit' firma %}">Dane firmy</a></li>            
+          </ul>
+          
+          {% endif %}
+          
+          <p class="navbar-text navbar-right">
+          	<a class="navbar-link" href="{% url 'password_change' %}"><b>{{ request.user }}</b></a>
+          	<a class="navbar-link" href="{% url 'logout' %}">Wyloguj</a>
+          </p>
+        </div>
+        
+        {% endif %}
+        
+      </div>
+    </nav>
+          
+    <div class="container">
+    	{% include "app/alert.html" %}
+		{% block content %}{% endblock %}    
+    </div> 
+
+	{% if firma %}
+	{% include "app/modal/tworzenie.html" %}
+	{% endif %}
+
+	{% include "app/modal/sfupload.html" %}	
+	{% include "app/modal/upload.html" %}	
+	{% include "app/modal/initupload.html" %}
+	{% include "app/modal/nazwa.html" %}
+
+	{# Id wiersza do rozwinięcia po odświeżeniu strony #}
+	<script>var tr_id={{rozwin|default:'null'}};</script>
+
+    {% include "app/body.html" %}	
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+{% load utils %}
+{% if rw.dokumenty %}
+<RW>
+
+{% for d in rw.dokumenty %}
+<RWWartosc>
+	<NumerRW>{{d.mag_nr}}</NumerRW>
+	<DataRW>{{d.data|date:'Y-m-d'}}</DataRW>
+	<WartoscRW>{{d.mag_wartosc|tkwotowy}}</WartoscRW>
+	<DataWydaniaRW>{{d.data|date:'Y-m-d'}}</DataWydaniaRW>
+	<SkadRW>{{d.skad.kod_nazwa|tznakowy}}</SkadRW>
+	<DokadRW>{{d.dokad_kod_nazwa|tznakowy}}</DokadRW>
+</RWWartosc>
+{% endfor %}
+
+{% for d in rw.dokumenty %}
+{% for w in d.wiersze_all %}
+<RWWiersz>
+	<Numer2RW>{{d.mag_nr}}</Numer2RW>
+	<KodTowaruRW>{{w.towar_kod.strip}}</KodTowaruRW>
+	<NazwaTowaruRW>{{w.towar_nazwa.strip}}</NazwaTowaruRW>
+	<IloscWydanaRW>{{w.il_real|tilosci}}</IloscWydanaRW>
+	<JednostkaMiaryRW>{{w.mag_jm}}</JednostkaMiaryRW>
+	<CenaJednRW>{{w.cena_ewid|tkwotowy}}</CenaJednRW>
+	<WartoscPozycjiRW>{{w.wartosc|tkwotowy}}</WartoscPozycjiRW>
+</RWWiersz>
+{% endfor %}
+{% endfor %}
+
+<RWCtrl>
+	<LiczbaRW>{{rw.lp}}</LiczbaRW>
+	<SumaRW>{{rw.suma1|tkwotowy}}</SumaRW>
+</RWCtrl>
+
+</RW>
+{% endif %}

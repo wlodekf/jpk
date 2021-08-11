@@ -1,0 +1,9 @@
+{% load utils %}
+{
+  "oznaczenie": "{{firma.oznaczenie}}",
+  "nazwa": "{{firma.nazwa}}",
+  "kod": {% if firma.ostatni_plik %}"{{firma.ostatni_plik.kod}}"{% else %}""{% endif %}, 
+  "opis": {% if firma.ostatni_plik %}"{{firma.ostatni_plik.opis}}"{% else %}""{% endif %},  
+  "okres": {% if firma.ostatni_plik %}"{{firma.ostatni_plik.okres}}"{% else %}""{% endif %},
+  "stan": {% if firma.ostatni_plik %}"{{firma.ostatni_plik.stan}}"{% else %}""{% endif %}
+}

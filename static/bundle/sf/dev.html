@@ -1,0 +1,5 @@
+{# Nie modyfikować, plik generowany automatycznie #}
+{% load staticfiles %}
+<% for (var js in htmlWebpackPlugin.files.js) { %>
+<script src="{% static 'bundle/sf<%= htmlWebpackPlugin.files.js[js] %>' %}"></script>
+<% } %>

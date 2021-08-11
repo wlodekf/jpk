@@ -1,0 +1,6 @@
+{% load utils %}
+{% if form.instance.kto or form.instance.kiedy %}
+<span class="change_log">
+Ostatnia zmiana: {{form.instance.kto.nr_uzy|strip}} - {{form.instance.kto.nazwa}} {{form.instance.kiedy}}
+</span>
+{% endif %}

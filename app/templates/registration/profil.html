@@ -1,0 +1,16 @@
+{% extends "app/page.html" %}
+
+{% block content %}
+
+<h1 style="float: left; padding-right: 50px; margin-right: 10px;">Ustawienia użytkownika</h1>
+
+<a href="#" class="nag_a pomocy" style="margin-right: 5px;">Pomoc</a>
+
+<div class="clear"></div>
+
+<form action="" method="post">
+    {% include "utils/form.html" %}
+    <input type="submit" value="Zapisz" />
+</form>
+
+{% endblock %}

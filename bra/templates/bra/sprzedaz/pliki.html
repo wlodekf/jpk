@@ -1,0 +1,45 @@
+{% extends "app/page.html" %}
+
+{% block content %}
+        
+<div class="panel panel-default" style="width: 500px;">
+	<div class="panel-heading">
+		Import sprzedaży JPK - pliki (1/3)
+		
+	</div>
+	
+  	<div class="panel-body">
+
+		<form action="{% url 'bra-sprzedaz-importuj' firma %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+				  			  					
+			{% if form.non_field_errors %}		 		
+				<p class="" style="color: red;">{% for error in form.non_field_errors %}{{ error }}{% endfor %}</p>
+			{% endif %}
+			
+	  		<div class="form-group {% if form.faktury.errors %}has-error{% endif %}">
+	    		<label for="id_faktury" class="control-label">{{ form.faktury.label }}</label>
+				<input type="file" class="form-control" name="faktury" id="id_faktury" accept="*.csv" aria-describedby="faktury-help" />			    		
+			   	<p id="faktury-help" class="help-block">{{ form.faktury.help_text|safe }}{% for error in form.faktury.errors %} {{ error }}{% endfor %}</p>
+	  		</div> 
+
+	  		<div class="form-group {% if form.wiersze.errors %}has-error{% endif %}">
+	    		<label for="wiersze" class="control-label">{{ form.wiersze.label }}</label>
+				<input type="file" class="form-control" name="wiersze" id="wiersze" accept="*.csv" aria-describedby="wiersze-help" />			    		
+			   	<p id="wiersze-help" class="help-block">{{ form.wiersze.help_text|safe }}{% for error in form.wiersze.errors %} {{ error }}{% endfor %}</p>
+	  		</div> 
+	  			
+	  		<div id="przyciski"> 
+				<input class="btn btn-default" type="submit" value="Sprawdź">
+				<input class="btn btn-default cancel" type="button" value="Rezygnuj" data-url="{% url 'bra-sprzedaz-importuj' firma %}">
+			</div>
+			
+		</form>
+		
+		<div>
+  			{% include "bra/sprzedaz/postep.html" with co="Sprawdzanie pozycji pliku importowego CSV" %}
+  		</div>		
+	
+  	</div>
+</div>
+
+{% endblock %}

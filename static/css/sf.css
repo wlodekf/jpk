@@ -1,0 +1,268 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p {
+    margin: 0 0 15px;
+}
+
+div.panel-heading-sf {
+	text-align: center;
+}
+
+table>thead>tr>th,
+table>tbody>tr>th,
+table>thead>tr>td,
+table>tbody>tr>td{
+    line-height:15px;
+    color: black;
+    font-family:Arial;
+    border-left:1px solid #e0e0e0;
+    border-top:1px solid #e0e0e0;
+    padding:0
+}
+tr.curr,
+input.curr {
+    background-color: #f0f0ff;
+}
+table>thead>tr>th {
+    text-align: center;
+}
+td {
+    vertical-align: middle;
+}
+td.end, th.end {
+    border-right: 1px solid #e0e0e0;
+}
+td.wylicz {
+    text-align: center;
+    padding: 0 10px;
+}
+td.tekst {
+    padding: 0 10px;
+    max-width: 400px;
+    vertical-align: middle;
+}
+td.klucz {
+    white-space: nowrap;
+}
+span.sf-naglowek {
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+span.sf-okres {
+	font-weight: bold;
+	_margin-left: 10px;
+}
+
+.wyrUB {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.wyrUBS {
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 30px;
+    vertical-align: bottom;
+}
+.wyrU {
+    text-transform: uppercase;
+}
+.wyrB {
+    font-weight: bold;
+}
+
+td.kwoty {
+    max-width: 105px;
+}
+td.klu10 {
+    padding-left: 10px;
+}
+td.klu20 {
+    padding-left: 30px;
+}
+td.klu30 {
+    padding-left: 50px;
+}
+td.klu40 {
+    padding-left: 70px;
+}
+td.klu50 {
+    padding-left: 90px;
+}
+td.klu60 {
+    padding-left: 110px;
+}
+table input {
+    font-family: Arial;
+    font-size: 13.3333px;
+    padding: 0;
+    border: none;
+    padding-right: 5px;
+    width: 115px;
+}
+
+.ar {
+    text-align: right;
+}
+
+table {
+    width: 100%;
+    max-width: 800px;
+    border-spacing: 1px;
+    border-collapse: collapse;
+}
+.raport {
+    font-size: 12px;
+    max-width: 900px;
+    padding-top: 4px;
+}
+h1 {
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+th.ar {
+    text-align: right;
+    padding-right: 5px;
+}
+th.al {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.ujemna {
+    color: red;
+}
+
+.kontener {
+    background-color: #f0f0f0;
+}
+
+div.wstep {
+    margin-bottom: 10px;
+}
+
+form div.row {
+    margin-bottom: 0px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.help-block {
+    font-size: 11px;
+}
+
+.form-control {
+    background-color: #f0f0ff;
+}
+
+ul.przyciski {
+    float: right;
+}
+
+ul.przyciski>li>a {
+    padding: 0 5px;
+}
+
+div.przyciski {
+    padding-left: 15px;
+}
+div.przyciski > button {
+    margin-right: 15px;
+}
+
+h4.naglowek {
+    width: 80%;
+}
+
+h4.nag {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #c0c0c0;
+    margin-bottom: 10px;    
+}
+
+.glyphicon {
+    margin-left: 10px;
+}
+
+.list-group-item {
+    padding: 0;
+    padding-bottom: 20px;
+    border: none;
+}
+
+div.wtracenie {
+    margin: 15px 0;
+}
+
+textarea.edycja {
+    resize: none;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+table td.pp input {
+    min-width: 10px;
+    max-width: 40px;
+    text-align: left;
+    padding-left: 5px;
+}
+
+table.tpod td.kwoty input {
+    width: 100px;
+}
+
+table.tpod td.klucz input {
+    width: 20px;
+}
+
+table.tpod input.klucz {
+    font-size: 12px;
+}
+
+table.tpod input.nazwa {
+    width: 100%;
+    font-size: 12px;
+}
+
+table.tpod {
+    max-width: 900px;
+}
+
+input[type="checkbox"] {
+    vertical-align: sub;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+div.przyciski2 {
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+tr.oblicz, input.oblicz {
+    background-color: #f0f0f0;
+}
+
+.btn-pozycji {
+    float: right;
+    margin-right: 5px;
+}
+
+th.formuly-kol, td.formuly-kol {
+    max-width: 300px;
+}

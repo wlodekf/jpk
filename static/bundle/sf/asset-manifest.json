@@ -1,0 +1,9 @@
+{
+  "sf.css": "/static/css/sf.css",
+  "sf.js": "/sf.js",
+  "sf.js.map": "/sf.js.map",
+  "static/css/sf.css.map": "/static/css/sf.css.map",
+  "../../app/templates/app/react.html": "/../../app/templates/app/react.html",
+  "precache-manifest.9e4dd09aa658b8901734e8ab922fbf62.js": "/precache-manifest.9e4dd09aa658b8901734e8ab922fbf62.js",
+  "service-worker.js": "/service-worker.js"
+}

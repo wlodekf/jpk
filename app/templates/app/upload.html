@@ -1,0 +1,71 @@
+{% extends "app/page.html" %}
+
+{% block header %}
+{% if storage.check_upload_status %}
+<meta http-equiv="refresh" content="{{delay}};url=/jpk/{{storage.jpk_id}}/status/{{delay}}/" />
+{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<h3>{% if storage.check_upload_status %}Wysyłanie{% else %}Stan wysyłania{% endif %} pliku {{storage.xml_name}} 
+{% if storage.check_upload_status %}
+<img id="upload-icon" src="/static/img/loading.gif" width="24">
+{% endif %}
+</h3>
+
+{% if storage.init_code %}
+
+<div class="panel panel-default panel-upload panel-{% if storage.init_code == 200 %}success{% else %}danger{% endif %}">
+	<div class="panel-heading">
+  		<h3 class="panel-title">1. Przesyłanie pliku kontrolnego ({{storage.init_code}})</h3>
+	</div>
+	
+  	<div class="panel-body">
+  		{% include "app/upload/init.html" %}
+	</div>
+</div>
+
+{% endif %}
+
+{% if storage.init_code == 200 %}
+
+<div class="panel panel-default panel-upload panel-{% if storage.put_code == 201 %}success{% else %}danger{% endif %}">
+	<div class="panel-heading">
+		<h3 class="panel-title">2. Przesłanie pliku JPK ({{storage.put_code}})</h3>
+	</div>
+	
+  	<div class="panel-body"">
+		{% include "app/upload/put.html" %}
+	</div>
+</div>
+
+{% if storage.put_code == 201 %}
+
+<div class="panel panel-default panel-upload panel-{% if storage.finish_code == 200 %}success{% else %}danger{% endif %}">
+	<div class="panel-heading">
+		<h3 class="panel-title">3. Zakończenie sesji ({{storage.finish_code}})</h3>
+	</div>
+	
+  	<div class="panel-body">
+		{% include "app/upload/finish.html" %}
+	</div>
+</div>
+
+{% if storage.finish_code == 200 %}
+
+<div class="panel panel-default panel-upload panel-{% if storage.status.code == 200 and storage.status.json.Code == 200 %}success{% else %}danger{% endif %}">
+	<div class="panel-heading">
+		<h3 class="panel-title">4. Sprawdzenie statusu ({{storage.status.code}})</h3>
+	</div>
+	
+  	<div class="panel-body">
+		{% include "app/upload/status.html" %}
+	</div>
+</div>
+
+{% endif %}
+{% endif %}
+{% endif %}
+
+{% endblock %}

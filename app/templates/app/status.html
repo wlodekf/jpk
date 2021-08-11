@@ -1,0 +1,12 @@
+{% load utils %}
+{% comment %}
+{% if plik.oczekiwanie %}
+	<span class="status" id="{{plik.id}}">{{plik.stan}}...</span> <span id="czas_{{plik.id}}">{{plik.czas|czas_trwania}}</span>
+	<script>
+		timer_add('czas_{{plik.id}}', '{{plik.czas|czas_trwania}}');
+	</script>
+{% else %}
+	<span class="status2" id="{{plik.id}}">{{plik.stan}}...</span>		
+{% endif %}
+{% endcomment %}
+...

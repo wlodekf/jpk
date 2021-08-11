@@ -1,0 +1,25 @@
+{% load utils %}
+{% for ksi in konto_zapis.generator %}
+<KontoZapis typ="G">
+	<LpZapisu>{{ksi.lp}}</LpZapisu>
+	<NrZapisu>{{ksi.lp_dzi|default:''}}</NrZapisu>
+	
+	<KodKontaWinien>{{ksi.wn_konto.strip|tznakowy}}</KodKontaWinien>
+	<KwotaWinien>{{ksi.wn_kwota|tkwotowy}}</KwotaWinien>
+	{% if ksi.wn_kwota_wal %}<KwotaWinienWaluta>{{ksi.wn_kwota_wal|tkwotowy}}</KwotaWinienWaluta>{% endif %}
+	{% if ksi.wn_kod_wal %}<KodWalutyWinien>{{ksi.wn_kod_wal}}</KodWalutyWinien>{% endif %}
+	{% if ksi.wn_opis %}<OpisZapisuWinien>{{ksi.wn_opis.strip|do1spacji|tznakowy}}</OpisZapisuWinien>{% endif %}
+	
+	<KodKontaMa>{{ksi.ma_konto.strip|tznakowy}}</KodKontaMa>
+	<KwotaMa>{{ksi.ma_kwota|tkwotowy}}</KwotaMa>
+	{% if ksi.ma_kwota_wal %}<KwotaMaWaluta>{{ksi.ma_kwota_wal|tkwotowy}}</KwotaMaWaluta>{% endif %}
+	{% if ksi.ma_kod_wal %}<KodWalutyMa>{{ksi.ma_kod_wal}}</KodWalutyMa>{% endif %}
+	{% if ksi.ma_opis %}<OpisZapisuMa>{{ksi.ma_opis.strip|do1spacji|tznakowy}}</OpisZapisuMa>{% endif %}
+</KontoZapis>
+{% endfor %}
+
+<KontoZapisCtrl>
+	<LiczbaWierszyKontoZapisj>{{konto_zapis.lp}}</LiczbaWierszyKontoZapisj>
+	<SumaWinien>{{konto_zapis.suma1|tkwotowy}}</SumaWinien>
+	<SumaMa>{{konto_zapis.suma2|tkwotowy}}</SumaMa>
+</KontoZapisCtrl>

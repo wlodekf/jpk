@@ -1,0 +1,9 @@
+<Naglowek>
+	<KodFormularza kodSystemowy="{{formularz}} ({{jpk.wariant}})" wersjaSchemy="1-0">{{formularz}}</KodFormularza>
+	<WariantFormularza>{{jpk.wariant}}</WariantFormularza>
+	<CelZlozenia>{{jpk.cel_zlozenia}}</CelZlozenia>
+	<DataWytworzeniaJPK>{{jpk.utworzony|date:"Y-m-d\TH:i:s"}}</DataWytworzeniaJPK>
+	<DataOd>{{jpk.dataod|date:"Y-m-d"}}</DataOd>
+	<DataDo>{{jpk.datado|date:"Y-m-d"}}</DataDo>
+	<KodUrzedu>{{podmiot.kod_urzedu|default:"0000"}}</KodUrzedu>
+</Naglowek>

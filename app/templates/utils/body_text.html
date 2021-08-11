@@ -1,0 +1,36 @@
+<style type="text/css">
+.btd {
+	_width: 100%;
+}
+
+.bt {
+	padding: 0px;
+}
+</style>
+
+<script>
+
+function emailResize(id) {
+    var wysokosc= document.getElementById(id).contentWindow.document.body.scrollHeight;
+    document.getElementById(id).height= (wysokosc>200?200:wysokosc) + "px";
+}
+
+</script>
+
+<div class="pole{% if line.errors %} error{% endif %}" {% if line.fields.0.field.odstep %}style="margin-top: 10px;"{% endif %}>
+	{% for field in line.fields %}
+		{{ field.label_tag }}
+		<div class="a {{field.klas}}">
+			<div class="bt">
+				{# <span class="bts">{{ field.value|default:""|safe }}</span> #} 
+				<iframe id="iframe1" src="{% url 'body_html' field.field.email_id %}" 
+				frameBorder="0" style="width: 800px; padding: 0; margin: 0;" 
+				onLoad="emailResize('iframe1')";></iframe>				
+			</div>
+		</div>
+    {% endfor %}
+    
+    {% for field in line.fields %}
+    	{{ field.errors }}
+    {% endfor %}
+</div>

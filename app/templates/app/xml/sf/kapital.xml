@@ -1,0 +1,7 @@
+{% load utils %}
+
+{% if s.kapital %}
+<tns:ZestZmianWKapitale>
+	{% include "app/xml/sf/pozycja.xml" with r=s.kapital %}
+</tns:ZestZmianWKapitale>
+{% endif %}

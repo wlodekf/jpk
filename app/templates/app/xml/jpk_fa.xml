@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JPK 
+xmlns="http://jpk.mf.gov.pl/wzor/2016/03/09/03095/"
+xmlns:etd="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2016/01/25/eD/DefinicjeTypy/">
+
+{% include "app/xml/naglowek.xml" with formularz="JPK_FA" %}
+
+{% include "app/xml/podmiot.xml" %}
+
+{% include "app/xml/fa/faktura.xml" %}
+
+{% include "app/xml/fa/wiersz.xml" %}
+
+</JPK>

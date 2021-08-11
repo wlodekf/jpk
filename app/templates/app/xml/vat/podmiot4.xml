@@ -1,0 +1,8 @@
+<pf:Podmiot1 rola="Podatnik">
+	<pf:OsobaNiefizyczna>
+		<pf:NIP>{{podmiot.nip}}</pf:NIP>
+		<pf:PelnaNazwa>{{podmiot.nazwa}}</pf:PelnaNazwa>
+		<pf:Email>{{podmiot.email}}</pf:Email>
+		{% if podmiot.telefon %}<pf:Telefon>{{podmiot.telefon}}</pf:Telefon>{% endif %}
+	</pf:OsobaNiefizyczna>
+</pf:Podmiot1>

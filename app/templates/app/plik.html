@@ -1,0 +1,35 @@
+{% include "app/modal/menu.html" %}
+
+<div id="ctrl_{{plik.id}}">
+	
+	{% if plik.jest_utworzony%}
+		<div class="row">
+		
+            <div class="col-md-6">
+				{% with ctrl_template="app/row/"|add:plik.kod|add:".html" %}
+					{% include ctrl_template with plik=plik %}
+				{% endwith %}
+            </div>
+            
+            <div class="col-md-5 jpk-msg">
+				<div>
+					{% if plik.bledy_error %}
+						<a href="/jpk/{{plik.id}}/bledy" target="_blank">Wykryto błędy w danych podczas tworzenia pliku</a><br/>
+					{% else %}
+						{% if plik.bledy_warn %}
+							<a href="/jpk/{{plik.id}}/bledy" target="_blank">Ostrzeżenia o danych w pliku JPK</a><br/>
+						{% endif %}
+					{% endif %}
+					
+					<b>{{plik.get_status.title}}</b><br/>
+					{% if plik.status.msg %}{{plik.status.msg|safe}}<br/>{% endif %}
+					{{plik.status.time|date:'Y-m-d H:i:s'}} {{plik.status.user}}
+				</div>
+            </div>
+        </div> 
+        
+	{% else %}
+		{% include "app/status.html" %}
+	{% endif %}
+	
+</div> 

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:JednostkaInna 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://www.mf.gov.pl/schematy/SF/DefinicjeTypySprawozdaniaFinansowe/2018/07/09/JednostkaInnaWZlotych https://www.mf.gov.pl/documents/764034/6464789/JednostkaInnaWZlotych(1)_v1-0.xsd"
+    
+    xmlns:etd="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2016/01/25/eD/DefinicjeTypy/" 
+	xmlns:dtsf="http://www.mf.gov.pl/schematy/SF/DefinicjeTypySprawozdaniaFinansowe/2018/07/09/DefinicjeTypySprawozdaniaFinansowe/" 
+	xmlns:jin="http://www.mf.gov.pl/schematy/SF/DefinicjeTypySprawozdaniaFinansowe/2018/07/09/JednostkaInnaStruktury"
+	xmlns:tns="http://www.mf.gov.pl/schematy/SF/DefinicjeTypySprawozdaniaFinansowe/2018/07/09/JednostkaInnaWZlotych">
+
+{% include "app/xml/sf/naglowek.xml" %}
+
+{% include "app/xml/sf/wprowadzenie.xml" %}
+
+{% include "app/xml/sf/bilans.xml" %}
+
+{% include "app/xml/sf/rzis.xml" %}
+
+{% include "app/xml/sf/kapital.xml" %}
+
+{% include "app/xml/sf/przeplywy.xml" %}
+
+{% include "app/xml/sf/dodatkowe.xml" %}
+
+</tns:JednostkaInna>
+

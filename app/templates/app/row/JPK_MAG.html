@@ -1,0 +1,42 @@
+{% load utils %}
+
+<table class="table table-condensed jpk-ctrl-table">
+	<thead>
+		<tr>
+			<th>Tabela</th>
+			<th class="r">Pozycje</th>
+			<th class="r">Suma kontrolna</th>
+		</tr>
+	</thead>	
+	{% if plik.pz_ctrl.wiersze > 0 %}
+		<tr>	
+			<td><a href="{% url 'jpk-arkusz' plik.id 'PZ' %}">PZ</a></td>
+			<td class="r">#{{plik.pz_ctrl.wiersze|liczba_pl}}</td>
+			<td class="r">{{plik.pz_ctrl.suma1|kwota_pl}}</td>
+		</tr>
+	{% endif %}
+
+	{% if plik.wz_ctrl.wiersze > 0 %}
+		<tr>
+			<td><a href="{% url 'jpk-arkusz' plik.id 'WZ' %}">WZ</a></td>
+			<td class="r">#{{plik.wz_ctrl.wiersze|liczba_pl}}</td>
+			<td class="r">{{plik.wz_ctrl.suma1|kwota_pl}}</td>
+		</tr>
+	{% endif %}
+
+	{% if plik.rw_ctrl.wiersze > 0 %}
+		<tr>
+			<td><a href="{% url 'jpk-arkusz' plik.id 'RW' %}">RW</a></td> 
+			<td class="r">#{{plik.rw_ctrl.wiersze|liczba_pl}}</td>
+			<td class="r">{{plik.rw_ctrl.suma1|kwota_pl}}</td>
+		</tr>
+	{% endif %}
+	
+	{% if plik.mm_ctrl.wiersze > 0 %}
+		<tr>
+			<td><a href="{% url 'jpk-arkusz' plik.id 'MM' %}">MM</a></td> 
+			<td class="r">#{{plik.mm_ctrl.wiersze|liczba_pl}}</td>
+			<td class="r">{{plik.mm_ctrl.suma1|kwota_pl}}</td>
+		</tr>
+	{% endif %}
+</table>

@@ -1,0 +1,6 @@
+{% load utils %}
+
+<tns:Bilans>
+	{% include "app/xml/sf/pozycja.xml" with r=s.aktywa|element:"Aktywa" %}
+	{% include "app/xml/sf/pozycja.xml" with r=s.pasywa|element:"Pasywa" %}
+</tns:Bilans>

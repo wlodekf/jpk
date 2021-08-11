@@ -1,0 +1,209 @@
+{% extends "app/page.html" %}
+
+{% block content %}
+  	
+<div class="panel panel-default" style="width: 600px;">
+
+	<div class="panel-heading">
+		Inicjalizacja nowej firmy do JPK
+	</div>
+	
+  	<div class="panel-body">
+  	
+  		{% if firma %}
+		<form action="{% url 'firma-edit' firma %}" method="POST">
+		{% else %}
+		<form action="{% url 'firma-nowa' %}" method="POST">
+		{% endif %}
+		{% csrf_token %}
+		
+			{% if form.non_field_errors %}		 		
+				<p class="" style="color: red;">{% for error in form.non_field_errors %}{{ error }}{% endfor %}</p>
+			{% endif %}
+
+			<div class="row">
+				<div class="col-md-4">
+			  		<div class="form-group {% if form.oznaczenie.errors %}has-error{% endif %}"">
+			    		<label for="oznaczenie" class="control-label">{{ form.oznaczenie.label }}</label>
+			    		<input type="text" class="form-control" id="oznaczenie" name="oznaczenie" value="{{ form.oznaczenie.value|default:'' }}" aria-describedby="oznaczenie-help">
+					   	<p id="oznaczenie-help" class="help-block">{{ form.oznaczenie.help_text|safe }}{% for error in form.oznaczenie.errors %} {{ error }}{% endfor %}</p>
+			  		</div> 
+			  	</div>
+			
+				<div class="col-md-8">	  		
+			  		<div class="form-group {% if form.nazwa.errors %}has-error{% endif %}"">
+			    		<label for="nazwa" class="control-label">{{ form.nazwa.label }}</label>
+			    		<input type="text" class="form-control" id="nazwa" name="nazwa" value="{{ form.nazwa.value|default:'' }}" aria-describedby="nazwa-help">
+					   	<p id="nazwa-help" class="help-block">{{ form.nazwa.help_text|safe }}{% for error in form.nazwa.errors %} {{ error }}{% endfor %}</p>
+			  		</div>
+			  	</div>
+	  		
+			</div>
+	  		 
+			<div class="row">
+			  	
+			  	<div class="col-md-4">
+			  		<div class="form-group {% if form.nip.errors %}has-error{% endif %}"">
+			    		<label for="nip" class="control-label">{{ form.nip.label }}</label>
+			    		<input type="text" class="form-control" id="nip" name="nip" value="{{ form.nip.value|default:'' }}" aria-describedby="nip-help">
+					   	<p id="nip-help" class="help-block">{{ form.nip.help_text|safe }}{% for error in form.nip.errors %} {{ error }}{% endfor %}</p>
+			  		</div> 
+			  	</div>
+			  	
+			  	<div class="col-md-4">
+			  		<div class="form-group {% if form.krs.errors %}has-error{% endif %}"">
+			    		<label for="krs" class="control-label">{{ form.krs.label }}</label>
+			    		<input type="text" class="form-control" id="krs" name="krs" value="{{ form.krs.value|default:'' }}" aria-describedby="krs-help">
+					   	<p id="krs-help" class="help-block">{{ form.krs.help_text|safe }}{% for error in form.krs.errors %} {{ error }}{% endfor %}</p>
+			  		</div> 
+			  	</div>
+			  				  	
+				<div class="col-md-4">
+			  		<div class="form-group {% if form.kod_urzedu.errors %}has-error{% endif %}"">
+			    		<label for="kod_urzedu" class="control-label">{{ form.kod_urzedu.label }}</label>
+			    		<input type="text" class="form-control" id="kod_urzedu" name="kod_urzedu" value="{{ form.kod_urzedu.value|default:'' }}" aria-describedby="kod_urzedu-help">
+					   	<p id="kod_urzedu-help" class="help-block">{{ form.kod_urzedu.help_text|safe }}{% for error in form.kod_urzedu.errors %} {{ error }}{% endfor %}</p>
+			  		</div> 
+			  	</div>
+			  	
+			</div>
+			
+			<div class="row">
+				<div class="col-md-8">
+			  		<div class="form-group {% if form.email.errors %}has-error{% endif %}"">
+			    		<label for="email" class="control-label">{{ form.email.label }}</label>
+			    		<input type="text" class="form-control" id="email" name="email" value="{{ form.email.value|default:'' }}" aria-describedby="email-help">
+					   	<p id="email-help" class="help-block">{{ form.email.help_text|safe }}{% for error in form.email.errors %} {{ error }}{% endfor %}</p>
+			  		</div> 
+			  	</div>
+				<div class="col-md-4">
+			  		<div class="form-group {% if form.telefon.errors %}has-error{% endif %}"">
+			    		<label for="telefon" class="control-label">{{ form.telefon.label }}</label>
+			    		<input type="text" class="form-control" id="telefon" name="telefon" value="{{ form.telefon.value|default:'' }}" aria-describedby="telefon-help">
+					   	<p id="telefon-help" class="help-block">{{ form.telefon.help_text|safe }}{% for error in form.telefon.errors %} {{ error }}{% endfor %}</p>
+			  		</div> 
+			  	</div>			  	
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4">
+			  		<div class="form-group {% if form.wojewodztwo.errors %}has-error{% endif %}"">
+			    		<label for="wojewodztwo" class="control-label">{{ form.wojewodztwo.label }}</label>
+			    		<input type="text" class="form-control" id="wojewodztwo" name="wojewodztwo" value="{{ form.wojewodztwo.value|default:'' }}" aria-describedby="wojewodztwo-help">
+					   	<p id="wojewodztwo-help" class="help-block">{{ form.wojewodztwo.help_text|safe }}{% for error in form.wojewodztwo.errors %} {{ error }}{% endfor %}</p>
+			  		</div> 
+			  	</div>
+			  	
+			  	<div class="col-md-4">
+			  		<div class="form-group {% if form.powiat.errors %}has-error{% endif %}"">
+			    		<label for="powiat" class="control-label">{{ form.powiat.label }}</label>
+			    		<input type="text" class="form-control" id="powiat" name="powiat" value="{{ form.powiat.value|default:'' }}" aria-describedby="powiat-help">
+					   	<p id="powiat-help" class="help-block">{{ form.powiat.help_text|safe }}{% for error in form.powiat.errors %} {{ error }}{% endfor %}</p>
+			  		</div> 
+			  	</div>
+			  	
+			  	<div class="col-md-4">
+			  		<div class="form-group {% if form.gmina.errors %}has-error{% endif %}"">
+			    		<label for="gmina" class="control-label">{{ form.gmina.label }}</label>
+			    		<input type="text" class="form-control" id="gmina" name="gmina" value="{{ form.gmina.value|default:'' }}" aria-describedby="gmina-help">
+					   	<p id="gmina-help" class="help-block">{{ form.gmina.help_text|safe }}{% for error in form.gmina.errors %} {{ error }}{% endfor %}</p>
+			  		</div> 
+			  	</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4">
+			  		<div class="form-group {% if form.miejscowosc.errors %}has-error{% endif %}"">
+			    		<label for="miejscowosc" class="control-label">{{ form.miejscowosc.label }}</label>
+			    		<input type="text" class="form-control" id="miejscowosc" name="miejscowosc" value="{{ form.miejscowosc.value|default:'' }}" aria-describedby="miejscowosc-help">
+					   	<p id="miejscowosc-help" class="help-block">{{ form.miejscowosc.help_text|safe }}{% for error in form.miejscowosc.errors %} {{ error }}{% endfor %}</p>
+			  		</div> 
+			  	</div>
+			  	
+			  	<div class="col-md-4">
+			  		<div class="form-group {% if form.kod_pocztowy.errors %}has-error{% endif %}"">
+			    		<label for="kod_pocztowy" class="control-label">{{ form.kod_pocztowy.label }}</label>
+			    		<input type="text" class="form-control" id="kod_pocztowy" name="kod_pocztowy" value="{{ form.kod_pocztowy.value|default:'' }}" aria-describedby="kod_pocztowy-help">
+					   	<p id="kod_pocztowy-help" class="help-block">{{ form.kod_pocztowy.help_text|safe }}{% for error in form.kod_pocztowy.errors %} {{ error }}{% endfor %}</p>
+			  		</div> 
+			  	</div>
+			  	
+			  	<div class="col-md-4">
+			  		<div class="form-group {% if form.poczta.errors %}has-error{% endif %}"">
+			    		<label for="poczta" class="control-label">{{ form.poczta.label }}</label>
+			    		<input type="text" class="form-control" id="poczta" name="poczta" value="{{ form.poczta.value|default:'' }}" aria-describedby="poczta-help">
+					   	<p id="poczta-help" class="help-block">{{ form.poczta.help_text|safe }}{% for error in form.poczta.errors %} {{ error }}{% endfor %}</p>
+			  		</div> 
+			  	</div>
+			</div>
+						
+
+			<div class="row">
+				<div class="col-md-4">
+			  		<div class="form-group {% if form.ulica.errors %}has-error{% endif %}"">
+			    		<label for="ulica" class="control-label">{{ form.ulica.label }}</label>
+			    		<input type="text" class="form-control" id="ulica" name="ulica" value="{{ form.ulica.value|default:'' }}" aria-describedby="ulica-help">
+					   	<p id="ulica-help" class="help-block">{{ form.ulica.help_text|safe }}{% for error in form.ulica.errors %} {{ error }}{% endfor %}</p>
+			  		</div> 
+			  	</div>
+			  	
+			  	<div class="col-md-4">
+			  		<div class="form-group {% if form.nr_domu.errors %}has-error{% endif %}"">
+			    		<label for="nr_domu" class="control-label">{{ form.nr_domu.label }}</label>
+			    		<input type="text" class="form-control" id="nr_domu" name="nr_domu" value="{{ form.nr_domu.value|default:'' }}" aria-describedby="nr_domu-help">
+					   	<p id="nr_domu-help" class="help-block">{{ form.nr_domu.help_text|safe }}{% for error in form.nr_domu.errors %} {{ error }}{% endfor %}</p>
+			  		</div> 
+			  	</div>
+			  	
+			  	<div class="col-md-4">
+			  		<div class="form-group {% if form.nr_lokalu.errors %}has-error{% endif %}"">
+			    		<label for="nr_lokalu" class="control-label">{{ form.nr_lokalu.label }}</label>
+			    		<input type="text" class="form-control" id="nr_lokalu" name="nr_lokalu" value="{{ form.nr_lokalu.value|default:'' }}" aria-describedby="nr_lokalu-help">
+					   	<p id="nr_lokalu-help" class="help-block">{{ form.nr_lokalu.help_text|safe }}{% for error in form.nr_lokalu.errors %} {{ error }}{% endfor %}</p>
+			  		</div> 
+			  	</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-4">	  		
+			  		<div class="form-group {% if form.vat7.errors %}has-error{% endif %}"">
+			    		<label for="vat7" class="control-label">{{ form.vat7.label }}</label>
+
+						<select id="vat7" name="vat7" class="form-control">
+						{% for x, y in form.fields.vat7.choices %}
+    						<option value="{{ x }}"{% if form.vat7.value == x %} selected{% endif %}>{{ y }}</option>
+						{% endfor %}
+						</select>
+			    		
+			    		{# <input type="text" class="form-control" id="vat7" name="vat7" value="{{ form.vat7.value|default:'' }}" aria-describedby="vat7-help"> #}
+					   	<p id="vat7-help" class="help-block">{{ form.vat7.help_text|safe }}{% for error in form.vat7.errors %} {{ error }}{% endfor %}</p>
+			  		</div>
+			  	</div>
+			  	
+				<div class="col-md-8">
+			  		<div class="form-group {% if form.api_url.errors %}has-error{% endif %}"">
+			    		<label for="api_url" class="control-label">{{ form.api_url.label }}</label>
+			    		<input type="text" class="form-control" id="api_url" name="api_url" value="{{ form.api_url.value|default:'' }}" aria-describedby="api_url-help">
+					   	<p id="api_url-help" class="help-block">{{ form.api_url.help_text|safe }}{% for error in form.api_url.errors %} {{ error }}{% endfor %}</p>
+			  		</div> 
+			  	</div>
+			</div>
+			
+            <div class="row">
+                    <div class="col-md-12">
+                            <div class="form-group {% if form.api_auth.errors %}has-error{% endif %}">
+                            <label for="api_auth" class="control-label">{{ form.api_auth.label }}</label>
+                            <input type="text" class="form-control" id="api_auth" name="api_auth" value="{{ form.api_auth.value|default:'' }}" aria-describedby="api_auth-help">
+                                    <p id="api_auth-help" class="help-block">{{ form.api_auth.help_text|safe }}{% for error in form.api_auth.errors %} {{ error }}{% endfor %}</p>
+                            </div> 
+                    </div>
+            </div>
+
+			<input class="btn btn-default" type="submit" value="Zapisz">
+			<input class="btn btn-default cancel" type="button" value="Anuluj" data-url="{% url 'firmy' %}" >						
+		</form>
+	
+  	</div>
+</div>
+
+{% endblock %}

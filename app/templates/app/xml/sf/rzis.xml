@@ -1,0 +1,5 @@
+{% load utils %}
+
+<tns:RZiS>
+	{% include "app/xml/sf/pozycja.xml" with r=s.rzis %}
+</tns:RZiS>

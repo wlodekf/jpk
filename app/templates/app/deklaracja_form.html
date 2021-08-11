@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load utils %}
+<html lang="pl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="{% static 'css/deklaracja.css' %}" rel="stylesheet">
+    
+	{% block header %}{% endblock %}
+     
+    <title>Deklaracja VAT</title>
+</head>
+
+<body>
+  
+<form action="{% url 'deklaracja-form' jpk.id %}" id="foremka" method="POST" autocomplete="off">
+{% csrf_token %}
+
+<div class="jpk">
+
+<div class="tlo-formularza">
+<h1 class="nazwa" style="padding-top: 10px;">
+         DEKLARACJA DLA PODATKU OD TOWARÓW I USŁUG
+        </h1>
+<div class="okres">
+<span class="data"><span class="opisrubryki">Miesiąc&nbsp;&nbsp;</span>{{ jpk.od_msc2 }}</span><span class="data"><span class="opisrubryki">Rok&nbsp;&nbsp;</span>{{ jpk.od_rok }}</span>
+</div>
+</div>
+
+
+<h2 class="tytul-sekcja-blok">C.&nbsp;ROZLICZENIE PODATKU NALEŻNEGO</h2>
+
+<table class="normalna"><tbody>
+
+<tr>
+	<td class="niewypelnianeopisy" style="width:50%">
+		<b>Łączna wysokość podstawy opodatkowania - P_37.</b> Suma kwot z P_10, P_11, P_13, P_15, P_17, P_19, P_21, P_22, P_23, P_25, P_27, P_29, P_31<br><b>Łączna wysokość podatku należnego - P_38.</b> Suma kwot z P_16, P_18, P_20, P_24, P_26, P_28, P_30, P_32, P_33, P_34 pomniejszona o kwotę z P_35 i P_36
+	</td>
+	
+	<td class="wypelniane bezedycji" style="width:25%">
+		<div class="opisrubryki">P_37</div>
+		<div class="kwota">{{ dek.p_37.kwota|default:''|kwotac }}</div>
+	</td>
+	
+	<td class="wypelniane bezedycji" style="width:25%">
+		<div class="opisrubryki">P_38</div>
+		<div class="kwota">{{ dek.p_38.kwota|default:''|kwotac }}</div>
+	</td>
+</tr>
+
+</tbody>
+</table>
+
+
+
+
+
+
+<h2 class="tytul-sekcja-blok">D.&nbsp;ROZLICZENIE PODATKU NALICZONEGO</h2>
+
+<h3 class="tytul-sekcja-blok">D.1. PRZENIESIENIA</h3>
+
+<table class="normalna"><tbody>
+	<tr>
+		<td class="puste" style="width: 75%"></td>
+		<td class="niewypelniane" style="width:25%">Podatek do odliczenia w zł</td>
+	</tr>
+	
+	<tr>
+		<td class="niewypelnianeopisy">Wysokość nadwyżki podatku naliczonego nad należnym z poprzedniej deklaracji</td>
+		<td class="wypelniane">
+			<div class="opisrubryki">P_39</div>
+			<div class="kwota">
+				<input type="text" class="form-control" id="p_39" name="p_39" value="{{ form.p_39.value|default:''|kwotac }}" aria-describedby="p_39-help">
+			</div>
+		</td>
+	</tr>
+</tbody>
+</table>
+
+<h3 class="tytul-sekcja-blok">D.3. PODATEK NALICZONY - DO ODLICZENIA <span style="text-transform:lowercase">(w zł)</span></h3>
+
+<table class="normalna"><tbody>
+
+<tr>
+	<td class="niewypelnianeopisy" style="width: 75%">
+		<b>Łączna wysokość podatku naliczonego do odliczenia.</b> Suma kwot z P_39, P_41, P_43, P_44, P_45, P_46 i P_47
+	</td>
+	
+	<td class="wypelniane bezedycji">
+		<div class="opisrubryki">P_48</div>
+		<div class="kwota">{{ dek.p_48.kwota|default:''|kwotac }}</div>
+	</td>
+</tr>
+
+</tbody>
+</table>
+
+
+
+
+
+
+<h2 class="tytul-sekcja-blok">
+	E.&nbsp;OBLICZENIE WYSOKOŚCI ZOBOWIĄZANIA PODATKOWEGO LUB KWOTY ZWROTU <span style="text-transform:lowercase">(w zł)</span>
+</h2>
+
+
+
+<table class="normalna">
+<tbody>
+
+<tr>
+	<td class="niewypelnianeopisy" style="width: 75%">
+		Kwota wydana na zakup kas rejestrujących, do odliczenia w danym okresie rozliczeniowym pomniejszająca wysokość podatku należnego
+		{% for error in form.p_49.errors %}<br/><span class="error">{{ error }}</span>{% endfor %}
+	</td>
+	<td class="wypelniane" style="width:25%">
+		<div class="opisrubryki">P_49</div>
+		<div class="kwota">
+			<input type="text" class="form-control" id="p_49" name="p_49" value="{{ form.p_49.value|default:''|kwotac }}" aria-describedby="p_49-help">
+		</div>
+	</td>
+</tr>
+
+<tr>
+	<td class="niewypelnianeopisy" style="width: 75%">
+		Wysokość podatku objęta zaniechaniem poboru
+		{% for error in form.p_50.errors %}<br/><span class="error">{{ error }}</span>{% endfor %}
+	</td>
+	<td class="wypelniane" style="width:25%">
+		<div class="opisrubryki">P_50</div>
+		<div class="kwota">
+			<input type="text" class="form-control" id="p_50" name="p_50" value="{{ form.p_50.value|default:''|kwotac }}" aria-describedby="p_50-help">
+		</div>
+	</td>
+</tr>
+
+
+<tr>
+	<td class="niewypelnianeopisy" style="width: 75%">Wysokość podatku podlegająca wpłacie do urzędu skarbowego</td>
+	<td class="wypelniane bezedycji" style="width:25%">
+		<div class="opisrubryki">P_51</div>
+		<div class="kwota">
+			{{ dek.p_51.kwota|default:''|kwotac }}
+		</div>
+	</td>
+</tr>
+
+
+<tr>
+	<td class="niewypelnianeopisy" style="width: 75%">
+		Kwota wydana na zakup kas rejestrujących, do odliczenia w danym okresie rozliczeniowym przysługująca do zwrotu w danym okresie rozliczeniowym lub powiększająca wysokość podatku naliczonego do przeniesienia na następny okres rozliczeniowy
+	</td>
+	<td class="wypelniane" style="width:25%">
+		<div class="opisrubryki">P_52</div>
+		<div class="kwota">
+			<input type="text" class="form-control" id="p_52" name="p_52" value="{{ form.p_52.value|default:''|kwotac }}" aria-describedby="p_52-help">
+		</div>
+	</td>
+</tr>
+
+
+<tr>
+	<td class="niewypelnianeopisy" style="width: 75%">
+		Wysokość nadwyżki podatku naliczonego nad należnym
+	</td>
+	<td class="wypelniane bezedycji" style="width:25%">
+		<div class="opisrubryki">P_53</div>
+		<div class="kwota">
+			{{ dek.p_53.kwota|default:''|kwotac }}
+		</div>
+	</td>
+</tr>
+
+
+<tr>
+	<td class="niewypelnianeopisy" style="width: 75%">
+		Wysokość nadwyżki podatku naliczonego nad należnym do zwrotu na rachunek wskazany przez podatnika
+		{% for error in form.p_54.errors %}<br/><span class="error">{{ error }}</span>{% endfor %}
+	</td>
+	<td class="wypelniane" style="width:25%">
+		<div class="opisrubryki">P_54</div>
+		<div class="kwota">
+			<input type="text" class="form-control" id="p_54" name="p_54" value="{{ form.p_54.value|kwotac }}" aria-describedby="p_54-help">
+		</div>
+	</td>
+</tr>
+
+
+</tbody>
+</table>
+
+
+
+
+
+
+<table class="normalna"><tbody>
+
+<tr>
+	<td class="wypelniane" style="width:25%">
+		<div class="opisrubryki">P_55 Zwrot na rachunek VAT, o którym mowa w art. 87 ust. 6a ustawy</div>
+		<p style="text-align: center">
+			<input type="checkbox" id="p_55" name="p_55" {% if form.p_55.value %}checked{% endif %}> tak
+		</p>
+	</td>
+	
+	<td class="wypelniane" style="width:25%">
+		<div class="opisrubryki">P_56 Zwrot w terminie, o którym mowa w art. 87 ust. 6 ustawy</div>
+		<p style="text-align: center">
+		    <input type="checkbox" id="p_56" name="p_56" {% if form.p_56.value %}checked{% endif %}> tak
+		</p>
+	</td>
+	
+	<td class="wypelniane" style="width:25%">
+		<div class="opisrubryki">P_57 Zwrot w terminie, o którym mowa w art. 87 ust. 2 ustawy</div>
+		<p style="text-align: center">
+			<input type="checkbox" id="p_57" name="p_57" {% if form.p_57.value %}checked{% endif %}> tak
+		</p>
+	</td>
+
+	<td class="wypelniane" style="width:25%">
+		<div class="opisrubryki">P_58 Zwrot w terminie, o którym mowa w art. 87 ust. 5a zdanie pierwsze ustawy</div>
+		<p style="text-align: center">
+			<input type="checkbox" id="p_58" name="p_58" {% if form.p_58.value %}checked{% endif %}> tak
+		</p>
+	</td>
+</tr>
+
+</tbody>
+</table>
+
+
+
+
+
+
+<table class="normalna"><tbody>
+
+<tr>
+	<td class="niewypelnianeopisy" style="width: 75%">Zaliczenie zwrotu podatku na poczet przyszłych zobowiązań podatkowych</td>
+	<td class="wypelniane" style="width:25%">
+		<div class="opisrubryki">P_59</div>
+		<p style="text-align: center"></p>
+		<p style="text-align: center">
+			<input type="checkbox" id="p_59" name="p_59" {% if form.p_59.value %}checked{% endif %}> tak
+		</p>
+		<p></p>
+	</td>
+</tr>
+
+<tr>
+	<td class="niewypelnianeopisy" style="width: 75%">
+		Wysokość zwrotu do zaliczenia na poczet przyszłych zobowiązań podatkowych
+		{% for error in form.p_60.errors %}<br/><span class="error">{{ error }}</span>{% endfor %}
+	</td>
+	<td class="wypelniane" style="width:25%">
+		<div class="opisrubryki">P_60</div>
+		<div class="kwota">
+			<input type="text" class="form-control" id="p_60" name="p_60" value="{{ form.p_60.value|kwotac }}" aria-describedby="p_60-help">
+		</div>
+	</td>
+</tr>
+
+
+<tr>
+	<td class="niewypelnianeopisy" style="width: 75%">Rodzaj przyszłego zobowiązania podatkowego</td>
+	<td class="wypelniane" style="width:25%">
+		<div class="opisrubryki">P_61</div>
+		<div class="kwota">
+			<textarea id="p_61" name="p_61" rows="2">{{ form.p_61.value|default:'' }}</textarea>
+		</div>
+	</td>
+</tr>
+
+</tbody>
+</table>
+
+
+
+
+
+
+<table class="normalna">
+<tbody>
+
+<tr>
+	<td class="niewypelnianeopisy" style="width:75%">
+		Wysokość nadwyżki podatku naliczonego nad należnym do przeniesienia na następny okres rozliczeniowy
+	</td>
+	<td class="wypelniane bezedycji" style="width:25%">
+		<div class="opisrubryki">P_62</div>
+		<div class="kwota">
+			{{ dek.p_62.kwota|kwotac }}
+		</div>
+	</td>
+</tr>
+
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+<h2 class="tytul-sekcja-blok">F.&nbsp;INFORMACJE DODATKOWE</h2>
+
+
+
+
+
+<table class="normalna">
+<tbody>
+
+<tr>
+	<td class="niewypelnianeopisy" style="width: 20%">
+		Podatnik wykonywał w okresie rozliczeniowym czynności, o których mowa w:
+	</td>
+	
+	<td class="wypelniane" style="width: 20%">
+		<div class="opisrubryki">P_63</div>
+		<input type="checkbox" id="p_63" name="p_63" {% if form.p_63.value %}checked{% endif %}>art. 119 ustawy
+    </td>
+    
+	<td class="wypelniane" style="width: 22%">
+		<div class="opisrubryki">P_64</div>
+		<input type="checkbox" id="p_64" name="p_64" {% if form.p_64.value %}checked{% endif %}>art. 120 ust. 4 lub 5 ustawy
+    </td>
+    
+	<td class="wypelniane" style="width: 20%">
+		<div class="opisrubryki">P_65</div>
+		<input type="checkbox" id="p_65" name="p_65" {% if form.p_65.value %}checked{% endif %}>art. 122 ustawy
+    </td>
+    
+	<td class="wypelniane" style="width: 20%">
+		<div class="opisrubryki">P_66</div>
+		<input type="checkbox" id="p_66" name="p_66" {% if form.p_66.value %}checked{% endif %}>art. 136 ustawy
+    </td>
+</tr>
+
+</tbody>
+</table>
+
+
+
+
+
+
+
+<table class="normalna">
+<tbody>
+
+<tr>
+	<td class="wypelniane">
+		<div class="opisrubryki">P_67 Podatnik korzysta z obniżenia zobowiązania podatkowego, o którym mowa w art. 108d ustawy</div>
+		<p style="text-align: center">
+			<input type="checkbox" class="form-check-input" id="p_67" name="p_67" {% if form.p_67.value %}checked{% endif %}> tak
+        </p>
+	</td>
+	
+	<td class="wypelniane">
+		<div class="opisrubryki">P_68 Wysokość korekty podstawy opodatkowania, o której mowa w art. 89a ust. 1 ustawy</div>
+		<div class="kwota">
+			<input type="text" class="form-control" id="p_68" name="p_68" value="{{ form.p_68.value|kwotac }}" aria-describedby="p_68-help">
+		</div>
+	</td>
+	
+	<td class="wypelniane">
+		<div class="opisrubryki">P_69 Wysokość korekty podatku należnego, o której mowa w art. 89a ust. 1 ustawy</div>
+		<div class="kwota">
+			<input type="text" class="form-control" id="p_69" name="p_69" value="{{ form.p_69.value|kwotac }}" aria-describedby="p_69-help">
+		</div>
+	</td>
+</tr>
+
+<tr>
+	<td class="wypelniane" colspan="3">
+		<div class="opisrubryki">P_ORDZU Uzasadnienie przyczyn złożenia korekty</div>
+			<textarea class="form-control" id="p_70" name="p_70" rows="3" style="width: 99%;">{{ form.p_70.value|default:'' }}</textarea>
+	</td>
+</tr>
+
+</tbody>
+</table>
+
+
+
+</div>
+
+</form>
+
+</body>
+
+</html>

@@ -1,0 +1,7 @@
+{% load utils %}
+
+{% if s.przeplywy %}
+<tns:RachPrzeplywow>
+	{% include "app/xml/sf/pozycja.xml" with r=s.przeplywy %}
+</tns:RachPrzeplywow>
+{% endif %}

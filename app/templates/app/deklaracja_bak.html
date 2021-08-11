@@ -1,0 +1,447 @@
+{% extends "app/page.html" %}
+{% load utils %}
+
+{% block header %}
+
+<style>
+
+td.dek-opis {
+	width: 75%;
+}
+
+td.dek-kwota {
+	width: 25%;
+}
+
+tr td hr {
+	border-top: 1px solid #ffffff;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+td.dek-kwota span {
+	position: relative;
+	left: 5px;
+	font-size: 10px;
+	z-index: 1000;
+	vertical-align: top;
+}
+
+td.dek-kwota input {
+	display: inline;
+	width: 170px;
+	text-align: right;
+	border: 0;
+	font-size: 16px;
+  	box-shadow: none;
+}
+
+td.dek-kwota.disabled {
+	background-color: #f0f0ff;
+}
+
+td.dek-kwota input[disabled] { 
+	background-color: #f0f0ff;
+}
+
+td.dek-opis {
+	vertical-align: middle;
+	padding-left: 5px;
+	background-color: #f0f0f0;
+	line-height: 14px;
+}
+
+td {
+	border: 1px solid #e0e0e0;
+}
+
+td.dek-numer {
+	width: 1px;
+}
+
+td.dek-numer span {
+	position: relative;
+	left: -50px;
+}
+
+div.panel-heading {
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: bold;
+	padding: 5px 10px;
+}
+
+table.deklaracja label {
+	font-weight: normal;
+}
+
+span.error {
+	font-weight: bold;
+	color: red;
+}
+</style>
+
+{% endblock %}
+
+{% block test %}
+  	
+<form action="{% url 'deklaracja-edit' jpk.id %}" method="POST" autocomplete="off">
+{% csrf_token %}
+		
+{% if form.non_field_errors %}		 		
+	<p class="" style="color: red;">{% for error in form.non_field_errors %}{{ error }}{% endfor %}</p>
+{% endif %}
+
+<div class="panel panel-default" style="width: 800px;">
+
+	<div class="panel-heading">
+		C. Rozliczenie podatku należnego
+	</div>
+	
+  	<div class="panel-body" style="font-size: 13px;">
+
+		<table style="width: 100%;" class="deklaracja">
+
+			<tr>
+				<td class="dek-opis">
+					{{ dek.p_38.nazwa|safe }}
+				</td>
+				<td class="dek-kwota disabled">
+			    	<span>{{ dek.p_38.numer }}.</span>
+			    	<input type="text" class="form-control" id="p_38" name="p_38" disabled value="{{ dek.p_38.kwota|default:''|kwotac }}" aria-describedby="p_38-help">
+				</td>
+			</tr>
+			
+		</table>
+	</div>
+</div>
+
+<div class="panel panel-default" style="width: 800px;">
+
+	<div class="panel-heading">
+		D. Rozliczenie podatku naliczonego
+	</div>
+	
+  	<div class="panel-body" style="font-size: 13px;">
+
+		<table style="width: 100%;" class="deklaracja">
+
+			<tr>
+				<td class="dek-opis">
+					{{ dek.p_48.nazwa|safe }}
+				</td>
+				<td class="dek-kwota disabled">
+			    	<span>{{ dek.p_48.numer }}.</span>
+			    	<input type="text" class="form-control" id="p_48" name="p_48" disabled value="{{ dek.p_48.kwota|default:''|kwotac }}" aria-describedby="p_48-help">
+				</td>
+			</tr>
+		
+		</table>
+	</div>
+</div>
+			
+			
+<div class="panel panel-default" style="width: 800px;">
+
+	<div class="panel-heading">
+		E. Obliczenie wysokości zobowiązania podatkowego
+	</div>
+	
+  	<div class="panel-body" style="font-size: 13px;">
+  	
+		<form action="{% url 'deklaracja-edit' jpk.id %}" method="POST" autocomplete="off">
+		{% csrf_token %}
+		
+			{% if form.non_field_errors %}		 		
+				<p class="" style="color: red;">{% for error in form.non_field_errors %}{{ error }}{% endfor %}</p>
+			{% endif %}
+
+			<table style="width: 100%;" class="deklaracja">
+
+			<tr>
+				<td class="dek-opis">
+					{{ form.p_49.help_text|safe }}
+					{% for error in form.p_49.errors %}<br/><span class="error">{{ error }}</span>{% endfor %}
+				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_49.label }}</span>
+			    	<input type="text" class="form-control" id="p_49" name="p_49" value="{{ form.p_49.value|default:''|kwotac }}" aria-describedby="p_49-help">
+				</td>
+				
+			</tr>
+			
+			<tr>
+				<td class="dek-opis">
+					{{ form.p_50.help_text|safe }}
+					{% for error in form.p_50.errors %}<br/><span class="error">{{ error }}</span>{% endfor %}
+				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_50.label }}</span>
+			    	<input type="text" class="form-control" id="p_50" name="p_50" value="{{ form.p_50.value|default:''|kwotac }}" aria-describedby="p_50-help">
+				</td>
+			</tr>
+
+			<tr>
+				<td class="dek-opis">
+					{{ dek.p_51.nazwa|safe }}
+				</td>
+				<td class="dek-kwota disabled">
+			    	<span>{{ dek.p_51.numer }}.</span>
+			    	<input type="text" class="form-control" id="p_51" name="p_51" disabled value="{{ dek.p_51.kwota|default:''|kwotac }}" aria-describedby="p_51-help">
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="dek-opis">
+					{{ form.p_52.help_text|safe }}
+				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_52.label }}</span>
+			    	<input type="text" class="form-control" id="p_52" name="p_52" value="{{ form.p_52.value|default:''|kwotac }}" aria-describedby="p_52-help">
+				</td>
+			</tr>
+
+			<tr>
+				<td class="dek-opis">
+					{{ dek.p_53.nazwa|safe }}
+				</td>
+				<td class="dek-kwota disabled">
+			    	<span>{{ dek.p_53.numer }}.</span>
+			    	<input type="text" class="form-control" id="p_53" name="p_53" disabled value="{{ dek.p_53.kwota|default:''|kwotac }}" aria-describedby="p_53-help">
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="dek-opis">
+					{{ form.p_54.help_text|safe }}
+					{% for error in form.p_54.errors %}<br/><span class="error">{{ error }}</span>{% endfor %}
+				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_54.label }}</span>
+			    	<input type="text" class="form-control" id="p_54" name="p_54" value="{{ form.p_54.value|kwotac }}" aria-describedby="p_54-help">
+				</td>
+			</tr>
+			
+			
+			
+
+			
+			<tr class="spacer"><td colspan="2"><hr></td></tr>
+									
+			<tr>
+				<td class="dek-opis">
+					<label for="p_55">
+						{{ form.p_55.help_text|safe }}
+  					</label>
+				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_55.label }}</span>
+			    	<input type="checkbox" class="form-check-input" id="p_55" name="p_55" {% if form.p_55.value %}checked{% endif %}>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="dek-opis">
+					<label for="p_56">
+						{{ form.p_56.help_text|safe }}
+  					</label>
+  				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_56.label }}</span>
+			    	<input type="checkbox" class="form-check-input" id="p_56" name="p_56" {% if form.p_56.value %}checked{% endif %}>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="dek-opis">
+					<label for="p_57">
+						{{ form.p_57.help_text|safe }}
+  					</label>
+				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_57.label }}</span>
+			    	<input type="checkbox" class="form-check-input" id="p_57" name="p_57" {% if form.p_57.value %}checked{% endif %}>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="dek-opis">
+					<label for="p_58">
+						{{ form.p_58.help_text|safe }}
+  					</label>
+				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_58.label }}</span>
+			    	<input type="checkbox" class="form-check-input" id="p_58" name="p_58" {% if form.p_58.value %}checked{% endif %}>
+				</td>
+			</tr>
+
+
+
+
+			
+			<tr class="spacer"><td colspan="2"><hr></td></tr>
+			
+			<tr>
+				<td class="dek-opis">
+					<label for="p_59">
+						{{ form.p_59.help_text|safe }}
+  					</label>
+				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_59.label }}</span>
+			    	<input type="checkbox" class="form-check-input" id="p_59" name="p_59" {% if form.p_59.value %}checked{% endif %}>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="dek-opis">
+					{{ form.p_60.help_text|safe }}
+					{% for error in form.p_60.errors %}<br/><span class="error">{{ error }}</span>{% endfor %}
+				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_60.label }}</span>
+			    	<input type="text" class="form-control" id="p_60" name="p_60" value="{{ form.p_60.value|kwotac }}" aria-describedby="p_60-help">
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="dek-opis" colspan="2">
+					<div class="form-group">
+  						<label for="p_61">{{ form.p_61.help_text|safe }}</label>
+  						<textarea class="form-control" id="p_61" name="p_61" rows="2">{{ form.p_61.value|default:'' }}</textarea>
+					</div>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="dek-opis">
+					{{ dek.p_62.nazwa|safe }}
+				</td>
+				<td class="dek-kwota disabled">
+			    	<span>{{ dek.p_62.numer }}.</span>
+			    	<input type="text" class="form-control" id="p_62" name="p_62" disabled value="{{ dek.p_62.kwota|kwotac }}" aria-describedby="p_62-help">
+				</td>
+			</tr>
+			
+			<tr class="spacer"><td colspan="2"><hr></td></tr>
+			
+			<tr>
+				<td class="dek-opis">
+					<label for="p_63">
+						{{ form.p_63.help_text|safe }}
+  					</label>
+				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_63.label }}</span>
+			    	<input type="checkbox" class="form-check-input" id="p_63" name="p_63" {% if form.p_63.value %}checked{% endif %}>
+				</td>
+			</tr>
+
+			<tr>
+				<td class="dek-opis">
+					<label for="p_64">
+						{{ form.p_64.help_text|safe }}
+  					</label>
+  				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_64.label }}</span>
+			    	<input type="checkbox" class="form-check-input" id="p_64" name="p_64" {% if form.p_64.value %}checked{% endif %}>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="dek-opis">
+					<label for="p_65">
+						{{ form.p_65.help_text|safe }}
+  					</label>
+				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_65.label }}</span>
+			    	<input type="checkbox" class="form-check-input" id="p_65" name="p_65" {% if form.p_65.value %}checked{% endif %}>
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="dek-opis">
+					<label for="p_66">
+						{{ form.p_66.help_text|safe }}
+  					</label>
+				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_66.label }}</span>
+			    	<input type="checkbox" class="form-check-input" id="p_66" name="p_66" {% if form.p_66.value %}checked{% endif %}>
+				</td>
+			</tr>
+			
+			<tr class="spacer"><td colspan="2"><hr></td></tr>
+						
+			<tr>
+				<td class="dek-opis">
+					<label for="p_67">
+						{{ form.p_67.help_text|safe }}
+  					</label>
+				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_67.label }}</span>
+			    	<input type="checkbox" class="form-check-input" id="p_67" name="p_67" {% if form.p_67.value %}checked{% endif %}>
+				</td>
+			</tr>
+	
+			<tr>
+				<td class="dek-opis">
+					{{ form.p_68.help_text|safe }}
+				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_68.label }}</span>
+			    	<input type="text" class="form-control" id="p_68" name="p_68" value="{{ form.p_68.value|kwotac }}" aria-describedby="p_68-help">
+				</td>
+			</tr>
+			
+			<tr>
+				<td class="dek-opis">
+					{{ form.p_69.help_text|safe }}
+				</td>
+				<td class="dek-kwota">
+			    	<span>{{ form.p_69.label }}</span>
+			    	<input type="text" class="form-control" id="p_69" name="p_69" value="{{ form.p_69.value|kwotac }}" aria-describedby="p_69-help">
+				</td>
+			</tr>
+
+			<tr>
+				<td class="dek-opis" colspan="2">
+					<div class="form-group">
+  						<label for="p_70">{{ form.p_70.help_text|safe }}</label>
+  						<textarea class="form-control" id="p_70" name="p_70" rows="2">{{ form.p_70.value|default:'' }}</textarea>
+					</div>
+				</td>
+			</tr>
+			
+	  		</table>
+	  		 
+			<input class="btn btn-default" type="submit" value="Zapisz">
+			<input class="btn btn-default cancel" type="button" value="Anuluj" data-url="{% url 'firmy' %}" >						
+		</form>
+	
+  	</div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<iframe id="frame" src="http://localhost:8080/jpk/deklaracja/1545/" style="width: 100%; border: none; height: 900px;">
+</iframe>
+
+Ala ma kota
+
+<input class="btn btn-default" type="submit" id="sub2" value="Zapisz">
+<input class="btn btn-default cancel" type="button" value="Anuluj" data-url="{% url 'firmy' %}" >		
+
+<script>
+	$('#sub2').click(function() {
+        $("#frame").contents().find('#foremka').submit();
+    });
+</script>
+
+{% endblock %}

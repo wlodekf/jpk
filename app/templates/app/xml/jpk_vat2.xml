@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JPK 
+xmlns="http://jpk.mf.gov.pl/wzor/2016/10/26/10261/" 
+xmlns:etd="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2016/01/25/eD/DefinicjeTypy/">
+
+{% include "app/xml/naglowek2.xml" with formularz="JPK_VAT" %}
+
+{% include "app/xml/podmiot2.xml" %}
+
+{% include "app/xml/vat/sprzedaz2.xml" %}
+
+{% include "app/xml/vat/zakup2.xml" %}
+
+</JPK>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JPK 
+xmlns="http://jpk.mf.gov.pl/wzor/2016/03/09/03094/" 
+xmlns:etd="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2016/01/25/eD/DefinicjeTypy/">
+
+<Naglowek>
+	<KodFormularza kodSystemowy="JPK_VAT (1)" wersjaSchemy="1-0">JPK_VAT</KodFormularza>
+	<WariantFormularza>1</WariantFormularza>
+	<CelZlozenia>1</CelZlozenia>
+	<DataWytworzeniaJPK>2016-10-05T17:24:29</DataWytworzeniaJPK>
+	<DataOd>2016-07-01</DataOd>
+	<DataDo>2016-07-31</DataDo>
+	<DomyslnyKodWaluty>PLN</DomyslnyKodWaluty>
+	<KodUrzedu>2471</KodUrzedu>
+</Naglowek>
+
+
+<Podmiot1>
+
+<IdentyfikatorPodmiotu>
+	<etd:NIP>6340126016</etd:NIP>
+	<etd:PelnaNazwa>Główny Instytut Górnictwa</etd:PelnaNazwa>
+	<etd:REGON>000023461</etd:REGON>
+</IdentyfikatorPodmiotu>
+
+<AdresPodmiotu>
+	<etd:KodKraju>PL</etd:KodKraju>
+	<etd:Wojewodztwo>śląskie</etd:Wojewodztwo>
+	<etd:Powiat>m. Katowice</etd:Powiat>
+	<etd:Gmina>m. Katowice</etd:Gmina>
+	<etd:Ulica>Plac Gwarków</etd:Ulica>
+	<etd:NrDomu>1</etd:NrDomu>
+	
+	<etd:Miejscowosc>Katowice</etd:Miejscowosc>
+	<etd:KodPocztowy>40-166</etd:KodPocztowy>
+	<etd:Poczta>Katowice</etd:Poczta>
+</AdresPodmiotu>
+
+</Podmiot1>
+
+
+
+
+
+<SprzedazCtrl>
+	<LiczbaWierszySprzedazy>0</LiczbaWierszySprzedazy>
+	<PodatekNalezny>0.00</PodatekNalezny>
+</SprzedazCtrl>
+
+
+
+
+
+<ZakupCtrl>
+	<LiczbaWierszyZakupow>0</LiczbaWierszyZakupow>
+	<PodatekNaliczony>0.00</PodatekNaliczony>
+</ZakupCtrl>
+
+
+</JPK>

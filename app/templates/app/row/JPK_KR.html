@@ -1,0 +1,32 @@
+{% load utils %}
+
+<table class="table table-condensed jpk-ctrl-table">
+	<thead>
+		<tr>
+			<th>Tabela</th>
+			<th class="r">Pozycje</th>
+			<th class="r">Sumy kontrolne WN</th>
+			<th class="r">Sumy kontrolne MA</th>				
+		</tr>
+	</thead>
+	
+	<tr>	
+		<td><a href="{% url 'jpk-arkusz' plik.id 'zois' %}">ZOiS</a></td>
+		<td class="r">#{{plik.zois_ctrl.wiersze|liczba_pl}}</td>
+		<td class="r">{{plik.zois_ctrl.suma1|kwota_pl}}</td>
+		<td class="r">{{plik.zois_ctrl.suma2|kwota_pl}}</td>
+	</tr>
+	
+	<tr>			
+		<td><a href="{% url 'jpk-arkusz' plik.id 'dziennik' %}">Dziennik</a></td> 
+		<td class="r">#{{plik.dziennik_ctrl.wiersze|liczba_pl}}</td>
+		<td class="r">{{plik.dziennik_ctrl.suma1|kwota_pl}}</td>
+	</tr>
+
+	<tr>	
+		<td><a href="{% url 'jpk-arkusz' plik.id 'konto_zapis' %}">KontoZapis</a></td>
+		<td class="r">#{{plik.konto_zapis_ctrl.wiersze|liczba_pl}}</td>
+		<td class="r">{{plik.konto_zapis_ctrl.suma1|kwota_pl}}</td>
+		<td class="r">{{plik.konto_zapis_ctrl.suma2|kwota_pl}}</td>
+	</tr>
+</table>

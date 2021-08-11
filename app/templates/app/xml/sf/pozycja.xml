@@ -1,0 +1,25 @@
+{% load utils %}
+
+{% if r.element %}
+<jin:{{r.element}}>
+{% endif %}
+	{% if r.uszczegolawiajaca %}
+		<!-- {{r.el }} -->
+		<dtsf:NazwaPozycji>{{r.nazwa}}</dtsf:NazwaPozycji>
+		<dtsf:KwotyPozycji>
+			<dtsf:KwotaA>{{r.kwota_a|tkwotowy}}</dtsf:KwotaA>
+			<dtsf:KwotaB>{{r.kwota_b|tkwotowy}}</dtsf:KwotaB>
+		</dtsf:KwotyPozycji>
+	{% else %}
+		{% if r.kwoty %}
+			<dtsf:KwotaA>{{r.kwota_a|tkwotowy}}</dtsf:KwotaA>
+			<dtsf:KwotaB>{{r.kwota_b|tkwotowy}}</dtsf:KwotaB>
+		{% endif %}
+	{% endif %}
+	
+	{% for poz in r.pozycje %}
+		{% include "app/xml/sf/pozycja.xml" with r=r.raport|element:poz.el %}
+	{% endfor %}
+{% if r.element %}
+</jin:{{r.element}}>
+{% endif %}

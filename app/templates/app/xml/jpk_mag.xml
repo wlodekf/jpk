@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JPK 
+xmlns="http://jpk.mf.gov.pl/wzor/2016/03/09/03093/" 
+xmlns:etd="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2016/01/25/eD/DefinicjeTypy/">
+
+{% include "app/xml/naglowek.xml" with formularz="JPK_MAG" %}
+
+{% include "app/xml/podmiot.xml" %}
+
+<Magazyn>{{jpk.magazyn}}</Magazyn>
+
+{% include "app/xml/mag/pz.xml" %}
+{% include "app/xml/mag/wz.xml" %}
+{% include "app/xml/mag/rw.xml" %}
+{% include "app/xml/mag/mm.xml" %}
+
+</JPK>

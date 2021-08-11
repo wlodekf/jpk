@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JPK 
+xmlns="http://jpk.mf.gov.pl/wzor/2019/03/21/03211/"
+xmlns:etd="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2018/08/24/eD/DefinicjeTypy/">
+
+{% include "app/xml/naglowek2.xml" with formularz="JPK_FA" %}
+
+{% include "app/xml/podmiot.xml" %}
+
+{% include "app/xml/fa/faktura.xml" %}
+
+{% include "app/xml/fa/wiersz.xml" %}
+
+</JPK>

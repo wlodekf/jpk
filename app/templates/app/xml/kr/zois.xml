@@ -1,0 +1,27 @@
+{% load utils %}
+{% for konto in zois.generator %}
+<ZOiS typ="G">
+	<KodKonta>{{konto.kod_konta.strip|tznakowy}}</KodKonta>
+	<OpisKonta>{{konto.nazwa_a.strip|tznakowy}}</OpisKonta>
+	
+	<TypKonta>{{konto.typ_konta|tznakowy}}</TypKonta>
+	
+	<KodZespolu>{{konto.kod_zespolu|tznakowy}}</KodZespolu>
+	<OpisZespolu>{{konto.opis_zespolu.strip|tznakowy}}</OpisZespolu>
+	
+	<KodKategorii>{{konto.kod_kategorii.strip|tznakowy}}</KodKategorii>
+	<OpisKategorii>{{konto.opis_kategorii.strip|tznakowy}}</OpisKategorii>
+	
+	<BilansOtwarciaWinien>{{konto.wn_0|tkwotowy}}</BilansOtwarciaWinien>
+	<BilansOtwarciaMa>{{konto.ma_0|tkwotowy}}</BilansOtwarciaMa>
+	
+	<ObrotyWinien>{{konto.obroty_wn|tkwotowy}}</ObrotyWinien>
+	<ObrotyMa>{{konto.obroty_ma|tkwotowy}}</ObrotyMa>
+	
+	<ObrotyWinienNarast>{{konto.narasta_wn|tkwotowy}}</ObrotyWinienNarast>
+	<ObrotyMaNarast>{{konto.narasta_ma|tkwotowy}}</ObrotyMaNarast>
+	
+	<SaldoWinien>{{konto.saldo_wn|tkwotowy}}</SaldoWinien>
+	<SaldoMa>{{konto.saldo_ma|tkwotowy}}</SaldoMa>
+</ZOiS>
+{% endfor %}

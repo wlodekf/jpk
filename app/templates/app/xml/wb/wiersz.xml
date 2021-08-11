@@ -1,0 +1,17 @@
+{% load utils %}
+{% for w in wyciag.generator %}
+<WyciagWiersz typ="G">
+	<NumerWiersza>{{w.lp}}</NumerWiersza>
+	<DataOperacji>{{w.data|date:'Y-m-d'}}</DataOperacji>
+	<NazwaPodmiotu>{{w.podmiot|tznakowy}}</NazwaPodmiotu>
+	<OpisOperacji>{{w.opis|tznakowy}}</OpisOperacji>
+	<KwotaOperacji>{{w.kwota|tkwotowy}}</KwotaOperacji>
+	<SaldoOperacji>{{w.saldo|tkwotowy}}</SaldoOperacji>
+</WyciagWiersz>
+{% endfor %}
+
+<WyciagCtrl>
+	<LiczbaWierszy>{{wyciag.lp}}</LiczbaWierszy>
+	<SumaObciazen>{{wyciag.suma1|tkwotowy}}</SumaObciazen>
+	<SumaUznan>{{wyciag.suma2|tkwotowy}}</SumaUznan>	
+</WyciagCtrl>

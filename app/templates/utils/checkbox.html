@@ -1,0 +1,34 @@
+<style type="text/css">
+
+form label.cb_lab {
+	display: inline;
+	float: none;
+	font-weight: normal;
+	margin: 0;
+	padding: 0;
+	border: none;
+	
+	padding-top: 5px;
+	margin-right: 20px;
+	width: 100px;
+}
+
+form label.cb_lab input[type="checkbox"] {
+	margin-top: 0px;
+}
+
+div.cb {
+	width: 100%;
+}
+
+</style>
+
+<div class="pole{% if field.errors %} error{% endif %}" {% if field.field.odstep %}style="margin-top: 10px;"{% endif %}>
+    <div class="a cb"> 
+		<label>{{ field.label }}</label>
+		<div style="padding-top: 5px;">
+			<label for="{{f.id}}" class="cb_lab">{{ field }} {{ field.help_text }}</label>
+		</div>
+    </div>
+    {{ field.errors }}
+</div>

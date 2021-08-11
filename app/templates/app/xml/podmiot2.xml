@@ -1,0 +1,22 @@
+<Podmiot1>
+
+<IdentyfikatorPodmiotu>
+	<etd:NIP>{{podmiot.nip}}</etd:NIP>
+	<etd:PelnaNazwa>{{podmiot.nazwa}}</etd:PelnaNazwa>
+	<etd:REGON>{{podmiot.regon}}</etd:REGON>
+</IdentyfikatorPodmiotu>
+
+<AdresPodmiotu>
+	<KodKraju>PL</KodKraju>
+	<Wojewodztwo>{{podmiot.wojewodztwo}}</Wojewodztwo>
+	<Powiat>{{podmiot.powiat}}</Powiat>
+	<Gmina>{{podmiot.gmina}}</Gmina>
+	<Ulica>{{podmiot.ulica}}</Ulica>
+	<NrDomu>{{podmiot.nr_domu}}</NrDomu>
+	{% if podmiot.nr_lokalu %}<NrLokalu>{{podmiot.nr_lokalu}}</NrLokalu>{% endif %}
+	<Miejscowosc>{{podmiot.miejscowosc}}</Miejscowosc>
+	<KodPocztowy>{{podmiot.kod_pocztowy}}</KodPocztowy>
+	<Poczta>{{podmiot.poczta}}</Poczta>
+</AdresPodmiotu>
+
+</Podmiot1>

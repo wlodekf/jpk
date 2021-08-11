@@ -1,0 +1,6 @@
+{% load utils %}
+
+<tns:DodatkoweInformacjeIObjasnieniaJednstkaInna>
+	{% include "app/xml/sf/zalaczniki.xml" %}
+	{% include "app/xml/sf/podatek.xml" %}
+</tns:DodatkoweInformacjeIObjasnieniaJednstkaInna>

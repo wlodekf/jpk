@@ -1,0 +1,13 @@
+STATIC_DIR=~/projects/django/jpk/app/static
+
+npm run build
+
+PWD=`pwd`
+
+cd build
+cp sf.css $STATIC_DIR/css
+
+cd static/bundle/sf
+cp *chunk.js runtime*.js $STATIC_DIR/bundle/sf
+
+cd $PWD

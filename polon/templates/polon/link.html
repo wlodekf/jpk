@@ -1,0 +1,20 @@
+{% extends "polon/page.html" %}
+
+{% block content %}
+
+<p style="margin-bottom: 20px;">
+Pod poniższym linkiem znajduje się ostatnio wygenerowane archiwum z fakturami w formacie PDF<br/>
+<a href="{% url 'polon-link-zip' job.id hh %}">Plik z fakturami</a> (rozmiar: {{size}}, liczba plików: {{job.ile_plikow}}, liczba_faktur: {{job.ile_faktur}})
+</p>
+
+<p style="margin-bottom: 20px;">
+Stąd można pobrać raport kontrolny z generowania faktur.<br/>
+<a href="{% url 'polon-link-xls' job.id hh %}">Raport kontrolny</a>
+</p>
+
+<p>
+Jeżeli plik został już pobrany i zapisany lokalnie, to aby usunąć go z serwera kliknij poniższy link</br>
+<a href="{% url 'polon-link-usun' job.id hh %}">Usuń plik z fakturami z serwera</a> 
+</p>
+
+{% endblock %}

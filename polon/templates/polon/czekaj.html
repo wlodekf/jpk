@@ -1,0 +1,43 @@
+{% extends "polon/page.html" %}
+
+{% block content %}
+
+  	<div class="progress">
+  		<div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="{{prog}}" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: {{prog}}%;">
+    		{{prog}}% 
+  		</div>
+  		&nbsp;<span id="pozycja" style="font-size: 12px;"></span>
+	</div>
+	
+  	<p id="progress-msg"></p>
+  	  	
+  	<p class="">W przypadku generowania większej ilości faktur co może potrwać dłuższą chwilę, można zamknąć przeglądarkę i powrócić tutaj później aby odebrać wygenerowane pliki (zamknięcie przeglądarki nie przerywa procesu generowania plików).</p>	
+
+<script>
+$(function() {
+function doPoll() {
+	$.getJSON("{% url 'polon-status' job.id %}", function(data) {
+	    	console.log(data);
+	    	
+	    	$('#progress-bar').attr('aria-valuenow', data.prog);
+			$('#progress-bar').css('width', data.prog+'%'); 
+	    	$('#progress-bar').html(data.prog+'%');
+	    	$('#progress-msg').html(data.info);
+	    	$('#pozycja').html(data.pozycja);
+	    		    
+      		if(data.info.startsWith("ZIP")) {
+      			setTimeout(function() {
+      				window.location= "{% url 'polon-link' job.id hh %}";
+      			}, 1000);
+      		}
+      	    else
+	    		setTimeout(doPoll,500);			
+		} 
+	);
+}
+
+doPoll();
+});
+</script>
+
+{% endblock %}

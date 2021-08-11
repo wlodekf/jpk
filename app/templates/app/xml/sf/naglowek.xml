@@ -1,0 +1,9 @@
+{% load utils %}
+
+<tns:Naglowek>
+   <dtsf:OkresOd>{{jpk.dataod|date:"Y-m-d"}}</dtsf:OkresOd>
+   <dtsf:OkresDo>{{jpk.datado|date:"Y-m-d"}}</dtsf:OkresDo>
+   <dtsf:DataSporzadzenia>{{s.p0_data_sporzadzenia|date:"Y-m-d"}}</dtsf:DataSporzadzenia>
+   <jin:KodSprawozdania kodSystemowy="SFJINZ (1)" wersjaSchemy="1-0E">SprFinJednostkaInnaWZlotych</jin:KodSprawozdania>
+   <jin:WariantSprawozdania>1</jin:WariantSprawozdania>
+</tns:Naglowek>

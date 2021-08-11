@@ -1,0 +1,11 @@
+{% load utils %}
+
+{% for zal in s.zalaczniki %}
+	<tns:DodatkoweInformacjeIObjasnienia>
+		<dtsf:Opis>{{zal.opis}}</dtsf:Opis>
+		<dtsf:Plik><!--{{zal.id}}-->
+			<dtsf:Nazwa>{{zal.nazwa}}</dtsf:Nazwa>
+			<dtsf:Zawartosc>{{zal.zawartosc_encode}}</dtsf:Zawartosc>
+		</dtsf:Plik>
+	</tns:DodatkoweInformacjeIObjasnienia>
+{% endfor %}

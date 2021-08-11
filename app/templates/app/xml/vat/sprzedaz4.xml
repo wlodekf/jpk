@@ -1,0 +1,58 @@
+{% load utils %}
+{% for e in sprzedaz.generator %}
+<pf:SprzedazWiersz>
+	<pf:LpSprzedazy>{{e.lp}}</pf:LpSprzedazy>
+	{% if e.kraj_tin %}
+	<pf:KodKrajuNadaniaTIN>{{e.kraj_tin|tznakowy_brak}}</pf:KodKrajuNadaniaTIN>	
+	{% endif %}
+	<pf:NrKontrahenta>{{e.nip_kon4.strip|do1spacji|tznakowy_brak}}</pf:NrKontrahenta>
+	<pf:NazwaKontrahenta>{{e.nazwa_kon.strip|do1spacji|tznakowy_brak}}</pf:NazwaKontrahenta>	
+	
+	<pf:DowodSprzedazy>{{e.nr_dokumentu.strip|tznakowy_brak}}<!--{{e.pod_rejestr}}--></pf:DowodSprzedazy>
+	<pf:DataWystawienia>{{e.data_wystawienia|date:'Y-m-d'}}</pf:DataWystawienia>
+ 	{% if e.data_sprzedazy %}<pf:DataSprzedazy>{{e.data_sprzedazy|date:'Y-m-d'}}</pf:DataSprzedazy>{% endif %}
+ 	{% if e.typ_dokumentu %}<pf:TypDokumentu>{{e.typ_dokumentu}}</pf:TypDokumentu>{% endif %}
+	
+	{% for element in e.gtu_proc_elementy %}
+		<pf:{{element}}>1</pf:{{element}}>
+	{% endfor %}
+	
+	{% spaceless %}	
+	
+	{% if e.k_10 %}<pf:K_10>{{e.k_10|tkwotowy}}</pf:K_10>{% endif %}
+	{% if e.k_11 %}<pf:K_11>{{e.k_11|tkwotowy}}</pf:K_11>{% endif %}
+	{% if e.k_12 %}<pf:K_12>{{e.k_12|tkwotowy}}</pf:K_12>{% endif %}
+	{% if e.k_13 %}<pf:K_13>{{e.k_13|tkwotowy}}</pf:K_13>{% endif %}
+	{% if e.k_14 %}<pf:K_14>{{e.k_14|tkwotowy}}</pf:K_14>{% endif %}
+	
+	{% if e.k_15 or e.k_16 %}<pf:K_15>{{e.k_15|tkwotowy}}</pf:K_15><pf:K_16>{{e.k_16|tkwotowy}}</pf:K_16>{% endif %}
+	{% if e.k_17 or e.k_18 %}<pf:K_17>{{e.k_17|tkwotowy}}</pf:K_17><pf:K_18>{{e.k_18|tkwotowy}}</pf:K_18>{% endif %}
+	{% if e.k_19 or e.k_20 %}<pf:K_19>{{e.k_19|tkwotowy}}</pf:K_19><pf:K_20>{{e.k_20|tkwotowy}}</pf:K_20>{% endif %}
+	
+	{% if e.k_21 %}<pf:K_21>{{e.k_21|tkwotowy}}</pf:K_21>{% endif %}
+	{% if e.k_22 %}<pf:K_22>{{e.k_22|tkwotowy}}</pf:K_22>{% endif %}
+	
+	{% if e.k_23 or e.k_24 %}<pf:K_23>{{e.k_23|tkwotowy}}</pf:K_23><pf:K_24>{{e.k_24|tkwotowy}}</pf:K_24>{% endif %}
+	{% if e.k_25 or e.k_26 %}<pf:K_25>{{e.k_25|tkwotowy}}</pf:K_25><pf:K_26>{{e.k_26|tkwotowy}}</pf:K_26>{% endif %}
+	{% if e.k_27 or e.k_28 %}<pf:K_27>{{e.k_27|tkwotowy}}</pf:K_27><pf:K_28>{{e.k_28|tkwotowy}}</pf:K_28>{% endif %}
+	{% if e.k_29 or e.k_30 %}<pf:K_29>{{e.k_29|tkwotowy}}</pf:K_29><pf:K_30>{{e.k_30|tkwotowy}}</pf:K_30>{% endif %}
+	
+	{% if e.k_31 %}<pf:K_31>{{e.k_31|tkwotowy}}</pf:K_31>{% endif %}
+	
+	{% if e.k_32 or e.k_33 %}<pf:K_32>{{e.k_32|tkwotowy}}</pf:K_32><pf:K_33>{{e.k_33|tkwotowy}}</pf:K_33>{% endif %}
+	{% if e.k_34 or e.k_35 %}<pf:K_34>{{e.k_34|tkwotowy}}</pf:K_34><pf:K_35>{{e.k_35|tkwotowy}}</pf:K_35>{% endif %}
+	
+	{% if e.k_36 %}<pf:K_36>{{e.k_36|tkwotowy}}</pf:K_36>{% endif %}
+
+	{% if e.sprzedaz_vat_marza %}<pf:SprzedazVAT_Marza>{{e.sprzedaz_vat_marza|tkwotowy}}</pf:SprzezdazVAT_Marza>{% endif %}
+		
+	{% endspaceless %}	
+</pf:SprzedazWiersz>
+{% endfor %}
+
+{% if sprzedaz.lp %}
+<pf:SprzedazCtrl>
+	<pf:LiczbaWierszySprzedazy>{{sprzedaz.lp}}</pf:LiczbaWierszySprzedazy>
+	<pf:PodatekNalezny>{{sprzedaz.suma1|tkwotowy}}</pf:PodatekNalezny>
+</pf:SprzedazCtrl>
+{% endif %}

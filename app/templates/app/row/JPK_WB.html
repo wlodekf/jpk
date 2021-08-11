@@ -1,0 +1,29 @@
+{% load utils %}
+<table class="table table-condensed jpk-ctrl-table">
+	<thead>
+		<tr>
+			<th>Tabela</th>
+			<th class="r">Pozycje</th>
+			<th class="r">Sumy kontrolne</th>
+		</tr>
+	</thead>
+	
+	<tr>
+		<td><a href="{% url 'jpk-arkusz' plik.id 'wyciag' %}">{{plik.rach}}</a></td>
+		<td class="r">#{{plik.wyciag_ctrl.wiersze|liczba_pl}}</td>
+		<td class="r">{{plik.salda_ctrl.suma1|kwota_pl}}</td>
+	</tr>
+	
+	<tr >
+		<td class="r" colspan="3">+ {{plik.wyciag_ctrl.suma2|kwota_pl}}</td>
+	</tr>
+	
+	<tr>
+		<td class="r" colspan="3">- {{plik.wyciag_ctrl.suma1|kwota_pl}}</td>
+	</tr>
+	
+	<tr>
+		<td class="r" colspan="3">{{plik.salda_ctrl.suma2|kwota_pl}}</td>
+	</tr>
+	
+</table>

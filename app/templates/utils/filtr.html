@@ -1,0 +1,68 @@
+{% load utils %}
+
+{% if form.fieldsets %}
+
+    {% for fieldset in form.fieldsets %}
+        <fieldset>
+            <h2><span class="tytul">Filtr</span>{% for field in form.cleaned_fields %} {{ field.label }}: <i>{{ field.field.val }}</i> {% if forloop.last %}{% else %}&amp;{% endif %} {% endfor %}</i> </h2>
+            <div class="outer" style="display: none;">
+                {% for line in fieldset.fields %}
+                    {% if line.is_hidden %}
+                        {% for field in line.fields %}
+                            {{ field }}
+                        {% endfor %}
+                    {% else %}
+                        <div class="pole{% if line.errors %} error{% endif %}">
+                            {% for field in line.fields %}
+                                <div class="a"> {{ field.label_tag }}{{ field }}</div>                            
+                            {% endfor %}
+                            
+                            {% for field in line.fields %}
+                                {{ field.errors }}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                
+                <button type="submit" class="button">Szukaj</button>
+                <button type="reset" class="button"">Wyczyść filtr</button> 
+            </div>
+    		{% include "utils/alert.html" %}            
+        </fieldset>
+    {% endfor %}
+    
+{% else %}
+    <fieldset>  
+        <h2> 
+            <span class="tytul" style="margin-right: 5px;">Filtr</span>
+            <span id="filtr">
+            {% for field in form.cleaned_fields %}
+                 {{ field.label }}: <i>{{ field.field.val }}</i> 
+                 {% if not forloop.last %} &amp; {% endif %} 
+            {% endfor %}
+            </span>
+        </h2>
+            
+        <div class="outer" style="display: none;">
+            {% for field in form %}
+                {% if field.is_hidden %}
+                    {{ field }} 
+                {% else %}
+                	{% if field.field.template %}
+                    	{% include field.field.template %}                	
+                	{% else %}                  
+                    <div class="pole{% if field.errors %} error{% endif %}">
+                        {{ field.label_tag }} 
+                        {{ field }}
+                        {{ field.errors }}
+                    </div>
+                    {% endif %}
+                {% endif %}        
+            {% endfor %}           
+         
+            <button type="submit" class="button">Szukaj</button>
+            <button type="reset" class="button">Wyczyść filtr</button>          
+        </div>  
+    	{% include "utils/alert.html" %}        
+    </fieldset>
+{% endif %}

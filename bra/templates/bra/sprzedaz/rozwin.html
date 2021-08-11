@@ -1,0 +1,16 @@
+<div id="imp_{{imp.id}}">
+	<div class="row">
+        <div class="col-md-10">
+			<table class="isp" style="width: 60%">
+				{% include "bra/sprzedaz/stawki.html" %}
+			</table>
+        </div>
+        
+        <div class="col-md-2">
+        	{% if imp.z_fakturami %}
+        		<a href="{% url 'bra-sprzedaz-xlsx' imp.id %}">Raport kontrolny <img src="/static/img/xlsx32.png"></a>
+        	{% endif %}
+        </div>
+                
+    </div> 
+</div> 

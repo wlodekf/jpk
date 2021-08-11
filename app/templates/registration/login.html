@@ -1,0 +1,42 @@
+{% extends "app/page.html" %}
+
+{% block content %}
+
+<div class="container">
+
+    <div class="row">
+		<div class="span12">
+			<form class="form-horizontal" action='' method="POST">{% csrf_token %}
+			  <fieldset>
+			    
+			    <div id="legend">
+			      <legend class="">Proszę się przedstawić</legend>
+			    </div>
+			    
+			    <div class="control-group">
+			      <label class="control-label"  for="username">Użytkownik</label>
+			      <div class="controls">
+			        <input type="text" id="username" name="username" placeholder="" class="input-xlarge">
+			      </div>
+			    </div>
+			    
+			    <div class="control-group">
+			      <label class="control-label" for="password">Hasło</label>
+			      <div class="controls">
+			        <input type="password" id="password" name="password" placeholder="" class="input-xlarge">
+			      </div>
+			    </div>
+			    
+			    <div class="control-group" style="margin-top: 10px;">
+			      <div class="controls">
+			        <button class="btn btn-primary">Wejdź</button>
+			      </div>
+			    </div>
+			    
+			  </fieldset>
+			</form>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

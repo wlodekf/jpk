@@ -1,0 +1,21 @@
+{% extends "app/page.html" %}
+
+{% block content %}
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		Import wyciągów bankowych
+	</div>
+	
+  	<div class="panel-body">
+	<form action="{% url 'wyciag-upload' bank %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+		Plik wyciągu MT940 z {{bank}}<br/><br/>
+		
+		<input class="btn btn-default" type="file" name="file" id="id_file" accept="*.sta" /><br/>
+		<input class="btn btn-default" type="submit">	
+	</form>
+	
+  	</div>
+</div>
+
+{% endblock %}

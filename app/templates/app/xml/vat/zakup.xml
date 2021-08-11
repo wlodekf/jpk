@@ -1,0 +1,24 @@
+{% load utils %}
+{% for zak in zakup.generator %}
+<ZakupWiersz typ="G">
+	<LpZakupu>{{zak.lp}}</LpZakupu>
+	<NazwaWystawcy>{{zak.nazwa_kon.strip|do1spacji|tznakowy}}</NazwaWystawcy>
+	<AdresWystawcy>{{zak.adres_kon.strip|do1spacji|tznakowy}}</AdresWystawcy>
+	<NrIdWystawcy>{{zak.nr_id.strip|tznakowy}}</NrIdWystawcy>
+	<NrFaktury>{{zak.nr_faktury.strip|tznakowy}}<!--{{zak.pod_rejestr}}--></NrFaktury>
+	{% if zak.data_wplywu %}<DataWplywuFaktury>{{zak.data_wplywu|date:'Y-m-d'}}</DataWplywuFaktury>{% endif %}
+	
+	{% spaceless %}	
+	{% if zak.k_42 or zak.k_43 %}<K_42>{{zak.k_42|tkwotowy}}</K_42><K_43>{{zak.k_43|tkwotowy}}</K_43>{% endif %}
+	{% if zak.k_44 or zak.k_45 %}<K_44>{{zak.k_44|tkwotowy}}</K_44><K_45>{{zak.k_45|tkwotowy}}</K_45>{% endif %}
+	{% if zak.k_46 %}<K_46>{{zak.k_46|tkwotowy}}</K_46>{% endif %}
+	{% if zak.k_47 %}<K_47>{{zak.k_47|tkwotowy}}</K_47>{% endif %}
+	{% if zak.k_48 %}<K_48>{{zak.k_48|tkwotowy}}</K_48>{% endif %}
+	{% endspaceless %}	
+</ZakupWiersz>
+{% endfor %}
+
+<ZakupCtrl>
+	<LiczbaWierszyZakupow>{{zakup.lp}}</LiczbaWierszyZakupow>
+	<PodatekNaliczony>{{zakup.suma1|tkwotowy}}</PodatekNaliczony>
+</ZakupCtrl>

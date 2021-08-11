@@ -1,0 +1,63 @@
+{% extends "app/page.html" %}
+
+{% block content %}
+
+<div class="panel panel-default" style="width: 500px;">
+	<div class="panel-heading">
+		Import sprzedaży
+	</div>
+	
+  	<div class="panel-body">
+  	
+		<form action="{% url 'bra-sprzedaz-importuj' firma %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+				  			  					
+			{% if form.non_field_errors %}		 		
+				<p class="" style="color: red;">{% for error in form.non_field_errors %}{{ error }}{% endfor %}</p>
+			{% endif %}
+			
+	  		<div class="form-group {% if form.faktury.errors %}has-error{% endif %}">
+	    		<label for="id_faktury" class="control-label">{{ form.faktury.label }}</label>
+				<input type="file" class="form-control" name="faktury" id="id_faktury" accept="*.csv" aria-describedby="faktury-help" />			    		
+			   	<p id="faktury-help" class="help-block">{{ form.faktury.help_text|safe }}{% for error in form.faktury.errors %} {{ error }}{% endfor %}</p>
+	  		</div> 
+
+	  		<div class="form-group {% if form.wiersze.errors %}has-error{% endif %}">
+	    		<label for="wiersze" class="control-label">{{ form.wiersze.label }}</label>
+				<input type="file" class="form-control" name="wiersze" id="wiersze" accept="*.csv" aria-describedby="wiersze-help" />			    		
+			   	<p id="wiersze-help" class="help-block">{{ form.wiersze.help_text|safe }}{% for error in form.wiersze.errors %} {{ error }}{% endfor %}</p>
+	  		</div> 
+	  			 
+			<div class="form-group" style="margin-top: 40px;">
+			  	<div class="checkbox">
+			    	<label>
+			      		<input type="checkbox"> Wgrać do rejestru sprzedaży
+			    	</label>
+			  	</div>
+			</div>
+
+	  		<div class="form-group {% if form.rejestr.errors %}has-error{% endif %}">
+	    		<label for="rejestr" class="control-label">{{ form.rejestr.label }}</label>
+	    		<input type="text" class="form-control" id="rejestr" name="rejestr" value="{{ form.rejestr.value|default:'' }}" aria-describedby="rejestr-help">
+			   	<p id="rejestr-help" class="help-block">{{ form.rejestr.help_text|safe }}{% for error in form.rejestr.errors %} {{ error }}{% endfor %}</p>
+	  		</div> 
+	
+	  		<div class="form-group {% if form.konto_kon.errors %}has-error{% endif %}">
+	    		<label for="konto_kon" class="control-label">{{ form.konto_kon.label }}</label>
+	    		<input type="text" class="form-control" id="konto_kon" name="konto_kon" value="{{ form.konto_kon.value|default:'' }}" aria-describedby="konto_kon-help">
+			    <p id="konto_kon-help" class="help-block">{{ form.konto_kon.help_text|safe }}{% for error in form.konto_kon.errors %} {{ error }}{% endfor %}</p>
+	  		</div> 
+	  		
+	  		<div class="form-group {% if form.konto_spr.errors %}has-error{% endif %}">
+	    		<label for="konto_spr" class="control-label">{{ form.konto_spr.label }}</label>
+	    		<input type="text" class="form-control" id="konto_spr" name="konto_spr" value="{{ form.konto_spr.value|default:'' }}" aria-describedby="konto_spr-help">
+			    <p id="konto_spr-help" class="help-block">{{ form.konto_spr.help_text|safe }}{% for error in form.konto_spr.errors %} {{ error }}{% endfor %}</p>
+	  		</div> 
+
+			<input class="btn btn-default" type="submit" value="Importuj">
+			
+		</form>
+	
+  	</div>
+</div>
+
+{% endblock %}

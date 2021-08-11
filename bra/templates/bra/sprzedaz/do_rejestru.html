@@ -1,0 +1,65 @@
+{% extends "app/page.html" %}
+
+{% block content %}
+
+<div class="panel panel-default" style="width: 500px;">
+
+	<div class="panel-heading">
+		Import sprzedaży JPK - zaimportowane (3/3)
+	</div>
+	
+  	<div class="panel-body">
+		{% include "bra/sprzedaz/podsumowanie.html" %}
+	</div>
+	
+</div>
+
+<div class="panel panel-default" style="width: 500px;">
+
+	<div class="panel-heading">
+		Zapis faktur do rejestru sprzedaży VAT (1/2)
+	</div>
+	
+  	<div class="panel-body">
+  	
+		<form action="{% url 'bra-sprzedaz-do-rejestru' imp.id %}" method="POST">{% csrf_token %}
+		    <input type="hidden" id="id_firma" value="{{firma}}">
+		    
+			<div class="form-group {% if form.rejestr.errors %}has-error{% endif %}">
+				<label for="rejestr" class="control-label">{{ form.rejestr.label }}</label>
+				<select class="form-control" id="rejestr" name="rejestr" value="{{ form.rejestr.value|default:'' }}" aria-describedby="rejestr-help">
+					{% for k, v in form.rejestr.field.choices %}
+						<option value="{{k}}" {% if form.rejestr.value == k %}selected{% endif %}>{{v}}</option>
+					{% endfor %}
+				</select>				
+			   	<p id="rejestr-help" class="help-block">{{ form.rejestr.help_text|safe }}{% for error in form.rejestr.errors %} {{ error }}{% endfor %}</p>
+			</div> 
+
+			<div class="row">
+				<div id="konto_kon-div" class="form-group col-md-6 {% if form.konto_kon.errors %}has-error{% endif %}">
+					<label for="konto_kon" class="control-label">{{ form.konto_kon.label }}</label>
+					<input type="text" class="form-control" id="konto_kon" name="konto_kon" value="{{ form.konto_kon.value|default:'' }}" aria-describedby="konto_kon-help">
+					<p id="konto_kon-help" class="help-block">{{ form.konto_kon.help_text|safe }}{% for error in form.konto_kon.errors %} {{ error }}{% endfor %}</p>
+				</div>
+				
+				<div id="konto_spr-div" class="form-group col-md-6 {% if form.konto_spr.errors %}has-error{% endif %}">
+					<label for="konto_spr" class="control-label">{{ form.konto_spr.label }}</label>
+					<input type="text" class="form-control" id="konto_spr" name="konto_spr" value="{{ form.konto_spr.value|default:'' }}" aria-describedby="konto_spr-help">
+				    <p id="konto_spr-help" class="help-block">{{ form.konto_spr.help_text|safe }}{% for error in form.konto_spr.errors %} {{ error }}{% endfor %}</p>
+				</div> 
+			</div>
+		
+			<div id="przyciski">
+				<input class="btn btn-default" type="submit" value="Do rejestru sprzedaży">
+				<input class="btn btn-default cancel" type="button" value="Bez zapisu do rejestru" data-url="{% url 'bra-sprzedaz-importy' firma %}">
+			</div>
+				    
+		</form>
+  		
+  		{% include "bra/sprzedaz/postep.html" with co="Zapisywanie faktur do rejestru sprzedaży VAT" %}
+  			
+	</div>
+	
+</div>
+
+{% endblock %}

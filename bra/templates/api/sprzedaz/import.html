@@ -1,0 +1,41 @@
+{% extends "app/page.html" %}
+{% load utils %}
+
+{% block content %}
+        
+<div class="panel panel-default" style="width: 500px;">
+	<div class="panel-heading">
+		Import sprzedaży
+	</div>
+	
+  	<div class="panel-body">
+
+		<form action="{% url 'api-sprzedaz-importuj' firma %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+				  			  					
+			{% if form.non_field_errors %}
+				<p class="" style="color: red;">{% for error in form.non_field_errors %}{{ error }}{% endfor %}</p>
+			{% endif %}
+			
+	  		<div class="form-group {% if form.od_daty.errors %}has-error{% endif %}">
+	    		<label for="id_od_daty" class="control-label">{{ form.od_daty.label }}</label>
+				<input type="text" class="form-control" name="od_daty" id="id_od_daty" value="{{1|pop_poczatek}}" data-date-format="YYYY-MM-DD" aria-describedby="od_daty-help" />			    		
+			   	<small><p id="od_daty-help" class="help-block">{{ form.od_daty.help_text|safe }}{% for error in form.od_daty.errors %} {{ error }}{% endfor %}</p></small>
+	  		</div> 
+
+	  		<div class="form-group {% if form.do_daty.errors %}has-error{% endif %}">
+	    		<label for="id_do_daty" class="control-label">{{ form.do_daty.label }}</label>
+				<input type="text" class="form-control" name="do_daty" id="id_do_daty" value="{{1|pop_koniec}}" data-date-format="YYYY-MM-DD" aria-describedby="do_daty-help" />			    		
+			   	<small><p id="do_daty-help" class="help-block">{{ form.do_daty.help_text|safe }}{% for error in form.do_daty.errors %} {{ error }}{% endfor %}</p></small>
+	  		</div> 
+	  			
+	  		<div id="przyciski"> 
+				<input class="btn btn-default" type="submit" value="Importuj">
+			</div>
+			
+		</form>
+
+  	</div>
+
+</div>
+
+{% endblock %}

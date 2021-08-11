@@ -1,0 +1,84 @@
+<div class="dropdown jpk-icons" style="float: right; vertical-align: top; z-index: 1000;">
+	<span class="glyphicon glyphicon-option-vertical dropdown-toggle" data-toggle="dropdown"></span>
+	<ul class="dropdown-menu dropdown-menu-right">
+		
+		{% if not plik.nietykalny and not plik.jpk_sprawozdania %}
+			<li><a href="{% url 'jpk-regeneruj' plik.id %}"><span class="glyphicon glyphicon-cog iko" aria-hidden="true"></span> Utwórz ponownie ten plik</a></li>
+		{% endif %}
+
+		<li>
+			<a href="#" data-toggle="modal" data-jpk_id="{{plik.id}}" data-nazwa="{{plik.opis}}" class="jpk-nazwa">
+				<span class="glyphicon glyphicon-pencil iko" aria-hidden="true"></span> Zmień opis pliku
+			</a>
+		</li>
+		
+		{% if plik.xml %}		
+			{% if plik.jpk_sprawozdania %}
+				<li><a href="{% url 'jpk-sf-edit' plik.id %}"><span class="glyphicon glyphicon-pencil iko" aria-hidden="true"></span> Edytuj dane sprawozdania</a></li>
+			{% endif %}
+			
+			<li><a href="{% url 'jpk-validate' plik.id %}" target="_blank"><span class="glyphicon glyphicon-alert iko" aria-hidden="true"></span> Zgodność ze schematem</a></li>
+			
+			{% if plik.jpk_sprawozdania %}			
+				<li><a href="{% url 'jpk-sf-view' plik.id %}" target="_blank"><span class="glyphicon glyphicon-book iko" aria-hidden="true"></span> Wizualizacja sprawozdania</a></li>
+			{% else %}
+				<li><a href="{% url 'jpk-xlsx' plik.id %}"><span class="glyphicon glyphicon-book iko" aria-hidden="true"></span> Arkusz kontrolny (xls)</a></li>
+			{% endif %}
+			
+			{% if plik.jpk_v7 %}
+				<li><a href="{% url 'jpk-vat-wizualizacja' plik.id %}" target="_blank"><span class="glyphicon glyphicon-book iko" aria-hidden="true"></span> Wizualizacja całego pliku</a></li>
+			{% endif %}
+			
+			<li><a href="{% url 'jpk-download' plik.id %}"><span class="glyphicon glyphicon-download-alt iko" aria-hidden="true"></span> Pobierz plik JPK (xml)</span></a></li>
+		{% else %}
+			<li><a href="{% url 'jpk-sf-generuj' plik.id %}"><span class="glyphicon glyphicon-book iko" aria-hidden="true"></span> Generuj plik XML</a></li>
+		{% endif %}
+		
+		{% if plik.podpisany %}		
+		<li><a href="{% url 'jpk-wyslij' plik.id %}"><span class="glyphicon glyphicon-book iko" aria-hidden="true"></span> Wyślij plik do MF</a></li>
+		{% endif %}
+		
+		{% if not plik.nietykalny and plik.sf_mozna_usunac %}
+		<li><a href="{% url 'jpk-usun' plik.id %}"><span class="glyphicon glyphicon-trash iko" aria-hidden="true"></span> Usuń ten plik JPK</a></li>
+		{% endif %}
+		
+		{% if plik.jest_utworzony %}
+				
+		<li role="separator" class="divider"></li>
+
+		{% if plik.jpk_sprawozdania %}
+		
+		<li>
+			<a href="#" data-toggle="modal" data-jpk_id="{{plik.id}}" class="sf-upload">
+				<span class="glyphicon glyphicon-export iko" aria-hidden="true"></span> Wgraj plik XML
+			</a>
+		</li>
+				
+		{% else %}
+				
+		{% if not plik.nietykalny %}
+		<li{% if plik.bledy_error %} class="disabled"{% endif %}>
+			{% if user.username == 'wlodek' %}
+				<a href="#" {% if not plik.bledy_error %}data-toggle="modal" data-jpk_id="{{plik.id}}" class="plik-initupload"{% endif %}>
+					<span class="glyphicon glyphicon-pencil iko" aria-hidden="true"></span> Przygotuj do podpisania
+				</a>
+			{% else %}
+				<a href="{% url 'jpk-initupload' plik.id %}"><span class="glyphicon glyphicon-pencil iko" aria-hidden="true"></span> Przygotuj do podpisania</a>			
+			{% endif %}
+		</li>
+		
+		<li{% if not plik.jest_kontrolka or plik.bledy_error %} class="disabled"{% endif %}>
+			<a href="#"{% if plik.jest_kontrolka and not plik.bledy_error %} data-toggle="modal" data-jpk_id="{{plik.id}}" class="plik-upload"{% endif %}>
+				<span class="glyphicon glyphicon-export iko" aria-hidden="true"></span> Wyślij podpisany plik
+			</a>
+		</li>
+		{% endif %}
+		
+		<li{% if not plik.jest_wyslany %} class="disabled"{% endif %}><a href="/jpk/{{plik.id}}/status/1/"><span class="glyphicon glyphicon-thumbs-up iko" aria-hidden="true"></span> Sprawdź status</a></li>
+		
+		{% endif %}
+		
+		{% endif %}
+		
+	</ul>
+</div>

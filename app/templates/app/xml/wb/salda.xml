@@ -1,0 +1,7 @@
+{% load utils %}
+{% for w in salda.generator %}{% endfor %}
+<NumerRachunku>{{jpk.rachunek}}</NumerRachunku>
+<Salda>
+	<SaldoPoczatkowe>{{salda.suma1|tkwotowy}}</SaldoPoczatkowe>
+	<SaldoKoncowe>{{salda.suma2|tkwotowy}}</SaldoKoncowe>
+</Salda>

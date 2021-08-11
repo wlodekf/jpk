@@ -1,0 +1,10 @@
+<pf:Naglowek>
+	<pf:KodFormularza kodSystemowy="{{jpk.kod_systemowy}}" wersjaSchemy="1-2E">{{formularz}}</pf:KodFormularza>
+	<pf:WariantFormularza>1</pf:WariantFormularza>
+	<pf:DataWytworzeniaJPK>{{jpk.utworzony|date:"Y-m-d\TH:i:s"}}</pf:DataWytworzeniaJPK>
+	<pf:NazwaSystemu>KREZUS-FK</pf:NazwaSystemu>
+	<pf:CelZlozenia poz="P_7">{{jpk.cel_zlozenia}}</pf:CelZlozenia>
+	<pf:KodUrzedu>{{jpk.firma.kod_urzedu}}</pf:KodUrzedu>
+	<pf:Rok>{{jpk.dataod|date:"Y"}}</pf:Rok>
+	<pf:Miesiac>{{jpk.dataod|date:"m"}}</pf:Miesiac>
+</pf:Naglowek>

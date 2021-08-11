@@ -1,0 +1,36 @@
+{% load utils %}
+{% if mm.dokumenty %}
+<MM>
+
+{% for d in mm.dokumenty %}
+<MMWartosc>
+	<NumerMM>{{d.mag_nr}}</NumerMM>
+	<DataMM>{{d.data|date:'Y-m-d'}}</DataMM>
+	<WartoscMM>{{d.mag_wartosc|tkwotowy}}</WartoscMM>
+	<DataWydaniaMM>{{d.data|date:'Y-m-d'}}</DataWydaniaMM>
+	<SkadMM>{{d.skad}}</SkadMM>
+	<DokadMM>{{d.dokad}}</DokadMM>		
+</MMWartosc>
+{% endfor %}
+
+{% for d in mm.dokumenty %}
+{% for w in d.wiersze_all %}
+<MMWiersz>
+	<Numer2MM>{{d.mag_nr}}</Numer2MM>
+	<KodTowaruMM>{{w.towar_kod.strip}}</KodTowaruMM>
+	<NazwaTowaruMM>{{w.towar_nazwa.strip}}</NazwaTowaruMM>
+	<IloscWydanaMM>{{w.il_real|tilosci}}</IloscWydanaMM>
+	<JednostkaMiaryMM>{{w.mag_jm}}</JednostkaMiaryMM>
+	<CenaJednMM>{{w.cena_ewid|tkwotowy}}</CenaJednMM>
+	<WartoscPozycjiMM>{{w.wartosc|tkwotowy}}</WartoscPozycjiMM>
+</MMWiersz>
+{% endfor %}
+{% endfor %}
+
+<MMCtrl>
+	<LiczbaMM>{{mm.lp}}</LiczbaMM>
+	<SumaMM>{{mm.suma1|tkwotowy}}</SumaMM>
+</MMCtrl>
+
+</MM>
+{% endif %}

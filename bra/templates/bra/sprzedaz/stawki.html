@@ -1,0 +1,43 @@
+{% load utils %}
+
+{% if imp.netto_23 or imp.vat_23 %}
+<tr>
+	<td>Sprzedaż VAT 23%</td><td class="ar">{{imp.ile_23}}</td><td class="ar">{{imp.netto_23|kwota}}</td><td class="ar">{{imp.vat_23|kwota}}</td>
+</tr>
+{% endif %}
+
+{% if imp.netto_8 or imp.vat_8 %}
+<tr>
+	<td>Sprzedaż VAT 8%</td><td class="ar">{{imp.ile_8}}</td><td class="ar">{{imp.netto_8|kwota}}</td><td class="ar">{{imp.vat_8|kwota}}</td>
+</tr>
+{% endif %}
+
+{% if imp.netto_5 or imp.vat_5 %}
+<tr>
+	<td>Sprzedaż VAT 5%</td><td class="ar">{{imp.ile_5}}</td><td class="ar">{{imp.netto_5|kwota}}</td><td class="ar">{{imp.vat_5|kwota}}</td>
+</tr>
+{% endif %}
+
+{% if imp.netto_0 %}
+<tr>
+	<td>Sprzedaż VAT 0%</td><td class="ar">{{imp.ile_0}}</td><td class="ar">{{imp.netto_0|kwota}}</td><td class="ar"> </td>
+</tr>
+{% endif %}
+
+{% if imp.netto_zw %}
+<tr>
+	<td>Sprzedaż ZW</td><td class="ar">{{imp.ile_zw}}</td><td class="ar">{{imp.netto_zw|kwota}}</td><td class="ar"></td>
+</tr>
+{% endif %}
+
+{% if imp.stawek > 1 %}	
+<tr>
+	<td>Sprzedaż łącznie</td><td class="ar"></td><td class="ar">{{imp.netto|kwota}}</td><td class="ar">{{imp.vat|kwota}}</td>
+</tr>	  		
+{% endif %}
+
+{% if imp.naleznosc %}
+<tr>
+	<td>Należność</td><td class="ar"></td><td class="ar">{{imp.naleznosc|kwota}}</td><td class="ar"> </td>
+</tr>		  		
+{% endif %}

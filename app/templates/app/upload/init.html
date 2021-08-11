@@ -1,0 +1,14 @@
+{% load utils %}
+<div>
+{% if storage.init_code == 200 %}
+<table class="table table-bordered">
+<tr><td class="etykieta">Numer referencyjny</td><td class="wartosc">{{storage.init.ReferenceNumber}}</td></tr>
+<tr><td class="etykieta">Czas na przesłanie (s)</td><td class="wartosc">{{storage.init.TimeoutInSec}}</td></tr>
+</table>
+{% else %}
+<table class="table table-bordered">
+<tr><td class="etykieta">Kod błędu</td><td class="wartosc">{{storage.init.Code}}</td></tr>
+<tr><td class="etykieta">Komunikat</td><td class="wartosc">{{storage.init.Message}}</td></tr>
+</table>
+{% endif %}
+</div>

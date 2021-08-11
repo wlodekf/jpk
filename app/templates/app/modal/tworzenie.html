@@ -1,0 +1,126 @@
+{% load utils %}
+{# Modalny dialog do tworzenia plików kontrolnych #}
+	
+<div class="modal fade" id="plik-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+    
+      <form id="pliki-form" action="{% url 'jpk-nowe' firma %}" name="plik" method="POST">{% csrf_token %}
+    
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="plik-modal-label">Tworzenie plików kontrolnych JPK</h4>
+      </div>
+
+	  <div class="modal-body">      
+	  
+  		<div class="form-group">
+    		<div class="checkbox"><label><input type="checkbox" name="jpk_vat" value="JPK_VAT" checked>Rozliczenie VAT</label></div>
+			<div class="checkbox"><label><input type="checkbox" name="jpk_kr" value="JPK_KR">Księgi rachunkowe</label></div>
+    		<div class="checkbox"><label><input type="checkbox" name="jpk_fa" value="JPK_FA">Faktury sprzedaży</label></div>
+    		{% if FIRMA == 'gig' %}	  
+    		<div class="checkbox"><label><input type="checkbox" name="jpk_wb" value="JPK_WB" id="jpk_wb">Wyciągi bankowe</label></div>
+    		{% endif %}
+    		{% if FIRMA == 'ichp' %}
+    		<div class="checkbox"><label><input type="checkbox" name="jpk_mag" value="JPK_MAG" id="jpk_mag">Obrót magazynowy</label></div>
+    		{% endif %}
+    		<div class="checkbox"><label><input type="checkbox" name="jpk_sf" value="JPK_SF" id="jpk_sf">Sprawozdanie finansowe</label></div>
+  		</div>
+  		
+  		<div class="form-group">
+    		<label for="data_od">Od daty (rrrr-mm-dd)</label>
+    		<input type="text" class="form-control" data-date-format="YYYY-MM-DD" value="{{1|pop_poczatek}}" id="dataod" name="dataod">
+  		</div>
+  		
+  		<div class="form-group">
+    		<label for="data_do">Do daty (rrrr-mm-dd)</label>
+    		<input type="text" class="form-control" value="{{1|pop_koniec}}" id="datado" name="datado">
+  		</div>  		  		
+  		
+  		<div class="form-group" id="korekta">
+    		<label for="data_do">Zakres korekty (tylko dla JPK_V7M/K)</label>
+			<select class="form-control" name="korekta">
+				<option value='2'></option>
+	  			<option value='2'>Deklaracja i ewidencja</option>
+	  			<option value='D'>Deklaracja</option>
+	  			<option value='E'>Ewidencja</option>
+			</select>
+		</div>  
+ 
+  		{% if FIRMA == 'gig' %}	 
+  		<div class="form-group" id="rachunki">
+    		<label for="data_do">Rachunki bankowe</label>
+    		<samp>  		
+			<select multiple class="form-control" name="rachunki">
+				{% for rachunek in rachunki %}
+	  			<option>{{rachunek}}</option>
+	  			{% endfor %}
+			</select>
+			</samp>
+		</div>  
+  		{% endif %}
+  		
+  		{% if FIRMA == 'ichp' %}
+  		<div class="form-group" id="magazyny">
+    		<label for="data_do">Magazyny</label>
+    		<samp>  		
+			<select multiple class="form-control" name="magazyny">
+				{% for magazyn in magazyny %}
+	  			<option>{{magazyn}}</option>
+	  			{% endfor %}
+			</select>
+			</samp>
+		</div> 
+		{% endif %}
+		  		
+  		<div class="form-group" id="sprawozdanie">
+	  		<div class="form-group">
+	    		<label for="wynik">Wersja rachunku zysków i strat</label>
+	    		<select class="form-control" id="wynik" name="wynik">
+	    			<option value="RZiSKalk" {% if config.wynik == 'RZiSKalk' %}selected{% endif %}>Kalkulacyjna</option>
+	    			<option value="RZiSPor" {% if config.wynik == 'RZiSPor' %}selected{% endif %}>Porównawcza</option>
+	    		</select>
+	  		</div>
+	  		<div class="form-group">
+	    		<div class="checkbox"><label><input type="checkbox" name="kapital" value="kapital" {% if config.kapital %}checked{% endif %}>Zmiany w kapitale</label></div>       
+	    		<div class="checkbox"><label><input type="checkbox" name="przeplywy" value="przeplywy" id="przeplywy" {% if config.przeplywy %}checked{% endif %}>Przepływy finansowe</label></div>       
+	  		</div>
+	  		<div class="form-group" id="metoda_przeplywow" style="display: {% if config.przeplywy %}block{% else %}none{% endif %};">
+	    		<label for="przeplywy">Metoda przepływów finansowych</label>
+	    		<select class="form-control" id="przeplywy_metoda" name="przeplywy_metoda">
+	    			<option value="PrzeplywyBezp" {% if config.przeplywy_metoda == 'PrzeplywyBezp' %}selected{% endif %}>Bezpośrednia</option>
+	    			<option value="PrzeplywyPosr" {% if config.przeplywy_metoda == 'PrzeplywyPosr' %}selected{% endif %}>Pośrednia</option>
+	    		</select>
+	  		</div>
+
+	  		{% if poprzednie %}
+	  		<div class="form-group">
+	    		<label for="poprzednie">Sprawozdanie poprzedniego okresu</label>
+	    		<select class="form-control" id="poprzednie" name="poprzednie">
+	    			{% for p in poprzednie %}
+	    				<option value="{{p.id}}">{{p.nazwa}}</option>
+	    			{% endfor %}
+	    			<option value="">--</option>
+	    		</select>
+	  		</div>
+	  		<div class="form-group">
+	    		<div class="checkbox"><label><input type="checkbox" name="kopia" value="kopia">Utwórz kopię sprawozdania</label></div>       
+	  		</div>
+	  		{% endif %}
+	  		
+		</div>  
+		
+    	<input type="hidden" class="form-control" id="paczka" name="paczka">
+  	    		
+  	  </div>
+  
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Rezygnuj</button>
+        <button type="submit" class="btn btn-primary">Utwórz</button>
+      </div>
+      
+    </div>
+    </form>
+  </div>
+</div>

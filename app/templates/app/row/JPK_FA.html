@@ -1,0 +1,22 @@
+{% load utils %}
+
+<table class="table table-condensed jpk-ctrl-table">
+	<thead>
+		<tr>
+			<th>Tabela</th>
+			<th class="r">Pozycje</th>
+			<th class="r">Suma kontrolna</th>
+		</tr>
+	</thead>
+	<tr>
+		<td><a href="{% url 'jpk-arkusz' plik.id 'faktura' %}">Faktury</a></td>
+		<td class="r">#{{plik.faktura_ctrl.wiersze|liczba_pl}}</td>
+		<td class="r">{{plik.faktura_ctrl.suma1|kwota_pl}}</td>
+	</tr>
+	
+	<tr>
+		<td><a href="{% url 'jpk-arkusz' plik.id 'faktura_wiersz' %}">Wiersze</a></td>
+		<td class="r">#{{plik.faktura_wiersz_ctrl.wiersze|liczba_pl}}</td>
+		<td class="r">{{plik.faktura_wiersz_ctrl.suma1|kwota_pl}}</td>
+	</tr>
+</table>

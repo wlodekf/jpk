@@ -1,0 +1,83 @@
+{% load utils %}
+{% for f in faktura.generator %}
+<Faktura typ="G">
+	<P_1>{{f.data|date:'Y-m-d'}}</P_1>
+	<P_2A>{{f.nr_fak.strip|tznakowy}}</P_2A>
+	<P_3A>{{f.id_kli.nazwa_kon.strip|tznakowy}}</P_3A>
+	<P_3B>{{f.adres_kon.strip|tznakowy}}</P_3B>
+	<P_3C>{{podmiot.nazwa|tznakowy}}</P_3C>
+	<P_3D>{{podmiot.adres|tznakowy}}</P_3D>
+	<P_4A>PL</P_4A>
+	<P_4B>{{podmiot.nip|tnrnip}}</P_4B>
+	{% if f.id_kli.prefiks_nip %}<P_5A>{{f.id_kli.prefiks_nip}}</P_5A>{% endif %}
+	{% if f.id_kli.nip %}<P_5B>{{f.id_kli.nip.strip|tnrnip}}</P_5B>{% endif %}
+	{% if f.data_sp and f.data_sp != f.data %}<P_6>{{f.data_sp|date:'Y-m-d'}}</P_6>{% endif %}
+	
+	{% if f.netto23 or f.vat23 %}
+	<P_13_1>{{f.netto23|tkwotowy}}</P_13_1>
+	<P_14_1>{{f.vat23|tkwotowy}}</P_14_1>
+	{% endif %}
+	{% if f.netto8 or f.vat8 %}	
+	<P_13_2>{{f.netto8|tkwotowy}}</P_13_2>
+	<P_14_2>{{f.vat8|tkwotowy}}</P_14_2>
+	{% endif %}	
+	{% if f.netto5 or f.vat5 %}	
+	<P_13_3>{{f.netto5|tkwotowy}}</P_13_3>
+	<P_14_3>{{f.vat5|tkwotowy}}</P_14_3>
+	{% endif %}
+	{% if f.netto_oo or f.vat_oo %}	
+	<P_13_4>{{f.netto_oo|tkwotowy}}</P_13_4>
+	<P_14_4>{{f.vat_oo|tkwotowy}}</P_14_4>
+	{% endif %}	
+	{% if f.netto_np or f.vat_np %}	
+	<P_13_5>{{f.netto_np|tkwotowy}}</P_13_5>
+	<P_14_5>{{f.vat_np|tkwotowy}}</P_14_5>
+	{% endif %}	
+	{% if f.netto0 %}		
+	<P_13_6>{{f.netto0|tkwotowy}}</P_13_6>
+	{% endif %}
+	{% if f.nettoZW %}		
+	<P_13_7>{{f.nettoZW|tkwotowy}}</P_13_7>
+	{% endif %}
+	
+	<P_15>{{f.wart_bru|tkwotowy}}</P_15>
+	
+	<P_16>{{f.p16}}</P_16>
+	<P_17>{{f.p17}}</P_17>
+	<P_18>{{f.p18}}</P_18>
+	<P_19>{{f.p19}}</P_19>
+	{% if f.p19 == 'true' and f.p19a %}<P_19A>{{f.p19a|tznakowy}}</P_19A>{% endif %}
+	<P_20>{{f.p20}}</P_20>
+	<P_21>{{f.p21}}</P_21>
+	<P_23>{{f.p23}}</P_23>
+	
+	<P_106E_2>false</P_106E_2>
+		
+	<RodzajFaktury>{{f.rodzaj_faktury|tznakowy}}</RodzajFaktury>
+	{% if f.rodzaj_faktury == 'KOREKTA' %}
+	<PrzyczynaKorekty>{{f.przyczyna_korekty.strip|tznakowy}}</PrzyczynaKorekty>
+	<NrFaKorygowanej>{{f.korygowana.nr_fak|tznakowy}}</NrFaKorygowanej>
+	<OkresFaKorygowanej>{{f.korygowana.data|date:'Y-m'|tznakowy}}</OkresFaKorygowanej>
+	{% endif %}
+	
+	{% if f.rodzaj_faktury == 'ZAL' %}
+	<ZALZaplata>{{f.zal_zaplata|tkwotowy}}</ZALZaplata>
+	<ZALPodatek>{{f.zal_podatek|tkwotowy}}</ZALPodatek>
+	{% endif %}
+	
+</Faktura>
+{% endfor %}
+
+<FakturaCtrl>
+	<LiczbaFaktur>{{faktura.lp}}</LiczbaFaktur>
+	<WartoscFaktur>{{faktura.suma1|tkwotowy}}</WartoscFaktur>
+</FakturaCtrl>
+
+<StawkiPodatku>
+	<Stawka1>0.23</Stawka1>
+	<Stawka2>0.08</Stawka2>
+	<Stawka3>0.05</Stawka3>
+	<Stawka4>0.00</Stawka4>
+	<Stawka5>0.00</Stawka5>
+</StawkiPodatku>																												
+			

@@ -1,0 +1,12 @@
+{% load utils %}
+<div>
+{% if storage.put_code == 201 %}
+{% else %}
+<table class="table table-bordered danger">
+	<tr><td class="etykieta">Kod błędu</td><td class="wartosc">{{storage.put.Error.Code.0.text}}</td></tr>
+	<tr><td class="etykieta">Komunikat</td><td class="wartosc">{{storage.put.Error.Message.0.text}}</td></tr>
+	<tr><td class="etykieta">MD5 zadeklarowane</td><td class="wartosc">{{storage.put.Error.UserSpecifiedMd5.0.text}}</td></tr>
+	<tr><td class="etykieta">MD5 przesłane</td><td class="wartosc">{{storage.put.Error.ServerCalculatedMd5.0.text}}</td></tr>
+</table>
+{% endif %}
+</div>

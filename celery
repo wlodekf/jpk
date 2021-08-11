@@ -1,0 +1,14 @@
+#!/bin/bash
+
+export DELIMIDENT=y
+export PROJDIR=`dirname $0`
+export LOG=$PROJDIR/log/celery.log
+export BAK=$PROJDIR/log/celery.bak
+cd $PROJDIR
+
+kill -9 `ps ax|grep "celery -A jpk"|grep -v grep|awk '{print $1}'`
+
+[ "$1" == "stop" ] && exit 0
+
+cat $LOG >> $BAK
+celery -A jpk worker -l info --pidfile=$PROJDIR/tmp/celery.pid -I app.ctrl --concurrency=1 --logfile=$LOG >$LOG 2>&1 &

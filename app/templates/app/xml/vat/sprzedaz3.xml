@@ -1,0 +1,53 @@
+{% load utils %}
+{% for e in sprzedaz.generator %}
+<SprzedazWiersz>
+	<LpSprzedazy>{{e.lp}}</LpSprzedazy>
+
+	<NrKontrahenta>{{e.nip_kon.strip|do1spacji|tznakowy}}</NrKontrahenta>
+	<NazwaKontrahenta>{{e.nazwa_kon.strip|do1spacji|tznakowy}}</NazwaKontrahenta>	
+	<AdresKontrahenta>{{e.adres_kon.strip|do1spacji|tznakowy}}</AdresKontrahenta>
+	
+	<DowodSprzedazy>{{e.nr_dokumentu.strip|tznakowy}}<!--{{e.pod_rejestr}}--></DowodSprzedazy>
+	<DataWystawienia>{{e.data_wystawienia|date:'Y-m-d'}}</DataWystawienia>
+ 	{% if e.data_sprzedazy %}<DataSprzedazy>{{e.data_sprzedazy|date:'Y-m-d'}}</DataSprzedazy>{% endif %}
+	
+	{% spaceless %}	
+	
+	{% if e.k_10 %}<K_10>{{e.k_10|tkwotowy}}</K_10>{% endif %}
+	{% if e.k_11 %}<K_11>{{e.k_11|tkwotowy}}</K_11>{% endif %}
+	{% if e.k_12 %}<K_12>{{e.k_12|tkwotowy}}</K_12>{% endif %}
+	{% if e.k_13 %}<K_13>{{e.k_13|tkwotowy}}</K_13>{% endif %}
+	{% if e.k_14 %}<K_14>{{e.k_14|tkwotowy}}</K_14>{% endif %}
+	
+	{% if e.k_15 or e.k_16 %}<K_15>{{e.k_15|tkwotowy}}</K_15><K_16>{{e.k_16|tkwotowy}}</K_16>{% endif %}
+	{% if e.k_17 or e.k_18 %}<K_17>{{e.k_17|tkwotowy}}</K_17><K_18>{{e.k_18|tkwotowy}}</K_18>{% endif %}
+	{% if e.k_19 or e.k_20 %}<K_19>{{e.k_19|tkwotowy}}</K_19><K_20>{{e.k_20|tkwotowy}}</K_20>{% endif %}
+	
+	{% if e.k_21 %}<K_21>{{e.k_21|tkwotowy}}</K_21>{% endif %}
+	{% if e.k_22 %}<K_22>{{e.k_22|tkwotowy}}</K_22>{% endif %}
+	
+	{% if e.k_23 or e.k_24 %}<K_23>{{e.k_23|tkwotowy}}</K_23><K_24>{{e.k_24|tkwotowy}}</K_24>{% endif %}
+	{% if e.k_25 or e.k_26 %}<K_25>{{e.k_25|tkwotowy}}</K_25><K_26>{{e.k_26|tkwotowy}}</K_26>{% endif %}
+	{% if e.k_27 or e.k_28 %}<K_27>{{e.k_27|tkwotowy}}</K_27><K_28>{{e.k_28|tkwotowy}}</K_28>{% endif %}
+	{% if e.k_29 or e.k_30 %}<K_29>{{e.k_29|tkwotowy}}</K_29><K_30>{{e.k_30|tkwotowy}}</K_30>{% endif %}
+	
+	{% if e.k_31 %}<K_31>{{e.k_31|tkwotowy}}</K_31>{% endif %}
+	
+	{% if e.k_32 or e.k_33 %}<K_32>{{e.k_32|tkwotowy}}</K_32><K_33>{{e.k_33|tkwotowy}}</K_33>{% endif %}
+	{% if e.k_34 or e.k_35 %}<K_34>{{e.k_34|tkwotowy}}</K_34><K_35>{{e.k_35|tkwotowy}}</K_35>{% endif %}
+	
+	{% if e.k_36 %}<K_36>{{e.k_36|tkwotowy}}</K_36>{% endif %}
+	{% if e.k_37 %}<K_37>{{e.k_37|tkwotowy}}</K_37>{% endif %}
+	{% if e.k_38 %}<K_38>{{e.k_38|tkwotowy}}</K_38>{% endif %}
+	{% if e.k_39 %}<K_39>{{e.k_39|tkwotowy}}</K_39>{% endif %}
+		
+	{% endspaceless %}	
+</SprzedazWiersz>
+{% endfor %}
+
+{% if sprzedaz.lp %}
+<SprzedazCtrl>
+	<LiczbaWierszySprzedazy>{{sprzedaz.lp}}</LiczbaWierszySprzedazy>
+	<PodatekNalezny>{{sprzedaz.suma1|tkwotowy}}</PodatekNalezny>
+</SprzedazCtrl>
+{% endif %}

@@ -1,0 +1,44 @@
+{% load utils %}
+{% for zak in zakup.generator %}
+<pf:ZakupWiersz>
+	<pf:LpZakupu>{{zak.lp}}</pf:LpZakupu>
+	
+	{% if zak.kraj_tin %}<pf:KodKrajuNadaniaTIN>{{zak.kraj_tin}}</pf:KodKrajuNadaniaTIN>{% endif %}
+	<pf:NrDostawcy>{{zak.nr_id4.strip|tznakowy_brak}}</pf:NrDostawcy>
+	<pf:NazwaDostawcy>{{zak.nazwa_kon.strip|do1spacji|tznakowy_brak}}</pf:NazwaDostawcy>
+
+	<pf:DowodZakupu>{{zak.nr_faktury.strip|tznakowy}}<!--{{zak.pod_rejestr}}--></pf:DowodZakupu>
+	<pf:DataZakupu>{{zak.data_zakupu|date:'Y-m-d'}}</pf:DataZakupu>	
+	{% if zak.data_wplywu %}<pf:DataWplywu>{{zak.data_wplywu|date:'Y-m-d'}}</pf:DataWplywu>{% endif %}
+	
+	{% if zak.dokument_zakupu %}<pf:DokumentZakupu>{{zak.dokument_zakupu}}</pf:DokumentZakupu>{% endif %}
+	
+	{% for element in zak.znaczniki %}
+		<pf:{{element}}>1</pf:{{element}}>
+	{% endfor %}
+	
+	{% spaceless %}
+
+	{# W wersji 4 elementy zostały przenumerowane ze względu na usunięcie pewnych elementów ze sprzedaży #}
+	{# Wartości są w polach o takich samych numerach jak w poprzednich wersjach #} 
+	
+	{% if zak.k_43 or zak.k_44 %}<pf:K_40>{{zak.k_43|tkwotowy}}</pf:K_40><pf:K_41>{{zak.k_44|tkwotowy}}</pf:K_41>{% endif %}
+	{% if zak.k_45 or zak.k_46 %}<pf:K_42>{{zak.k_45|tkwotowy}}</pf:K_42><pf:K_43>{{zak.k_46|tkwotowy}}</pf:K_43>{% endif %}
+	
+	{% if zak.k_47 %}<pf:K_44>{{zak.k_47|tkwotowy}}</pf:K_44>{% endif %}
+	{% if zak.k_48 %}<pf:K_45>{{zak.k_48|tkwotowy}}</pf:K_45>{% endif %}
+	{% if zak.k_49 %}<pf:K_46>{{zak.k_49|tkwotowy}}</pf:K_46>{% endif %}
+	{% if zak.k_50 %}<pf:K_47>{{zak.k_50|tkwotowy}}</pf:K_47>{% endif %}
+	
+	{% if e.zakup_vat_marza %}<pf:ZakupVAT_Marza>{{e.zakup_vat_marza|tkwotowy}}</pf:ZakupVAT_Marza>{% endif %}
+	
+	{% endspaceless %}	
+</pf:ZakupWiersz>
+{% endfor %}
+
+{% if zakup.lp %}
+<pf:ZakupCtrl>
+	<pf:LiczbaWierszyZakupow>{{zakup.lp}}</pf:LiczbaWierszyZakupow>
+	<pf:PodatekNaliczony>{{zakup.suma1|tkwotowy}}</pf:PodatekNaliczony>
+</pf:ZakupCtrl>
+{% endif %}

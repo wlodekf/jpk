@@ -1,0 +1,81 @@
+{% extends "polon/page.html" %}
+
+{% block content %}
+
+<div class="panel panel-default" style="width: 500px;">
+	<div class="panel-heading">
+		Generowanie obrazów faktur do PDF
+	</div>
+	
+  	<div class="panel-body">
+  	
+		<form action="{% url 'polon-faktury' %}" method="POST">{% csrf_token %}
+
+			
+			<div class="row">
+				<div class="col-md-6">
+			  		<div class="form-group {% if form.od_daty.errors %}has-error{% endif %}">
+			    		<label class="control-label" for="od_daty">{{ form.od_daty.label }}</label>
+			    		<input type="text" class="form-control" id="od_daty" name="od_daty" value="{{ form.od_daty.value }}" aria-describedby="od_daty-help">
+			    		<p id="od_daty-help" class="help-block">{{ form.od_daty.help_text|safe }}{% for error in form.od_daty.errors %}</br>{{ error }}{% endfor %}</p>
+			    	</div>
+			  	</div>
+			  	<div class="col-md-6">
+			    	<div class="form-group {% if form.do_daty.errors %}has-error{% endif %}">
+			    		<label class="control-label" for="do_daty">{{ form.do_daty.label }}</label>  
+			    		<input type="text" class="form-control" id="do_daty" name="do_daty" value="{{ form.do_daty.value }}" aria-describedby="do_daty-help">
+			    		<p id="do_daty-help" class="help-block">{{ form.do_daty.help_text|safe }}{% for error in form.do_daty.errors %}</br>{{ error }}{% endfor %}</p>
+			    	</div>
+			  	</div>
+			</div>   
+
+			{% if form.non_field_errors %}		 		
+				<p class="" style="color: red;">{% for error in form.non_field_errors %}{{ error }}{% endfor %}</p>
+			{% endif %}
+
+	  		<div class="form-group {% if form.zaklady.errors %}has-error{% endif %}"">
+	    		<label for="zaklady" class="control-label">{{ form.zaklady.label }}</label>
+	    		<input type="text" class="form-control" id="zaklady" name="zaklady" value="{{ form.zaklady.value }}" aria-describedby="zaklady-help">
+			   	<p id="zaklady-help" class="help-block">{{ form.zaklady.help_text|safe }}{% for error in form.zaklady.errors %} {{ error }}{% endfor %}</p>
+	  		</div> 
+	
+	  		<div class="form-group {% if form.tematy.errors %}has-error{% endif %}"">
+	    		<label for="tematy" class="control-label">{{ form.tematy.label }}</label>
+	    		<input type="text" class="form-control" id="tematy" name="tematy" value="{{ form.tematy.value }}" aria-describedby="tematy-help">
+			    <p id="tematy-help" class="help-block">{{ form.tematy.help_text|safe }}{% for error in form.tematy.errors %} {{ error }}{% endfor %}</p>
+	  		</div> 
+	  		
+	  		<div class="form-group {% if form.pkwiu.errors %}has-error{% endif %}"">
+	    		<label for="pkwiu" class="control-label">{{ form.pkwiu.label }}</label>
+	    		<input type="text" class="form-control" id="pkwiu" name="pkwiu" value="{{ form.pkwiu.value }}" aria-describedby="pkwiu-help">
+			    <p id="pkwiu-help" class="help-block">{{ form.pkwiu.help_text|safe }}{% for error in form.pkwiu.errors %} {{ error }}{% endfor %}</p>
+	  		</div> 
+
+			<div class="radio" style="margin-bottom: 20px;">
+				<span style="font-weight: bold; padding-right: 10px;">Grupowanie</span>
+				<label class="radio-inline">
+				  <input type="radio" name="grupowanie" id="id_grupowanie_0" value="tematy" {% if form.grupowanie.value == 'tematy' %}checked="checked{% endif %}"> Tematy
+				</label>
+				<label class="radio-inline">
+				  <input type="radio" name="grupowanie" id="id_grupowanie_1" value="zaklady" {% if form.grupowanie.value == 'zaklady' %}checked="checked{% endif %}"> Zakłady
+				</label>
+			</div>
+			
+			<div class="radio" style="margin-bottom: 20px;">
+				<span style="font-weight: bold; padding-right: 10px;">Podpis</span>			
+				<label class="radio-inline">
+				  <input type="radio" name="podpis" id="id_podpis_0" value="stopka" {% if form.podpis.value == 'stopka' %}checked="checked{% endif %}"> Stopka
+				</label>
+				<label class="radio-inline">
+				  <input type="radio" name="podpis" id="id_podpis_1" value="pieczatka" {% if form.podpis.value == 'pieczatka' %}checked="checked{% endif %}"> Pieczątka
+				</label>
+			</div>
+			
+			<input class="btn btn-default" type="submit" value="Utwórz">
+			
+		</form>
+	
+  	</div>
+</div>
+
+{% endblock %}

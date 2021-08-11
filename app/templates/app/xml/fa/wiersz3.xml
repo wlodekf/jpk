@@ -1,0 +1,24 @@
+{% load utils %}
+{% for w in faktura_wiersz.generator %}
+<FakturaWiersz>
+	<P_2B>{{w.id_dok.nr_fak|tznakowy}}</P_2B>
+	<P_7>{{w.nazwa|tznakowy}}</P_7>
+	<P_8A>{{w.jm|tznakowy}}</P_8A>
+	<P_8B>{{w.il_real|tilosci}}</P_8B>
+	
+	{% if w.wsk_wyc == 'B' %} 
+	<P_9B>{{w.cena_bru|tkwotowy}}</P_9B>
+	<P_11A>{{w.brutto|tkwotowy}}</P_11A>
+	{% else %}
+	<P_9A>{{w.cena_net|tkwotowy}}</P_9A>
+	<P_11>{{w.p_netto|tkwotowy}}</P_11>
+	{% endif %}
+	
+	{% if w.vat|stawka %}<P_12>{{w.vat|stawka}}</P_12>{% endif %}
+</FakturaWiersz>
+{% endfor %}
+
+<FakturaWierszCtrl>
+	<LiczbaWierszyFaktur>{{faktura_wiersz.lp}}</LiczbaWierszyFaktur>
+	<WartoscWierszyFaktur>{{faktura_wiersz.suma1|tkwotowy}}</WartoscWierszyFaktur>
+</FakturaWierszCtrl>

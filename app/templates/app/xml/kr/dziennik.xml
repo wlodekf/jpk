@@ -1,0 +1,24 @@
+{% load utils %}
+{% for dow in dziennik.generator %}
+<Dziennik typ="G">
+	<LpZapisuDziennika>{{dow.lp}}</LpZapisuDziennika>
+	<NrZapisuDziennika>{{dow.lp_dzi}}</NrZapisuDziennika>
+	<OpisDziennika>dziennik</OpisDziennika>
+	
+	<NrDowoduKsiegowego>{{dow.nr_dowodu.strip|tznakowy}}</NrDowoduKsiegowego>
+	<RodzajDowodu>{{dow.rodzaj_dowodu_nazwa|tznakowy}}</RodzajDowodu>
+	
+	<DataOperacji>{{dow.d_operacji|date:'Y-m-d'}}</DataOperacji>
+	<DataDowodu>{{dow.d_dowodu|date:'Y-m-d'}}</DataDowodu>
+	<DataKsiegowania>{{dow.d_ksiegowania|date:'Y-m-d'}}<!-- {{dow.miesiac}} --></DataKsiegowania>
+	
+	<KodOperatora>{{dow.kod_operatora.strip|tznakowy}}</KodOperatora>
+	<OpisOperacji>{{dow.opis|do1spacji|tznakowy}}</OpisOperacji>
+	<DziennikKwotaOperacji>{{dow.suma|tkwotowy}}</DziennikKwotaOperacji>
+</Dziennik>
+{% endfor %}
+
+<DziennikCtrl>
+	<LiczbaWierszyDziennika>{{dziennik.lp}}</LiczbaWierszyDziennika>
+	<SumaKwotOperacji>{{dziennik.suma1|tkwotowy}}</SumaKwotOperacji>
+</DziennikCtrl>

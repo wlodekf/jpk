@@ -1,0 +1,57 @@
+{% comment %}
+
+<div id="postep" style="display: none; margin-top: 20px">
+	<p>{{co}}<p/>
+	<div class="progress">
+		<div class="progress-bar" id="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; width: 0%;">
+			0% 
+		</div>
+	</div>
+</div>
+
+<script>
+
+var pt= 0;
+function prog(data) {
+	var nt= parseInt(new Date().getTime()/200);
+	if(data==100 || (nt!=pt && data>0)) {
+		console.log(data, new Date().getTime());
+		$('#progress-bar').css('width', data+'%'); 
+    	$('#progress-bar').attr('aria-valuenow', data);
+    	$('#progress-bar').html(data+'%');
+    	pt= nt;
+    }
+}  	
+
+function run() {
+	var ws= new WebSocket("ws://{{ws_host}}:5678/");
+	
+    ws.onmessage= function (event) {
+    	prog(event.data);
+    };
+    ws.onclose= function(event) {
+    	console.log('onclose');
+		prog(100);
+    }
+    ws.onerror= function(event) {
+		console.log('onerror', event);
+    }
+    ws.onopen= function(event) {
+		console.log('onopen', event);
+    }        
+}
+
+$(function() {    
+	$("form").submit(function(event) {
+		console.log("Submit called");
+		
+		$("#przyciski").hide();
+		$("#postep").show();
+		
+		setTimeout(run, 500);
+	});
+});
+    
+</script>
+
+{% endcomment %}

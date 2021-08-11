@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+cd `dirname $0`
+
+export DELIMIDENT=y
+PROJDIR="$(pwd)"
+PIDFILE="$PROJDIR/tmp/jpk.pid"
+SOCKET="$PROJDIR/tmp/jpk.sock"
+
+cd $PROJDIR
+if [ -f $PIDFILE ]; then
+    kill -9 `cat -- $PIDFILE`
+    rm -f -- $PIDFILE
+
+    # Odczekanie na zamknięcie wszystkich procesów
+    while : ; do
+       echo -n '.'
+       sleep 1
+       ps ax|grep "uwsgi.*jpk"|grep -v grep >/dev/null 2>&1 || break
+    done
+fi
+
+[ "$1" == "stop" ] && exit 0
+
+uwsgi --ini jpk/uwsgi.ini 

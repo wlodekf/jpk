@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+	xmlns:etd="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2011/06/21/eD/DefinicjeTypy/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://crd.gov.pl/xml/schematy/dziedzinowe/mf/2011/06/21/eD/DefinicjeTypy/" 
+	elementFormDefault="qualified" 
+	attributeFormDefault="unqualified" 
+	xml:lang="pl">
+	
+	<xsd:annotation>
+		<xsd:documentation>Nazwy pozycji sprawozdań finansowych</xsd:documentation>
+	</xsd:annotation>
+	
+	<xsd:simpleType name="Aktywa">
+		<xsd:restriction base="xsd:string">
+
+<xsd:enumeration value="Aktywa"><xsd:annotation xml:klu="0" xml:aaa="wyrUB"><xsd:documentation>Aktywa razem</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A"><xsd:annotation xml:klu="10" xml:aaa="wyrUBS"><xsd:documentation>Aktywa trwałe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_I"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Wartości niematerialne i prawne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_I_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Koszty zakończonych prac rozwojowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration xml:id="ala" value="Aktywa_A_I_2"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Wartość firmy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_I_3"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Inne wartości niematerialne i prawne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_I_4"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Zaliczki na wartości niematerialne i prawne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_II"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Rzeczowe aktywa trwałe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_II_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Środki trwałe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_II_1_A"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>grunty (w tym prawo użytkowania wieczystego gruntu)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_II_1_B"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>budynki, lokale, prawa do lokali i obiekty inżynierii lądowej i wodnej</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_II_1_C"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>urządzenia techniczne i maszyny</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_II_1_D"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>środki transportu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_II_1_E"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>inne środki trwałe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_II_2"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Środki trwałe w budowie</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_II_3"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Zaliczki na środki trwałe w budowie</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_III"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Należności długoterminowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_III_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Od jednostek powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_III_2"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Od pozostałych jednostek, w których jednostka posiada zaangażowanie w kapitale</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_III_3"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Od pozostałych jednostek</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Inwestycje długoterminowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Nieruchomości</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_2"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Wartości niematerialne i prawne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_3"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Długoterminowe aktywa finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_3_A"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>w jednostkach powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_3_A_1"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- udziały lub akcje</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_3_A_2"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- inne papiery wartościowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_3_A_3"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- udzielone pożyczki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_3_A_4"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- inne długoterminowe aktywa finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_3_B"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>w pozostałych jednostkach, w których jednostka posiada zaangażowanie w kapitale</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_3_B_1"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- udziały lub akcje</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_3_B_2"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- inne papiery wartościowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_3_B_3"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- udzielone pożyczki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_3_B_4"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- inne długoterminowe aktywa finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_3_C"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>w pozostałych jednostkach</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_3_C_1"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- udziały lub akcje</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_3_C_2"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- inne papiery wartościowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_3_C_3"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- udzielone pożyczki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_3_C_4"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- inne długoterminowe aktywa finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_IV_4"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Inne inwestycje długoterminowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_V"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Długoterminowe rozliczenia międzyokresowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_V_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Aktywa z tytułu odroczonego podatku dochodowego</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_A_V_2"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Inne rozliczenia międzyokresowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B"><xsd:annotation xml:klu="10" xml:aaa="wyrUBS"><xsd:documentation>Aktywa obrotowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_I"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Zapasy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_I_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Materiały</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_I_2"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Półprodukty i produkty w toku</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_I_3"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Produkty gotowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_I_4"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Towary</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_I_5"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Zaliczki na dostawy i usługi</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Należności krótkoterminowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Należności od jednostek powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_1_A"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>z tytułu dostaw i usług, o okresie spłaty:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_1_A_1"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- do 12 miesięcy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_1_A_2"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- powyżej 12 miesięcy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_1_B"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>inne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_2"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Należności od pozostałych jednostek, w których jednostka posiada zaangażowanie w kapitale</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_2_A"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>z tytułu dostaw i usług, o okresie spłaty:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_2_A_1"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- do 12 miesięcy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_2_A_2"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- powyżej 12 miesięcy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_2_B"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>inne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_3"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Należności od pozostałych jednostek</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_3_A"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>z tytułu dostaw i usług, o okresie spłaty:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_3_A_1"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- do 12 miesięcy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_3_A_2"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- powyżej 12 miesięcy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_3_B"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>z tytułu podatków, dotacji, ceł, ubezpieczeń społecznych i zdrowotnych oraz innych tytułów publicznoprawnych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_3_C"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>inne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_II_3_D"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>dochodzone na drodze sądowej</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Inwestycje krótkoterminowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Krótkoterminowe aktywa finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III_1_A"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>w jednostkach powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III_1_A_1"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- udziały lub akcje</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III_1_A_2"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- inne papiery wartościowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III_1_A_3"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- udzielone pożyczki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III_1_A_4"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- inne krótkoterminowe aktywa finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III_1_B"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>w pozostałych jednostkach</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III_1_B_1"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- udziały lub akcje</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III_1_B_2"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- inne papiery wartościowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III_1_B_3"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- udzielone pożyczki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III_1_B_4"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- inne krótkoterminowe aktywa finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III_1_C"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>Środki pieniężne i inne aktywa pieniężne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III_1_C_1"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- środki pieniężne w kasie i na rachunkach</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III_1_C_2"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- inne środki pieniężne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III_1_C_3"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- inne aktywa pieniężne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_III_2"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Inne inwestycje krótkoterminowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_B_IV"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Krótkoterminowe rozliczenia międzyokresowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_C"><xsd:annotation xml:klu="10" xml:aaa="wyrUBS"><xsd:documentation>Należne wpłaty na kapitał (fundusz) podstawowy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Aktywa_D"><xsd:annotation xml:klu="10" xml:aaa="wyrUBS"><xsd:documentation>Udziały (akcje) własne</xsd:documentation></xsd:annotation></xsd:enumeration>
+	
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="Pasywa">
+		<xsd:restriction base="xsd:string">
+		
+<xsd:enumeration value="Pasywa"><xsd:annotation xml:klu="0" xml:aaa="wyrUB"><xsd:documentation>Pasywa razem</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_A"><xsd:annotation xml:klu="10" xml:aaa="wyrUBS"><xsd:documentation>Kapitał (fundusz) własny</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_A_I"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Kapitał (fundusz) podstawowy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_A_II"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Kapitał (fundusz) zapasowy, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_A_II_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>- nadwyżka wartości sprzedaży (wartości emisyjnej) nad wartością nominalną udziałów (akcji)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_A_III"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Kapitał (fundusz) z aktualizacji wyceny, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_A_III_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>- z tytułu aktualizacji wartości godziwej</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_A_IV"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Pozostałe kapitały (fundusze) rezerwowe, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_A_IV_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>- tworzone zgodnie z umową (statutem) spółki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_A_IV_2"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>- na udziały (akcje) własne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_A_V"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Zysk (strata) z lat ubiegłych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_A_VI"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Zysk (strata) netto</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_A_VII"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Odpisy z zysku netto w ciągu roku obrotowego (wielkość ujemna)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B"><xsd:annotation xml:klu="10" xml:aaa="wyrUBS"><xsd:documentation>Zobowiązania i rezerwy na zobowiązania</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_I"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Rezerwy na zobowiązania</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_I_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Rezerwa z tytułu odroczonego podatku dochodowego</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_I_2"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Rezerwa na świadczenia emerytalne i podobne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_I_2_1"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- długoterminowa</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_I_2_2"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- krótkoterminowa</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_I_3"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Pozostałe rezerwy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_I_3_1"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- długoterminowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_I_3_2"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- krótkoterminowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_II"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Zobowiązania długoterminowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_II_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Wobec jednostek powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_II_2"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Wobec pozostałych jednostek, w których jednostka posiada zaangażowanie w kapitale</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_II_3"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Wobec pozostałych jednostek</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_II_3_A"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>kredyty i pożyczki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_II_3_B"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>z tytułu emisji dłużnych papierów wartościowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_II_3_C"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>inne zobowiązania finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_II_3_D"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>zobowiązania wekslowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_II_3_E"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>inne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Zobowiązania krótkoterminowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Zobowiązania wobec jednostek powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_1_A"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>z tytułu dostaw i usług, o okresie wymagalności:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_1_A_1"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- do 12 miesięcy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_1_A_2"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- powyżej 12 miesięcy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_1_B"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>inne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_2"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Zobowiązania wobec pozostałych jednostek, w których jednostka posiada zaangażowanie w kapitale</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_2_A"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>z tytułu dostaw i usług, o okresie wymagalności:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_2_A_1"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- do 12 miesięcy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_2_A_2"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- powyżej 12 miesięcy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_2_B"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>inne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_3"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Zobowiązania wobec pozostałych jednostek</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_3_A"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>kredyty i pożyczki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_3_B"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>z tytułu emisji dłużnych papierów wartościowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_3_C"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>inne zobowiązania finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_3_D"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>z tytułu dostaw i usług, o okresie wymagalności:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_3_D_1"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- do 12 miesięcy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_3_D_2"><xsd:annotation xml:klu="50" xml:aaa=""><xsd:documentation>- powyżej 12 miesięcy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_3_E"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>zaliczki otrzymane na dostawy i usługi</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_3_F"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>zobowiązania wekslowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_3_G"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>z tytułu podatków, ceł, ubezpieczeń społecznych i zdrowotnych oraz innych tytułów publicznoprawnych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_3_H"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>z tytułu wynagrodzeń</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_3_I"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>inne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_III_4"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Fundusze specjalne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_IV"><xsd:annotation xml:klu="20" xml:aaa="wyrB"><xsd:documentation>Rozliczenia międzyokresowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_IV_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Ujemna wartość firmy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_IV_2"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>Inne rozliczenia międzyokresowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_IV_2_1"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- długoterminowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="Pasywa_B_IV_2_2"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- krótkoterminowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	
+	<xsd:simpleType name="RZiSPor">
+		<xsd:restriction base="xsd:string">
+
+<xsd:enumeration value="A"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Przychody netto ze sprzedaży i zrównane z nimi, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_J"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>- od jednostek powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_I"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Przychody netto ze sprzedaży produktów</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Zmiana stanu produktów (zwiększenie - wartość dodatnia, zmniejszenie - wartość ujemna)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_III"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Koszt wytworzenia produktów na własne potrzeby jednostki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_IV"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Przychody netto ze sprzedaży towarów i materiałów</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_V"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Przychody z dotacji</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="PozycjaUszczegolawiajaca_6"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Przychody z dotacji</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Koszty działalności operacyjnej</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Amortyzacja</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Zużycie materiałów i energii</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_III"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Usługi obce</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_IV"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Podatki i opłaty, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_IV_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>- podatek akcyzowy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_V"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Wynagrodzenia</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_VI"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Ubezpieczenia społeczne i inne świadczenia, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_VI_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>- emerytalne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_VII"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Pozostałe koszty rodzajowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_VIII"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Wartość sprzedanych towarów i materiałów</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Zysk (strata) ze sprzedaży (A-B)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="D"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Pozostałe przychody operacyjne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="D_I"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Zysk z tytułu rozchodu niefinansowych aktywów trwałych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="D_II"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Dotacje</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="D_III"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Aktualizacja wartości aktywów niefinansowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="D_IV"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Inne przychody operacyjne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="E"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Pozostałe koszty operacyjne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="E_I"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Strata z tytułu rozchodu niefinansowych aktywów trwałych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="E_II"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Aktualizacja wartości aktywów niefinansowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="E_III"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Inne koszty operacyjne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="F"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Zysk (strata) z działalności operacyjnej (C+D-E)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Przychody finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_I"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Dywidendy i udziały w zyskach, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_I_A"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Od jednostek powiązanych, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_I_A_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>- w których jednostka posiada zaangażowanie w kapitale</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_I_B"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Od jednostek pozostałych, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_I_B_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>- w których jednostka posiada zaangażowanie w kapitale</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_II"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Odsetki, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_II_J"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>- od jednostek powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_III"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Zysk z tytułu rozchodu aktywów finansowych, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_III_J"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>- w jednostkach powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_IV"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Aktualizacja wartości aktywów finansowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_V"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Inne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="H"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Koszty finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="H_I"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Odsetki, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="H_I_J"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>- dla jednostek powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="H_II"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Strata z tytułu rozchodu aktywów finansowych, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="H_II_J"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>- w jednostkach powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="H_III"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Aktualizacja wartości aktywów finansowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="H_IV"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Inne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="I"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Zysk (strata) brutto (F+G-H)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="J"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Podatek dochodowy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="K"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Pozostałe obowiązkowe zmniejszenia zysku (zwiększenia straty)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="L"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Zysk (strata) netto (I-J-K)</xsd:documentation></xsd:annotation></xsd:enumeration>
+
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="RZiSKalk">
+		<xsd:restriction base="xsd:string">
+		
+<xsd:enumeration value="A"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Przychody netto ze sprzedaży produktów, towarów i materiałów, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_J"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>- od jednostek powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_I"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Przychody netto ze sprzedaży produktów</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Przychody netto ze sprzedaży towarów i materiałów</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Koszty sprzedanych produktów, towarów i materiałów, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_J"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>- jednostkom powiązanym</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Koszt wytworzenia sprzedanych produktów</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Wartość sprzedanych towarów i materiałów</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Zysk (strata) brutto ze sprzedaży (A-B)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="D"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Koszty sprzedaży</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="E"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Koszty ogólnego zarządu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="F"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Zysk (strata) ze sprzedaży (C-D-E)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Pozostałe przychody operacyjne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_I"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Zysk z tytułu rozchodu niefinansowych aktywów trwałych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_II"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Dotacje</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_III"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Aktualizacja wartości aktywów niefinansowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_IV"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Inne przychody operacyjne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="H"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Pozostałe koszty operacyjne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="H_I"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Strata z tytułu rozchodu niefinansowych aktywów trwałych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="H_II"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Aktualizacja wartości aktywów niefinansowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="H_III"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Inne koszty operacyjne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="I"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Zysk (strata) z działalności operacyjnej (F+G-H)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="J"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Przychody finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="J_I"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Dywidendy i udziały w zyskach, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="J_I_A"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>od jednostek powiązanych, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="J_I_A_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>- w których jednostka posiada zaangażowanie w kapitale</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="J_I_B"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>od jednostek pozostałych, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="J_I_B_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>- w których jednostka posiada zaangażowanie w kapitale</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="J_II"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Odsetki, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="J_II_J"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>- od jednostek powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="J_III"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Zysk z tytułu rozchodu aktywów finansowych, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="J_III_J"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>- w jednostkach powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="J_IV"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Aktualizacja wartości aktywów finansowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="J_V"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Inne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="K"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Koszty finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="K_I"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Odsetki, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="K_I_J"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>- dla jednostek powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="K_II"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Strata z tytułu rozchodu aktywów finansowych, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="K_II_J"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>- w jednostkach powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="K_III"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Aktualizacja wartości aktywów finansowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="K_IV"><xsd:annotation xml:klu="10" xml:aaa=""><xsd:documentation>Inne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="L"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Zysk (strata) brutto (I+J-K)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="M"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Podatek dochodowy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="N"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Pozostałe obowiązkowe zmniejszenia zysku (zwiększenia straty)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="O"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Zysk (strata) netto (L-M-N)</xsd:documentation></xsd:annotation></xsd:enumeration>
+
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="ZestZmianWKapitaleJednostkaInna">
+		<xsd:restriction base="xsd:string">			
+			
+<xsd:enumeration value="I"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Kapitał (fundusz) własny na początek okresu (BO)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="I_1"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>- zmiany przyjętych zasad (polityki) rachunkowości</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="I_2"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>- korekty błędów</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Kapitał (fundusz) własny na początek okresu (BO), po korektach</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_1"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>Kapitał (fundusz) podstawowy na początek okresu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_1_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zmiany kapitału (funduszu) podstawowego</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_1_1_A"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>zwiększenie (z tytułu)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_1_1_A_1"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- wydania udziałów (emisji akcji)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_1_1_B"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>zmniejszenie (z tytułu)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_1_1_B_1"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- umorzenia udziałów (akcji)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_1_2"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Kapitał (fundusz) podstawowy na koniec okresu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_2"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>Kapitał (fundusz) zapasowy na początek okresu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_2_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zmiany kapitału (funduszu) zapasowego</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_2_1_A"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>zwiększenie (z tytułu)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_2_1_A_1"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- emisji akcji powyżej wartości nominalnej</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_2_1_A_2"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- podziału zysku (ustawowo)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_2_1_A_3"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- podziału zysku (ponad wymaganą ustawowo minimalną wartość)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_2_1_B"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>zmniejszenie (z tytułu)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_2_1_B_1"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- pokrycia straty</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_2_2"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Stan kapitału (funduszu) zapasowego na koniec okresu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_3"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>Kapitał (fundusz) z aktualizacji wyceny na początek okresu - zmiany przyjętych zasad (polityki) rachunkowości</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_3_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zmiany kapitału (funduszu) z aktualizacji wyceny</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_3_1_A"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>zwiększenie (z tytułu)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_3_1_B"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>zmniejszenie (z tytułu)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_3_1_B_1"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- zbycia środków trwałych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_3_2"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Kapitał (fundusz) z aktualizacji wyceny na koniec okresu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_4"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>Pozostałe kapitały (fundusze) rezerwowe na początek okresu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_4_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zmiany pozostałych kapitałów (funduszy) rezerwowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_4_1_A"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>zwiększenie (z tytułu)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_4_1_B"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>zmniejszenie (z tytułu)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_4_2"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Pozostałe kapitały (fundusze) rezerwowe na koniec okresu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>Zysk (strata) z lat ubiegłych na początek okresu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zysk z lat ubiegłych na początek okresu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_1_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>- zmiany przyjętych zasad (polityki) rachunkowości</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_1_2"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>- korekty błędów</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_2"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zysk z lat ubiegłych na początek okresu, po korektach</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_2_A"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>zwiększenie (z tytułu)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_2_A_1"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- podziału zysku z lat ubiegłych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_2_B"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>zmniejszenie (z tytułu)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_3"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zysk z lat ubiegłych na koniec okresu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_4"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Strata z lat ubiegłych na początek okresu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_4_1"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>- zmiany przyjętych zasad (polityki) rachunkowości</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_4_2"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>- korekty błędów</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_5"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Strata z lat ubiegłych na początek okresu, po korektach</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_5_A"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>zwiększenie (z tytułu)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_5_A_1"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- przeniesienia straty z lat ubiegłych do pokrycia</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_5_B"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>zmniejszenie (z tytułu)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_6"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Strata z lat ubiegłych na koniec okresu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_5_7"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zysk (strata) z lat ubiegłych na koniec okresu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_6"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>Wynik netto</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_6_A"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>zysk netto</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_6_B"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>strata netto</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="IA_6_C"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>odpisy z zysku</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="II"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Kapitał (fundusz) własny na koniec okresu (BZ)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="III"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Kapitał (fundusz) własny, po uwzględnieniu proponowanego podziału zysku (pokrycia straty)</xsd:documentation></xsd:annotation></xsd:enumeration>
+
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="PrzeplywyPosr">
+		<xsd:restriction base="xsd:string">	
+			
+<xsd:enumeration value="A"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Przepływy środków pieniężnych z działalności operacyjnej</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_I"><xsd:annotation xml:klu="10" xml:aaa="wyrU"><xsd:documentation>Zysk (strata) netto</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II"><xsd:annotation xml:klu="10" xml:aaa="wyrU"><xsd:documentation>Korekty razem</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Amortyzacja</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II_2"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zyski (straty) z tytułu różnic kursowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II_3"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Odsetki i udziały w zyskach (dywidendy)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II_4"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zysk (strata) z działalności inwestycyjnej</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II_5"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zmiana stanu rezerw</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II_6"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zmiana stanu zapasów</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II_7"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zmiana stanu należności</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II_8"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zmiana stanu zobowiązań krótkoterminowych, z wyjątkiem pożyczek i kredytów</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II_9"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zmiana stanu rozliczeń międzyokresowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II_10"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Inne korekty</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_III"><xsd:annotation xml:klu="10" xml:aaa="wyrU"><xsd:documentation>Przepływy pieniężne netto z działalności operacyjnej (I+-II)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Przepływy środków pieniężnych z działalności inwestycyjnej</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I"><xsd:annotation xml:klu="10" xml:aaa="wyrU"><xsd:documentation>Wpływy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zbycie wartości niematerialnych i prawnych oraz rzeczowych aktywów trwałych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_2"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zbycie inwestycji w nieruchomości oraz wartości niematerialne i prawne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_3"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Z aktywów finansowych, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_3_A"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>w jednostkach powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_3_B"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>w pozostałych jednostkach</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_3_B_1"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- zbycie aktywów finansowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_3_B_2"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- dywidendy i udziały w zyskach</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_3_B_3"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- spłata udzielonych pożyczek długoterminowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_3_B_4"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- odsetki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_3_B_5"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- inne wpływy z aktywów finansowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_4"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Inne wpływy inwestycyjne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II"><xsd:annotation xml:klu="10" xml:aaa="wyrU"><xsd:documentation>Wydatki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Nabycie wartości niematerialnych i prawnych oraz rzeczowych aktywów trwałych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II_2"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Inwestycje w nieruchomości oraz wartości niematerialne i prawne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II_3"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Na aktywa finansowe, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II_3_A"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>w jednostkach powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II_3_B"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>w pozostałych jednostkach</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II_3_B_1"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- nabycie aktywów finansowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II_3_B_2"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- udzielone pożyczki długoterminowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II_4"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Inne wydatki inwestycyjne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_III"><xsd:annotation xml:klu="10" xml:aaa="wyrU"><xsd:documentation>Przepływy pieniężne netto z działalności inwestycyjnej (I-II)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Przepływy środków pieniężnych z działalności finansowej</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_I"><xsd:annotation xml:klu="10" xml:aaa="wyrU"><xsd:documentation>Wpływy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_I_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Wpływy netto z wydania udziałów (emisji akcji) i innych instrumentów kapitałowych oraz dopłat do kapitału</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_I_2"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Kredyty i pożyczki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_I_3"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Emisja dłużnych papierów wartościowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_I_4"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Inne wpływy finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II"><xsd:annotation xml:klu="10" xml:aaa="wyrU"><xsd:documentation>Wydatki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Nabycie udziałów (akcji) własnych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_2"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Dywidendy i inne wypłaty na rzecz właścicieli</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_3"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Inne, niż wypłaty na rzecz właścicieli, wydatki z tytułu podziału zysku</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_4"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Spłaty kredytów i pożyczek</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_5"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Wykup dłużnych papierów wartościowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_6"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Z tytułu innych zobowiązań finansowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_7"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Płatności zobowiązań z tytułu umów leasingu finansowego</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_8"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Odsetki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_9"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Inne wydatki finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_III"><xsd:annotation xml:klu="10" xml:aaa="wyrU"><xsd:documentation>Przepływy pieniężne netto z działalności finansowej (I-II)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="D"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Przepływy pieniężne netto razem (A.III+-B.III+-C.III)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="E"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Bilansowa zmiana stanu środków pieniężnych, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="E_1"><xsd:annotation xml:klu="10" xml:aaa="wyrU"><xsd:documentation>- zmiana stanu środków pieniężnych z tytułu różnic kursowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="F"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Środki pieniężne na początek okresu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Środki pieniężne na koniec okresu (F+-D), w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_1"><xsd:annotation xml:klu="10" xml:aaa="wyrU"><xsd:documentation>- o ograniczonej możliwości dysponowania</xsd:documentation></xsd:annotation></xsd:enumeration>
+
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	
+	<xsd:simpleType name="PrzeplywyBezp">
+		<xsd:restriction base="xsd:string">	
+		
+<xsd:enumeration value="A"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Przepływy środków pieniężnych z działalności operacyjnej</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_I"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>Wpływy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_I_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Sprzedaż</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_I_2"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Inne wpływy z działalności operacyjnej</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>Wydatki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Dostawy i usługi</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II_2"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Wynagrodzenia netto</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II_3"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Ubezpieczenia społeczne i zdrowotne oraz inne świadczenia</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II_4"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Podatki i opłaty o charakterze publicznoprawnym</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_II_5"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Inne wydatki operacyjne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="A_III"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>Przepływy pieniężne netto z działalności operacyjnej (I-II)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Przepływy środków pieniężnych z działalności inwestycyjnej</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>Wpływy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zbycie wartości niematerialnych i prawnych oraz rzeczowych aktywów trwałych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_2"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Zbycie inwestycji w nieruchomości oraz wartości niematerialne i prawne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_3"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Z aktywów finansowych, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_3_A"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>w jednostkach powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_3_B"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>w pozostałych jednostkach</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_3_B_1"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- zbycie aktywów finansowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_3_B_2"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- dywidendy i udziały w zyskach</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_3_B_3"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- spłata udzielonych pożyczek długoterminowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_3_B_4"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- odsetki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_3_B_5"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- inne wpływy z aktywów finansowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_I_4"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Inne wpływy inwestycyjne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>Wydatki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Nabycie wartości niematerialnych i prawnych oraz rzeczowych aktywów trwałych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II_2"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Inwestycje w nieruchomości oraz wartości niematerialne i prawne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II_3"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Na aktywa finansowe, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II_3_A"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>w jednostkach powiązanych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II_3_B"><xsd:annotation xml:klu="30" xml:aaa=""><xsd:documentation>w pozostałych jednostkach</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II_3_B_1"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- nabycie aktywów finansowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II_3_B_2"><xsd:annotation xml:klu="40" xml:aaa=""><xsd:documentation>- udzielone pożyczki długoterminowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_II_4"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Inne wydatki inwestycyjne</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="B_III"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>Przepływy pieniężne netto z działalności inwestycyjnej (I-II)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Przepływy środków pieniężnych z działalności finansowej</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_I"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>Wpływy</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_I_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Wpływy netto z wydania udziałów (emisji akcji) i innych instrumentów kapitałowych oraz dopłat do kapitału</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_I_2"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Kredyty i pożyczki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_I_3"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Emisja dłużnych papierów wartościowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_I_4"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Inne wpływy finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>Wydatki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_1"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Nabycie udziałów (akcji) własnych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_2"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Dywidendy i inne wypłaty na rzecz właścicieli</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_3"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Inne, niż wypłaty na rzecz właścicieli, wydatki z tytułu podziału zysku</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_4"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Spłaty kredytów i pożyczek</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_5"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Wykup dłużnych papierów wartościowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_6"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Z tytułu innych zobowiązań finansowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_7"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Płatności zobowiązań z tytułu umów leasingu finansowego</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_8"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Odsetki</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_II_9"><xsd:annotation xml:klu="20" xml:aaa=""><xsd:documentation>Inne wydatki finansowe</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="C_III"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>Przepływy pieniężne netto z działalności finansowej (I-II)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="D"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Przepływy pieniężne netto, razem (A.III+-B.III+-C.III)</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="E"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Bilansowa zmiana stanu środków pieniężnych, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="E_1"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>- zmiana stanu środków pieniężnych z tytułu różnic kursowych</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="F"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Środki pieniężne na początek okresu</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G"><xsd:annotation xml:klu="0" xml:aaa="wyrUBS"><xsd:documentation>Środki pieniężne na koniec okresu (F+-D), w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="G_1"><xsd:annotation xml:klu="10" xml:aaa="wyrB"><xsd:documentation>- o ograniczonej możliwości dysponowania</xsd:documentation></xsd:annotation></xsd:enumeration>
+
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="Podatek">
+		<xsd:restriction base="xsd:string">
+		
+<xsd:enumeration value="P_ID_1"><xsd:annotation><xsd:documentation>A. Zysk (strata) brutto za dany rok"</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="P_ID_2"><xsd:annotation><xsd:documentation>B. Przychody zwolnione z opodatkowania (trwałe różnice pomiędzy zyskiem/stratą dla celów rachunkowych a dochodem/stratą dla celów podatkowych), w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="P_ID_3"><xsd:annotation><xsd:documentation>C. Przychody niepodlegające opodatkowania w roku bieżącym, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="P_ID_4"><xsd:annotation><xsd:documentation>D. Przychody podlegające opodatkowania w roku bieżącym, ujęte w księgach rachunkowych lat ubiegłych w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="P_ID_5"><xsd:annotation><xsd:documentation>E. Koszty niestanowiące kosztów uzyskania przychodów (trwałe różnice pomiędzy zyskiem/stratą dla celów rachunkowych a dochodem/stratą dla celów podatkowych), w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="P_ID_6"><xsd:annotation><xsd:documentation>F. Koszty nieuznawane za koszty uzyskania przychodów w bieżącym roku, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="P_ID_7"><xsd:annotation><xsd:documentation>G. Koszty uznawane za koszty uzyskania przychodów w roku bieżącym ujęte w księgach lat ubiegłych, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="P_ID_8"><xsd:annotation><xsd:documentation>H. Strata z lat ubiegłych, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="P_ID_9"><xsd:annotation><xsd:documentation>I. Inne zmiany podstawy opodatkowania, w tym:</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="P_ID_10"><xsd:annotation><xsd:documentation>J. Podstawa opodatkowania podatkiem dochodowym</xsd:documentation></xsd:annotation></xsd:enumeration>
+<xsd:enumeration value="P_ID_11"><xsd:annotation><xsd:documentation>K. Podatek dochodowy</xsd:documentation></xsd:annotation></xsd:enumeration>
+		
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+</xsd:schema>

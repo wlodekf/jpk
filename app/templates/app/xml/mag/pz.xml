@@ -1,0 +1,37 @@
+{% load utils %}
+{% if pz.dokumenty %}
+<PZ>
+
+{% for d in pz.dokumenty %}
+<PZWartosc>
+	<NumerPZ>{{d.mag_nr}}</NumerPZ>
+	<DataPZ>{{d.data|date:'Y-m-d'}}</DataPZ>
+	<WartoscPZ>{{d.mag_wartosc|tkwotowy}}</WartoscPZ>
+	<DataOtrzymaniaPZ>{{d.data|date:'Y-m-d'}}</DataOtrzymaniaPZ>
+	<Dostawca>{{d.id_kli.nazwa_miejsc|tznakowy}}</Dostawca>
+	{% if d.fa_pz_numer %}<NumerFaPZ>{{d.fa_pz_numer}}</NumerFaPZ>{% endif %}
+	{% if d.fa_pz_data %}<DataFaPZ>{{d.fa_pz_data|date:'Y-m-d'}}</DataFaPZ>{% endif %}		
+</PZWartosc>
+{% endfor %}
+
+{% for d in pz.dokumenty %}
+{% for w in d.wiersze_all %}
+<PZWiersz>
+	<Numer2PZ>{{d.mag_nr}}</Numer2PZ>
+	<KodTowaruPZ>{{w.towar_kod.strip}}</KodTowaruPZ>
+	<NazwaTowaruPZ>{{w.towar_nazwa.strip}}</NazwaTowaruPZ>
+	<IloscPrzyjetaPZ>{{w.il_real|tilosci}}</IloscPrzyjetaPZ>
+	<JednostkaMiaryPZ>{{w.mag_jm}}</JednostkaMiaryPZ>
+	<CenaJednPZ>{{w.cena_ewid|tkwotowy}}</CenaJednPZ>
+	<WartoscPozycjiPZ>{{w.wartosc|tkwotowy}}</WartoscPozycjiPZ>
+</PZWiersz>
+{% endfor %}
+{% endfor %}
+
+<PZCtrl>
+	<LiczbaPZ>{{pz.lp}}</LiczbaPZ>
+	<SumaPZ>{{pz.suma1|tkwotowy}}</SumaPZ>
+</PZCtrl>
+
+</PZ>
+{% endif %}

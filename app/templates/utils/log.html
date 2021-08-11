@@ -1,0 +1,26 @@
+{% load utils %}
+
+{% if log %}
+
+<div class="logz">
+
+<table class="elog">
+<tr>
+	<th>Zdarzenie</th>
+	<th>Data i czas</th>
+	<th>Użytkownik</th>
+</tr>
+
+{% for e in log %}
+<tr>
+<td>{% if e.url %}<a href="{{e.url}}">{{e.zdarzenie}}</a>{% else %}{{e.zdarzenie}}{% endif %}</td>
+<td>{{e.kiedy}}</td>
+<td>{{e.kto}}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+
+{% endif %}

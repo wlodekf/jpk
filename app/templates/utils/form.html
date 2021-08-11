@@ -1,0 +1,129 @@
+{% if form.fieldsets %}
+
+{% if not form.fieldsets.0.legend %}
+   	<div class="outer">
+{% endif %}
+
+{% for fieldset in form.fieldsets %}
+
+{% if form.fieldsets.0.legend %}
+
+<fieldset id="id_fieldset_{{forloop.counter}}">
+	<h2><span class="legend">{{ fieldset.legend }}</span> <i>{{ fieldset.shortcut }}</i></h2>
+   	<div class="outer">
+    {% include "utils/alert.html" %}
+{% endif %}
+
+    {% for line in fieldset.fields %}
+    
+        {% if line.is_hidden %}
+        
+            {% for field in line.fields %}
+                {{ field }}
+            {% endfor %}
+        
+        {% else %}
+        
+            {% if line.is_nested %}
+            
+            	{% if line.nested.options.toggable %}
+            		<a href="#" onclick="$(this).toggle(); $(this).next().toggle(); $(this).next().next().toggle(); return false;"{% if line.nested.options.visible_on_start %} style="display: none"{% endif %}>Pokaż tabelę</a>
+            		<a href="#"{% if not line.nested.options.visible_on_start %} style="display: none;"{% endif %} onclick="$(this).toggle(); $(this).next().toggle(); $(this).prev().toggle(); return false;">Ukryj tabelę</a>
+            	{% endif %}
+            
+            	<span{% if line.nested.options.toggable and not line.nested.options.visible_on_start %} style="display: none;"{% endif %}>
+            	
+                {% with line.nested.show_fields as show_fields %}
+                
+                {% with line.nested.slownik_page as slownik_page %}
+                
+                <span id="{{ line.nested.nested_id }}" class="nest_tab">
+                    {% include "ef/objects_table.html" %}
+                </span>
+                
+                {% endwith %}
+                
+                {% endwith %}
+                
+                {% if not read_only %}
+                {% if line.nested.add_link %}
+                	{% if line.nested.import_link %}
+                		<input type="button" onclick = "APP.goTo('{{line.nested.import_link}}');" value = "Importuj">
+                	{% endif %} 
+                	<input type="button" onclick="$('#modalWindow').jqm({ajax: '{{line.nested.add_link}}'});$('#modalWindow').jqmShow()" value="Dodaj"/>
+                {% else %}
+                	<b>Obiekty zależne można tworzyć dopiero po zapisaniu obiektu głównego.</b>
+                {% endif %}
+                {% endif %}
+            </span>
+            
+            {% else %}
+                {% if not line.fields.0.field.template and form_dla_par %}
+                    {% include "utils/form_dla_par.html" %}
+                {% else %}
+                	{% if line.fields.0.field.template %}
+                    	{% include line.fields.0.field.template with line=line %}                	
+                	{% else %}
+                    <div class="pole{% if line.errors %} error{% endif %}" {% if line.fields.0.field.odstep %}style="margin-top: 10px;"{% endif %}>
+                        {% for field in line.fields %}
+                            <div class="a {{field.klas}}"> {{ field.label_tag }}{{ field }} {{ field.help_text }}</div>
+                        {% endfor %}
+                        {% for field in line.fields %}
+                            {{ field.errors }}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+            
+        {% endif %}
+    {% endfor %}
+    
+{% if form.fieldsets.0.legend %}
+    </div>
+</fieldset>
+{% endif %}    
+
+{% endfor %}
+
+{% if not form.fieldsets.0.legend %}
+   </div>
+{% endif %}
+
+{% else %}
+
+        <div class="outer">
+            {% for field in form %}
+                {% if field.is_hidden %}
+                    {{ field }}
+                {% else %}
+                	{% if field.field.template %}
+                    	{% include field.field.template %}                	
+                	{% else %}                
+                    <div class="pole{% if field.errors %} error{% endif %}" {% if field.field.odstep %}style="margin-top: 10px;"{% endif %}>
+                        	{{ field.label_tag }}{{ field }}
+                        	{{ field.help_text }}
+                        	{{ field.errors }} 
+                    </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        
+{% endif %}
+
+{% include "utils/change_log.html" %}
+
+<script>
+
+    $(function () 
+    {
+        {% if not form_from_modal %}
+            $(":input:visible:first").focus();
+        {% endif %}
+        $(".nest_tab").closest("fieldset").addClass("contains_nested");        
+    });
+    
+    $('fieldset.ustawienie_maszyny_pozostale input')
+    
+</script>

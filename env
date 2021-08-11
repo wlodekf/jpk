@@ -1,0 +1,11 @@
+export PYTHONPATH=$local_PROJECT_DIR/jpk:$local_PROJECT_DIR/jpk/jpk:\
+$local_PROJECT_DIR/django:\
+$local_PROJECT_DIR/wlodekf-djangoifx/IBM_DB:\
+$local_PROJECT_DIR/wlodekf-djangoifx/IBM_DB/ibm_db:\
+$local_PROJECT_DIR/wlodekf-djangoifx/IBM_DB/ibm_db_django:\
+$PYTHON
+
+export DJANGO_SETTINGS_MODULE=jpk.settings
+export DBMONEY=.
+export CLIENT_LOCALE=pl_pl.utf8
+export DB_LOCALE=$local_DB_LOCALE

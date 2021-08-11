@@ -1,0 +1,10 @@
+Uprzejmie przypominamy, że dnia: {{ dow.termin }} upływa termin rozliczenia odbytej zagranicznej podróży służbowej nr: {{ poz.rach.strip }} do: {{ poz.opis.strip }}, kwota pobranej zaliczki: {{ poz.kwota }} {{ poz.waluta }}.
+
+Zgodnie z Zarządzeniem nr 3 ND z dnia 28 lutego 2013 r. w sprawie zasad i trybu delegowania pracowników Instytutu na wyjazdy służbowe, pracownik zobowiązany jest dokonać rozliczenia kosztów odbytej podróży oraz dostarczyć sprawozdanie z wyjazdu do 14 dni  od dnia zakończenia podróży. W przypadku nie dotrzymania tego terminu, nierozliczona kwota  pobranej zaliczki zostanie potrącona pracownikowi z wynagrodzenia.
+
+W związku z powyższym uprzejmie proszę o terminowe rozliczenie wyjazdu na obowiązującym druku rozliczenia oraz załączenie kompletu dokumentów potwierdzających poniesione wydatki.
+
+Jeżeli delegacja została już rozliczona prosimy zignorować to powiadomienie.
+
+--
+System FK

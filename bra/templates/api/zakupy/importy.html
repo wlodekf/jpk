@@ -1,0 +1,94 @@
+{% extends "app/page.html" %}
+
+{% block content %}
+  	
+<table id="importy" class="table table-striped table-bordered hover" cellspacing="0" width="100%">
+<thead>
+    <tr>
+        <th>ID importu</th>
+        <th>Import wykonano</th>
+        <th>Od daty</th>
+        <th>Do daty</th>
+        
+        <th class="ar">Ile faktur</th>
+        <th class="ar">Ile kontrah</th>
+        
+        <th class="ar">-Rodzaj</th>
+        <th class="ar">-Wcześniej</th>
+        <th class="ar">-Podobne</th>
+        
+        <th class="ar">Od ID</th>
+        <th class="ar">Do ID</th>
+    </tr>
+</thead>
+
+</table>  	
+
+<script>
+
+$(function() {
+
+	importy= $('#importy').DataTable({
+		
+		"language": {
+	    	"url": "/static/DataTables/Polish.json"
+	    },
+		
+		ajax: "/api/zakupy/{{firma}}/importy/ajax/",
+		
+		columns: [
+			{ data: 'id' },
+	    	{ data: 'kiedy' },
+
+	    	{ data: 'od_daty' },
+	    	{ data: 'do_daty' },
+	    	
+	    	{ data: 'ile_faktur' },
+	    	{ data: 'ile_kon' },
+	    	
+	    	{ data: 'ile_nie_fa' },
+	    	{ data: 'ile_lp_roz' },
+	    	{ data: 'ile_podobne' },
+	    		    		    	
+	    	{ data: 'od_zak_id' },    	
+	    	{ data: 'do_zak_id' },
+		],  
+		
+	    columnDefs: [
+	        { "sClass": "ar", "targets": [ 3, 4 ] }               
+	    ],
+	    	
+	    info: false,
+		stateSave: true,
+	 	lengthMenu: [10, 15, 20, 100],
+	 	pageLength: 10,
+	 	
+		order: [[ 0, 'desc' ]]
+	});
+	
+	$('#importy tbody').on('click', 'tr[role="row"]', function () 
+	{
+		var tr= $(this).closest('tr');
+		var row= importy.row(tr);
+	 
+		if (row.child.isShown()) {
+			row.child.hide();
+			tr.removeClass('shown');
+		}
+		else {
+			d= row.data();
+			$.ajax({
+				dataType: "html",
+				url: '/api/zakupy/'+d.id+'/rozwin/ajax/',
+				success: function(data) {
+			        row.child(data).show();
+			        tr.addClass('shown');
+				} 
+			});
+		}
+	});
+});
+
+</script>
+
+{% endblock %}

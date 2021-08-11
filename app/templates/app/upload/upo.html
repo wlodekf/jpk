@@ -1,0 +1,5 @@
+{% load utils %}
+
+{% if jpk.upo %}
+<iframe src="{% url "jpk-upo-wydruk" storage.jpk_id %}"></iframe>
+{% endif %}
